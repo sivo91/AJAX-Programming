@@ -1,0 +1,8 @@
+.linkBack {
+  position: relative;
+  width: 68px;
+  padding:2px 5px;
+  background-color: rgb(64, 1, 166);
+  margin: 0 auto;
+  border-radius: 5px;
+}

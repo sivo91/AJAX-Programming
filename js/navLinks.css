@@ -1,0 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=New+Tegomin&family=Nova+Flat&family=Rajdhani:wght@500&family=Raleway:wght@300;400&family=Recursive:wght@300&family=Sunshiney&family=Tinos&display=swap');
+
+h1, h2, h3, h4, h5, h6, p, a, li, span {
+  font-family: 'Arbutus Slab', serif;
+}
+
+.navbarLinks {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+}
+
+.singleLink {
+  text-decoration: none;
+  color:#033635;
+  font-weight: 700;
+}

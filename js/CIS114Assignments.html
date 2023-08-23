@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CIS 114 - JavaScript / AJAX Programming">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Peter Sivak"> 
+
+
+  <title>JavaScript / AJAX Programming</title>
+  <!-- Bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- Bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+      <link rel="stylesheet" href="navLinks.css">
+
+</head>
+
+
+<body>
+
+  <!-- side bar -->
+  <header class="">
+
+    <a class="btn btn-dark ms-3 mt-3 rounded-1" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+      aria-controls="offcanvasExample">
+      Menu
+    </a>
+   
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Select Home Work</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        
+        <!-- side bar links -->
+       <div class="navbarLinks"></div>
+       
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <h3 class="text-center mt-2">CIS 114 - JavaScript / AJAX Programming</h3>
+
+    <p class="p-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, nesciunt natus commodi voluptas nemo adipisci provident quas labore numquam laboriosam enim et facere corporis voluptatibus nam officiis expedita accusamus impedit excepturi sed alias veniam est. Fugit aliquid earum beatae deleniti fuga voluptate veniam ex minima eveniet sequi magnam nostrum, omnis repellat dignissimos unde temporibus odio illum fugiat cumque. Sed libero, nobis odio laboriosam necessitatibus iusto reiciendis laborum quisquam veritatis natus tempora debitis, numquam magnam quo. Porro minima tempora, atque quidem quasi, totam error, ipsa nobis quas nesciunt vel explicabo accusamus odio autem distinctio. Ipsum quos velit obcaecati nostrum quas consequatur.</p>
+
+    <p class="p-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, nesciunt natus commodi voluptas nemo adipisci provident quas labore numquam laboriosam enim et facere corporis voluptatibus nam officiis expedita accusamus impedit excepturi sed alias veniam est. Fugit aliquid earum beatae deleniti fuga voluptate veniam ex minima eveniet sequi magnam nostrum, omnis repellat dignissimos unde temporibus odio illum fugiat cumque. Sed libero, nobis odio laboriosam necessitatibus iusto reiciendis laborum quisquam veritatis natus tempora debitis, numquam magnam quo. Porro minima tempora, atque quidem quasi, totam error, ipsa nobis quas nesciunt vel explicabo accusamus odio autem distinctio. Ipsum quos velit obcaecati nostrum quas consequatur.</p>
+    
+    <p class="p-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, nesciunt natus commodi voluptas nemo adipisci provident quas labore numquam laboriosam enim et facere corporis voluptatibus nam officiis expedita accusamus impedit excepturi sed alias veniam est. Fugit aliquid earum beatae deleniti fuga voluptate veniam ex minima eveniet sequi magnam nostrum, omnis repellat dignissimos unde temporibus odio illum fugiat cumque. Sed libero, nobis odio laboriosam necessitatibus iusto reiciendis laborum quisquam veritatis natus tempora debitis, numquam magnam quo. Porro minima tempora, atque quidem quasi, totam error, ipsa nobis quas nesciunt vel explicabo accusamus odio autem distinctio. Ipsum quos velit obcaecati nostrum quas consequatur.</p>
+
+  </main>
+
+
+
+
+
+  <script>
+
+    let links = [
+      {
+        title: 'Home Work2', url: '../js/hw2.html'
+      },
+      {
+        title: 'Home Work3', url: '../js/hw3.html'
+      },
+      {
+        title: 'Home Work4',  url: '../js/hw4.html'
+      },
+      {
+        title: 'Home Work5', url: '../js/hw5.html'
+      },
+      {
+        title: 'Home Work6',  url: '../js/hw6.html'
+      },
+      {
+        title: 'Home Work7', url: '../js/hw7.html'
+      },
+      {
+        title: 'Home Work8', url: '../js/hw8.html'
+      }
+    ]
+
+    const navLinks = document.querySelector('.navbarLinks')
+
+    for (let i = 0; i < links.length; i++) {
+
+       const link = document.createElement('a')
+      // console.log(link) ok
+
+       link.textContent = links[i].title
+       link.className = 'singleLink'
+       link.href = links[i].url
+       
+       navLinks.appendChild(link);
+    }
+  
+
+  </script>
+
+</body>
+</html>
