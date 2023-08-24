@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript / AJAX Programming</title>
+  <!-- Bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!-- Bootstrap script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="linkBack.css">
+
+
+</head>
+<body>
+
+  <h2 class="mt-5 text-center">Part 1 | DOM manipulation</h2>
+  <h3 class="text-center">The HTML DOM (Document Object Model)</h3>
+
+
+  <p class="letters text-center"><p>
+  <p class="numbers1 text-center"><p>
+  <p class="text-center"><em class="numbers2"></em></p>
+
+
+ 
+
+
+  <div class="card mb-5" style="width: 400px; margin: 0 auto;">
+
+    <pre id="part1Context">
+       
+    </pre>
+
+  </div>
+
+  <p class="linkBack">
+    <a href="../js/hw2.html" style="text-decoration: none;color: white;"> Go Back</a>
+  </p>
+
+
+  <script>
+
+  // manipulation letters
+   const letters = document.querySelector('.letters')
+   letters.innerHTML = 'xy'
+   letters.style.color = 'red'
+   letters.style.fontSize = '30px'
+
+   // manipulation num1
+   const num1 = document.querySelector('.numbers1')
+   num1.textContent = '12'
+   num1.style.color = 'blue'
+   num1.style.fontFamily = 'arial'
+   num1.style.fontSize = '30px'
+
+   // manipulation num2
+   const num2 = document.querySelector('.numbers2')
+   num2.textContent = '89'
+   num2.style.color = 'green'
+   num2.style.fontFamily = 'impact'
+   num2.style.fontSize = '30px'
+   
+   
+   let part1Context = `
+ <p class="letters text-center"><p>
+ <p class="numbers1 text-center"><p> 
+ <p class="text-center"><em class="numbers2"></em></p>\n
+ Dom manipulation: \n
+ const letters = document.querySelector('.letters')
+ letters.innerHTML = 'xy'
+ letters.style.color = 'red'
+ letters.style.fontSize = '30px'
+
+ // manipulation num1
+ const num1 = document.querySelector('.numbers1')
+ num1.textContent = '12'
+ num1.style.color = 'blue'
+ num1.style.fontFamily = 'arial'
+ num1.style.fontSize = '30px'
+
+ // manipulation num2
+ const num2 = document.querySelector('.numbers2')
+ num2.textContent = '89'
+ num2.style.color = 'green'
+ num2.style.fontFamily = 'impact'
+ num2.style.fontSize = '30px'
+   `
+
+   document.getElementById('part1Context').textContent = part1Context
+
+  </script>
+  
+</body>
+</html>

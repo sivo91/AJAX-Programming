@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript / AJAX Programming</title>
+  <!-- Bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!-- Bootstrap script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="linkBack.css">
+
+
+</head>
+<body>
+  
+  <h2 class="mt-5 text-center">Part 2 | Working with Input</h2>
+  <p class="text-center my-3">Insert 3 numbers and program will calculate the sum, the smallest and the largest number</p>
+
+  
+  <form style="width: 380px; margin: 0 auto;" >
+
+    <input type="number" id="input1" placeholder="insert first num">
+    <input type="number" id="input2" class="my-2" placeholder="insert second num">
+    <input type="number" id="input3" placeholder="insert third num">
+
+    <p class="text-danger fw-bold" id="alerto"></p>
+
+
+      <br>    
+      <button class="btn btn-primary rounded -1 mt-2"
+              id="submit">
+        Submit
+      </button>      
+
+      <button class="btn btn-danger rounded-1 mt-2"
+              id="clear">
+        Clear
+      </button>
+
+  </form>
+
+
+  <div style="position: relative; width: 400px; margin: 0 auto;" class="mt-5">
+    <textarea name="area" id="textArea" cols="45" rows="7"></textarea>
+  </div>
+
+
+  <p class="linkBack">
+    <a href="../js/hw2.html" style="text-decoration: none;color: white;"> Go Back</a>
+  </p>
+
+
+
+  <script>
+
+    const n1 = document.getElementById('input1')
+    const n2 = document.getElementById('input2')
+    const n3 = document.getElementById('input3')
+    const output = document.getElementById('textArea')
+    const submitBtn = document.getElementById('submit')
+    const clearBtn = document.getElementById('clear')
+    const alerto = document.getElementById('alerto')
+
+     let sum
+     let smallestNumber
+     let largestNumber
+
+
+    // on submit calculate num's
+    submitBtn.addEventListener('click', (e) => {
+      e.preventDefault()
+      //console.log('adsfasdfasd')
+      //console.log(input.value , input2.value, input3.value)
+      //console.log(typeof n1.value) 
+
+      if(n1.value === '' || n2.value === '' || n3.value === '') {
+        alerto.textContent = 'Invalid Inputs !'
+        return
+      } 
+
+      sum = +n1.value + Number(n2.value) + Number(n3.value)
+      findSmallest(+n1.value, +n2.value, +n3.value)
+      findLargest(+n1.value, +n2.value, +n3.value)
+
+      //console.log(sum, smallestNumber, largestNumber)
+
+      output.textContent = `
+       The sum of the numbers you entered = ${sum}
+       The smallest num = ${smallestNumber}
+       The largest num = ${largestNumber}
+      `
+
+
+
+    })
+
+    const findSmallest = (a, b, c) => {
+       return smallestNumber = Math.min(a, b, c)
+      }
+
+    const findLargest = (a, b, c) => {
+      /* 
+      if(a > b && a > c) return largestNumber = a
+      if(b > a && b > c) return largestNumber = b
+      if(c > a && c > b) return largestNumber = c 
+      
+      or 
+
+      let arr = []
+      arr.push(a, b, c)
+      let x = 0
+      for(let i = 0; i < arr.length; i++) {
+        if(arr[i] > x) {
+          x = arr[i]
+        }
+
+     }
+     return largestNumber = x */
+
+     return largestNumber = Math.max(a, b, c)
+    }  
+
+    // eventListener to clear inputs
+    clearBtn.addEventListener('click' , e => {
+      e.preventDefault()
+      n1.value = ''
+      n2.value = ''
+      n3.value = ''
+
+      output.textContent = ''
+      alerto.textContent = ''
+    })
+
+  </script>
+
+</body>
+</html>
