@@ -15,25 +15,106 @@
   <link rel="stylesheet" href="linkBack.css">
 
 
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 400px;
+      margin: 0 auto;
+    }
+  
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    input:focus, input:focus{
+    outline: none;
+} 
+
+
+  </style>
+
+
 </head>
 <body>
    
   <h2 class="text-center mt-5">Extra Credit </h2>
-   <p class="text-center">Comming Soon!</p>
+  
 
 
 
-
-
+   <div class="my-5">
+    <p class="text-center">exchange rates</p>
+    <table>
+      <tr>
+        <th>Currency</th>
+        <th>Rate</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>Euro</td>
+        <td>0.84</td>
+        <td>
+          
+        </td>
+      </tr>
+      <tr>
+        <td>Canadian Dollar</td>
+        <td>1.23</td>
+        <td>
+          
+        </td>
+      </tr>
+      <tr>
+        <td>Hong Kong Dollar</td>
+        <td>7.76</td>
+        <td>
+         
+        </td>
+      </tr>
+      <tr>
+        <td>Japanese Yen</td>
+        <td>110.80</td>
+        <td>
+         
+        </td>
+      </tr>
+      <tr>
+        <td>Mexican Peso</td>
+        <td>19.82</td>
+        <td>
+         
+        </td>
+      </tr>
+      <tr>
+        <td>Enter Amount of U.S. Dollar</td>
+        <td>
+          <input type="number" onclick="Euro()" id="euro" style="border: none; width: 60px;">
+        </td>
+      </tr>
+    </table>
+   </div>
 
 
 
 
     <a href="../js/hw2.html" 
       class="btn btn-dark rounded-1 vstack mx-auto my-5" 
-      style="width: 150px;"> Go
-      Back
+      style="width: 150px;"> 
+      Go Back
     </a>
+
+
+    <script>
+      const euro = document.querySelector('euro')
+      const eu = euro.value
+      function Euro() {
+        console.log(eu)
+      }
+    </script>
 
 </body>
 </html>
