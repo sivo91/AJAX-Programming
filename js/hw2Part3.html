@@ -32,7 +32,14 @@
 
     input:focus, input:focus{
     outline: none;
-} 
+   } 
+   
+   input::-webkit-outer-spin-button,
+   input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+   }
+
 
 
   </style>
@@ -42,61 +49,67 @@
 <body>
    
   <h2 class="text-center mt-5">Extra Credit </h2>
-  
+  <h3 class="text-center">Convert US Dollars</h3>
+  <p class="text-center text-danger">The exchange rates for 1 U.S. dollar in June 2021 were:</p>
 
 
-
+  <!-- Table -->
    <div class="my-5">
-    <p class="text-center">exchange rates</p>
     <table>
       <tr>
         <th>Currency</th>
         <th>Rate</th>
-        <th>Value</th>
+        <th style="text-align: right;">Value</th>
       </tr>
       <tr>
         <td>Euro</td>
         <td>0.84</td>
-        <td>
-          
-        </td>
+        <td id="eur" style="text-align: right;"></td>
       </tr>
       <tr>
         <td>Canadian Dollar</td>
         <td>1.23</td>
-        <td>
-          
-        </td>
+        <td id="ca" style="text-align: right;"></td>
       </tr>
       <tr>
         <td>Hong Kong Dollar</td>
         <td>7.76</td>
-        <td>
-         
-        </td>
+        <td id="hk" style="text-align: right;"> </td>
       </tr>
       <tr>
         <td>Japanese Yen</td>
         <td>110.80</td>
-        <td>
-         
-        </td>
+        <td id="jy" style="text-align: right;"> </td>
       </tr>
       <tr>
         <td>Mexican Peso</td>
         <td>19.82</td>
-        <td>
-         
-        </td>
+        <td id="mp" style="text-align: right;"></td>
       </tr>
       <tr>
-        <td>Enter Amount of U.S. Dollar</td>
+        <td colspan="2">Enter Amount of U.S. Dollar</td>
         <td>
-          <input type="number" onclick="Euro()" id="euro" style="border: none; width: 60px;">
+          <input type="number" 
+                 id="input" 
+                 inputmode="decimal"  
+                 placeholder="value"
+                 style="border: none; width: 60px;">
         </td>
       </tr>
     </table>
    </div>
+
+   <!-- btn to show code -->
+   <button id="showCode" class="btn btn-primary vstack mx-auto rounded-1">
+    Show the Code
+   </button>
+
+
+   <!-- div contains code -->
+  <div class="card my-5" style="width: 400px; margin: 0 auto; display: none;" id="output">
+    <pre id="part1Context">
+    </pre>
+  </div>
 
 
 
@@ -109,11 +122,83 @@
 
 
     <script>
-      const euro = document.querySelector('euro')
-      const eu = euro.value
-      function Euro() {
-        console.log(eu)
+
+      const input = document.getElementById('input')
+      const euro = document.getElementById('eur')
+      const ca = document.getElementById('ca')
+      const hk = document.getElementById('hk')
+      const jy = document.getElementById('jy')
+      const mp = document.getElementById('mp')
+
+        input.oninput = () => {
+        //console.log(typeof input.value)
+        if(input.value < 0) input.value = 0
+
+        const dollar = Number(input.value)
+        
+       const euroRate = 0.84
+       const can_doll_Rate = 1.23
+       const honk_kong_Rate = 7.76
+       const jap_eyn_Rate = 110.80
+       const mex_peso_Rate = 19.82
+
+        euro.innerHTML = convert(dollar, euroRate).toFixed(2)
+        ca.innerHTML = convert(dollar, can_doll_Rate).toFixed(2)
+        hk.innerHTML = convert(dollar, honk_kong_Rate).toFixed(2)
+        jy.innerHTML = convert(dollar, jap_eyn_Rate).toFixed(2)
+        mp.innerHTML = convert(dollar, mex_peso_Rate).toFixed(2)
+
       }
+
+      const convert = (a, b) => {
+         let result = a * b
+         return result
+      }
+
+
+
+
+      let part1Context = `
+       input.oninput = () => {
+        //console.log(typeof input.value)
+        if(input.value < 0) input.value = 0
+
+        const dollar = Number(input.value)
+        
+       const euroRate = 0.84
+       const can_doll_Rate = 1.23
+       const honk_kong_Rate = 7.76
+       const jap_eyn_Rate = 110.80
+       const mex_peso_Rate = 19.82
+
+        euro.innerHTML = convert(dollar, euroRate).toFixed(2)
+        ca.innerHTML = convert(dollar, can_doll_Rate).toFixed(2)
+        hk.innerHTML = convert(dollar, honk_kong_Rate).toFixed(2)
+        jy.innerHTML = convert(dollar, jap_eyn_Rate).toFixed(2)
+        mp.innerHTML = convert(dollar, mex_peso_Rate).toFixed(2)
+
+      }
+
+      const convert = (a, b) => {
+         let result = a * b
+         return result
+      }
+   `
+
+      document.getElementById('part1Context').textContent = part1Context
+
+      // show code
+      const showCode = document.getElementById('showCode')
+      const output = document.getElementById('output')
+
+      if(showCode.textContent === 'Show Code') {
+        console.log('hello')
+      }
+      showCode.addEventListener('click', e => {
+        e.preventDefault()
+        output.style.display = 'block'
+      })
+      
     </script>
 
 </body>
