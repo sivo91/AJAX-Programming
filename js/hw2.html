@@ -14,29 +14,103 @@
 
       <link rel="stylesheet" href="linkBack.css">
 
+      <style>
+        .hw2Section {
+          position: relative;
+          width: 80%;
+          left: 10%;
+          background-color: rgb(244, 244, 244, 0.4);
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+        }
+      </style>
+
      
 </head>
 <body>
   <h2 class="text-center my-5">Home Work 2</h2>
 
-    
-  <p>
-    <a href="../js/hw2Part1.html" style="text-decoration: none;" class="ms-5 fw-bold btn border">
-      Part1 | DOM manipulation
-    </a>
-  </p>
+  <div class="hw2Section p-3">
+   asdfasdf
+  </div>
 
-  <p>
-    <a href="../js/hw2Part2.html" style="text-decoration: none;" class="ms-5 fw-bold btn border">
-      Part2 | Working with Input
-    </a>
-  </p>
   
 
-    <p class="linkBack">
-      <a href="../js/CIS114Assignments.html" style="text-decoration: none;color: white;"> Go Back</a>
-    </p>
+    <a href="../js/CIS114Assignments.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;"> Go Back</a>
 
+   
+  
+ <script>
+
+  const section = document.querySelector('.hw2Section')
+  
+  const data = [
+    {
+      title: 'Part1',
+      subTitle: 'DOM Manipulation',
+      text: `
+             - The letters xy in strong (bold) font, with font family Times New Roman, and the color red </br>
+             - The numbers 12 that should be written in blue color, and font family Arial</br>
+             - The numbers 89 that should be written in green color, emphasized(in italics), and font family Impact</br>
+             - Each of these pairs should be separated by one blank space</br>
+             - Your output should look like this: xy 12 89`,
+      link: '../js/hw2Part1.html'
+    },
+    {
+      title: 'Part2',
+      subTitle: 'Working with Input',
+      text: `
+           - three input boxes for the user to type three integers (numbers)</br>
+           - a button to process the data (numbers) typed by the user</br>
+           - a button to clear the form
+           - a textarea to display the results of the process (or it can be a div or paragraph element)</br>
+           - receive the data from those three input boxes for the three integers after the user click on the button to process the data</br>
+           - you will calculate the sum, the average, and the product of the three integers</br>
+           - you will also calculate the smallest and the largest of the three integers typed</br>
+                  `,
+      link: '../js/hw2Part2.html'
+    },
+     {
+      title: 'Extra Credit',
+      subTitle: 'Working with Input',
+      text: `
+           - three input boxes for the user to type three integers (numbers)</br>
+           - a button to process the data (numbers) typed by the user</br>
+           - a button to clear the form
+           - a textarea to display the results of the process (or it can be a div or paragraph element)</br>
+           - receive the data from those three input boxes for the three integers after the user click on the button to process the data</br>
+           - you will calculate the sum, the average, and the product of the three integers</br>
+           - you will also calculate the smallest and the largest of the three integers typed</br>
+                  `,
+      link: '../js/hw2Part3.html'
+    }
+  ]
+ 
+  const output = data.map( item => {
+    const { title,subTitle, text, link } = item
+ 
+    return `
+       <div class="card m-2 p-3" style="width: 100%;">
+               <h5 class="text-center">${title}</h5>
+                <p class="text-center">${subTitle}</p>
+                <p>
+                ${text}
+                </p>
+              
+                <a href="${link}" style="text-decoration: none; width: 200px; " class=" btn btn-primary vstack mx-auto mt-auto">
+                  See Project
+                </a>
+          </div>
+    `
+  }).join('')
+
+  section.innerHTML = output
+
+
+ </script>
    
 </body>
 </html>
+
+
