@@ -22,11 +22,11 @@
   <p class="text-center my-3">Insert 3 numbers and program will calculate the sum, the smallest and the largest number</p>
 
   
-  <form style="width: 380px; margin: 0 auto;" >
+  <form style="width: 380px; margin: 40px auto;" >
 
-    <input type="number" id="input1" placeholder="insert first num">
-    <input type="number" id="input2" class="my-2" placeholder="insert second num">
-    <input type="number" id="input3" placeholder="insert third num">
+    <input class="w-100 p-1 mt-2" type="number" id="input1" placeholder="insert first num">
+    <input class="w-100 p-1 my-4" type="number" id="input2"  placeholder="insert second num">
+    <input class="w-100 p-1"  type="number" id="input3" placeholder="insert third num">
 
     <p class="text-danger fw-bold" id="alerto"></p>
 
@@ -45,8 +45,8 @@
   </form>
 
 
-  <div style="position: relative; width: 400px; margin: 0 auto;" class="mt-5">
-    <textarea name="area" id="textArea" cols="45" rows="7"></textarea>
+  <div style="position: relative; width: 380px; margin: 0 auto;" class="mt-5">
+    <textarea name="area" id="textArea" cols="49" rows="7"></textarea>
   </div>
 
 
@@ -72,10 +72,21 @@
      let smallestNumber
      let largestNumber
 
+     // validation
+     n1.oninput = () => {
+       if(n1.value < 0) n1.value = 0
+     }
+     n2.oninput = () => {
+       if(n2.value < 0) n2.value = 0
+     }
+     n3.oninput = () => {
+       if(n3.value < 0) n3.value = 0
+     }
 
     // on submit calculate num's
     submitBtn.addEventListener('click', (e) => {
       e.preventDefault()
+
       //console.log('adsfasdfasd')
       //console.log(input.value , input2.value, input3.value)
       //console.log(typeof n1.value) 
