@@ -50,6 +50,33 @@
   </div>
 
 
+  <!-- Button trigger modal -->
+  <button type="button" 
+          class="btn btn-primary vstack mx-auto mt-3 rounded-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Show The Code
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            Code</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal-body">
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- btn go back -->
   <a href="../js/hw2.html" 
      class="btn btn-dark rounded-1 vstack mx-auto my-5" 
      style="width: 150px;"> Go
@@ -145,6 +172,101 @@
       output.textContent = ''
       alerto.textContent = ''
     })
+
+
+    // SHOW CODE IN MODAL
+
+     let code = `
+    const n1 = document.getElementById('input1')<br/>
+    const n2 = document.getElementById('input2')<br/>
+    const n3 = document.getElementById('input3')<br/>
+    const output = document.getElementById('textArea')<br/>
+    const submitBtn = document.getElementById('submit')<br/>
+    const clearBtn = document.getElementById('clear')<br/>
+    const alerto = document.getElementById('alerto')<br/>
+
+     let sum<br/>
+     let smallestNumber<br/>
+     let largestNumber<br/><br/>
+
+     // validation<br/>
+     n1.oninput = () => {<br/>
+       if(n1.value < 0) n1.value = 0<br/>
+     }<br/><br/>
+     n2.oninput = () => {<br/>
+       if(n2.value < 0) n2.value = 0<br/>
+     }<br/><br/>
+     n3.oninput = () => {<br/>
+       if(n3.value < 0) n3.value = 0<br/>
+     }<br/><br/>
+
+    // on submit calculate num's<br/>
+    submitBtn.addEventListener('click', (e) => {<br/>
+      e.preventDefault()<br/><br/>
+
+      //console.log('adsfasdfasd')<br/>
+      //console.log(input.value , input2.value, input3.value)<br/>
+      //console.log(typeof n1.value) <br/><br/>
+
+      if(n1.value === '' || n2.value === '' || n3.value === '') {<br/>
+        alerto.textContent = 'Invalid Inputs !'<br/>
+        return<br/>
+      } <br/><br/>
+
+      sum = +n1.value + Number(n2.value) + Number(n3.value)<br/>
+      findSmallest(+n1.value, +n2.value, +n3.value)<br/>
+      findLargest(+n1.value, +n2.value, +n3.value)<br/><br/>
+
+      //console.log(sum, smallestNumber, largestNumber)<br/><br/>
+
+      output.textContent = <br/>
+       The sum of the numbers you entered =  sum <br/>
+       The smallest num =  smallestNumber <br/>
+       The largest num =  largestNumber <br/>
+      
+    })<br/>
+
+    const findSmallest = (a, b, c) => {<br/>
+       return smallestNumber = Math.min(a, b, c)<br/>
+      }<br/><br/>
+
+    const findLargest = (a, b, c) => {<br/>
+      /* <br/>
+      if(a > b && a > c) return largestNumber = a<br/>
+      if(b > a && b > c) return largestNumber = b<br/>
+      if(c > a && c > b) return largestNumber = c <br/><br/>
+      
+      or <br/><br/>
+
+      let arr = []<br/>
+      arr.push(a, b, c)<br/>
+      let x = 0<br/>
+      for(let i = 0; i < arr.length; i++) {<br/>
+        if(arr[i] > x) {<br/>
+          x = arr[i]<br/>
+        }<br/>
+
+     }<br/>
+     return largestNumber = x */<br/><br/>
+
+     return largestNumber = Math.max(a, b, c)<br/>
+    }  <br/><br/>
+
+    // eventListener to clear inputs<br/>
+    clearBtn.addEventListener('click' , e => {<br/>
+      e.preventDefault()<br/>
+      n1.value = ''<br/>
+      n2.value = ''<br/>
+      n3.value = ''<br/><br/>
+
+      output.textContent = ''<br/>
+      alerto.textContent = ''<br/>
+    })<br/>
+   `
+
+   const modal = document.getElementById('modal-body')
+   modal.innerHTML = code
+   modal.style.fontSize = '18px'
 
   </script>
 
