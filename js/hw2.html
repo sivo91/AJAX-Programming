@@ -73,15 +73,13 @@
     },
      {
       title: 'Extra Credit',
-      subTitle: 'Working with Input',
+      subTitle: 'The exchange rates',
       text: `
-           - three input boxes for the user to type three integers (numbers)</br>
-           - a button to process the data (numbers) typed by the user</br>
-           - a button to clear the form
-           - a textarea to display the results of the process (or it can be a div or paragraph element)</br>
-           - receive the data from those three input boxes for the three integers after the user click on the button to process the data</br>
-           - you will calculate the sum, the average, and the product of the three integers</br>
-           - you will also calculate the smallest and the largest of the three integers typed</br>
+           - the user will input an amount in U.S. dollars (see the last box shown in the table above)</br>
+           - The script will calculate (do the currency conversion) for each of the currencies displayed in the table above</br>
+           - TIP: Round the amount calculated to have only 2 decimal places</br>
+           - The amounts should be presented on the same table, on a third column of the table (the column that is titled Value in the table above), and aligned to the right</br>
+           - TIP: The cells of the column Value should have the readonly attribute to not allow the user to type anything in those cells</br>
                   `,
       link: '../js/hw2Part3.html'
     }
@@ -91,15 +89,15 @@
     const { title,subTitle, text, link } = item
  
     return `
-       <div class="card m-2 p-3" style="width: 100%;">
+       <div class="card m-2 p-3" style="width: 350px;">
                <h5 class="text-center">${title}</h5>
                 <p class="text-center">${subTitle}</p>
                 <p>
                 ${text}
                 </p>
               
-                <a href="${link}" style="text-decoration: none; width: 200px; " class=" btn btn-primary vstack mx-auto mt-auto">
-                  See Project
+                <a href="${link}" style="text-decoration: none; width: 200px; max-height: 40px; " class=" btn btn-primary vstack mx-auto mt-auto">
+                  See The Project
                 </a>
           </div>
     `
