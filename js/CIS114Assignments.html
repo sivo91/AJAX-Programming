@@ -20,9 +20,7 @@
 
       <link rel="stylesheet" href="navLinks.css">
 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 </head>
 
@@ -58,7 +56,7 @@
     <div class="d-flex">
     
       <div class="theme">
-          <i class="fa fa-moon themeIcon" id="changeMode" aria-hidden="true"></i>
+          <i class="bi bi-moon-stars-fill themeIcon" id="changeMode" aria-hidden="true"></i>
       </div>
     </div>
 
@@ -78,37 +76,55 @@
     </div>
 
    
+    <div class="features">
 
-    <p class="mx-5 mt-5 p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, nesciunt natus commodi voluptas nemo adipisci provident quas labore numquam laboriosam enim et facere corporis voluptatibus nam officiis expedita accusamus impedit excepturi sed alias veniam est. Fugit aliquid earum beatae deleniti fuga voluptate veniam ex minima eveniet sequi magnam nostrum, omnis repellat dignissimos unde temporibus odio illum fugiat cumque. Sed libero, nobis odio laboriosam necessitatibus iusto reiciendis laborum quisquam veritatis natus tempora debitis, numquam magnam quo. Porro minima tempora, atque quidem quasi, totam error, ipsa nobis quas nesciunt vel explicabo accusamus odio autem distinctio. Ipsum quos velit obcaecati nostrum quas consequatur.</p>
-
-
-
+    </div>
+   
   </main>
 
+  <script defer>
+
+    const out = document.querySelector('.features')
+
+    const features = [
+      { title: 'Basic Operations' },
+      { title: 'Functions' },
+      { title: 'Looping' },
+      { title: 'Arrays' },
+      { title: 'Objects' },
+      { title: 'Coookies' },
+      { title: 'Ajax' },
+    ]
 
 
+ for(let i = 0; i < features.length; i++) {
+   const p = document.createElement('p')
+   p.textContent = features[i].title
+   p.className = 'text-center p'
+   out.appendChild(p)
+ }
 
 
-  <script>
-
-    // Color toggle
+    // ----------- Color toggle ----------
    const mode = document.getElementById('changeMode')
    const h2 = document.querySelector('.h2')
    const h3 = document.querySelector('.h3')
    const header = document.querySelector('.header')
-   const p = document.querySelector('.p')
+   const p = document.querySelectorAll(".p");
+   // vela p classov, treba ich lupovat
+
    const icon = document.querySelector('.themeIcon')
 
    mode.addEventListener('click', e => {
     e.preventDefault()
 
-     if(e.target.classList.contains('fa-moon')) {
-      e.target.classList.remove('fa-moon')
-      e.target.classList.add('fa-sun')
+     if(e.target.classList.contains('bi-moon-stars-fill')) {
+      e.target.classList.remove('bi-moon-stars-fill')
+      e.target.classList.add('bi-brightness-high')
       darkTheme()
      } else {
-      e.target.classList.remove('fa-sun')
-      e.target.classList.add('fa-moon')
+      e.target.classList.remove('bi-brightness-high')
+      e.target.classList.add('bi-moon-stars-fill')
       lightTheme()
      }
    })
@@ -119,7 +135,9 @@
      h3.style.color = 'lightgray'
      icon.style.color = 'white'
      icon.style.borderColor = 'white'
-     p.style.color = 'lightgray'
+     for(let i = 0; i < p.length;i++) {
+      p[i].style.color = 'lightgray'
+     }
    }
 
    const lightTheme = () => {
@@ -128,32 +146,50 @@
      h3.style.color = 'black'
      icon.style.color = 'black'
      icon.style.borderColor = 'black'
-     p.style.color = 'black'
+     for (let i = 0; i < p.length; i++) {
+       p[i].style.color = 'black'
+     }
    }
+
+
 
     // ---------  LINKS -------------
 
     let links = [
       {
-        title: 'Home Work2', url: '../js/hw2.html'
+        title: 'Home Work2', 
+        url: '../js/hw2.html', 
+        className: 'bi bi-check-circle-fill text-success'
       },
       {
-        title: 'Home Work3', url: '../js/hw3.html'
+        title: 'Home Work3', 
+        url: '../js/hw3.html',
+        className: 'bi bi-hourglass-split text-danger'
       },
       {
-        title: 'Home Work4',  url: '../js/hw4.html'
+        title: 'Home Work4',  
+        url: '../js/hw4.html',
+        className: 'bi bi-hourglass-split text-danger'
       },
       {
-        title: 'Home Work5', url: '../js/hw5.html'
+        title: 'Home Work5', 
+        url: '../js/hw5.html',
+        className: 'bi bi-hourglass-split text-danger'
       },
       {
-        title: 'Home Work6',  url: '../js/hw6.html'
+        title: 'Home Work6',  
+        url: '../js/hw6.html',
+        className: 'bi bi-hourglass-split text-danger'
       },
       {
-        title: 'Home Work7', url: '../js/hw7.html'
+        title: 'Home Work7', 
+        url: '../js/hw7.html',
+        className: 'bi bi-hourglass-split text-danger'
       },
       {
-        title: 'Home Work8', url: '../js/hw8.html'
+        title: 'Home Work8', 
+        url: '../js/hw8.html',
+        className: 'bi bi-hourglass-split text-danger'
       }
     ]
 
@@ -162,15 +198,23 @@
     for (let i = 0; i < links.length; i++) {
 
        const link = document.createElement('a')
+       const icon = document.createElement('i')
+       const br = document.createElement('br')
       // console.log(link) ok
 
+       icon.className = `bi bi-check-circle-fill` + `${links[i].className}` 
+       
        link.textContent = links[i].title
        link.className = 'singleLink'
        link.href = links[i].url
-       
-       navLinks.appendChild(link);
+
+        navLinks.appendChild(icon);
+        navLinks.appendChild(link)
+        navLinks.appendChild(br)
     }
   
+
+
 
   </script>
 
