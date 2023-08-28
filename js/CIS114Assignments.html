@@ -20,38 +20,57 @@
 
       <link rel="stylesheet" href="navLinks.css">
 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 
 <body>
 
-  <!-- side bar -->
-  <header class="">
+  <!-- header-->
+  <header class="header">
 
-    <a class="btn btn-dark ms-3 mt-3 rounded-1" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+    <!-- menu -->
+   <div>
+    <a class="btn btn-dark ms-3 my-3 rounded-1" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
       aria-controls="offcanvasExample">
       Menu
     </a>
-   
+    
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Select Home Work</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        
+    
         <!-- side bar links -->
-       <div class="navbarLinks"></div>
-       
-
+        <div class="navbarLinks"></div>
       </div>
     </div>
+   </div>
+
+   <!-- nav right btns -->
+   <div class="d-flex me-3">
+
+    <div class="d-flex">
+    
+      <div class="theme">
+          <i class="fa fa-moon themeIcon" id="changeMode" aria-hidden="true"></i>
+      </div>
+    </div>
+
+   </div>
+
+
   </header>
 
   <main>
 
-    <h2 class="text-center">College of San Mateo</h2>
-    <h3 class="text-center my-2">CIS 114 - JavaScript / AJAX Programming</h3>
+    <h2 class="text-center h2 mt-5">College of San Mateo</h2>
+    <h3 class="text-center my-2 h3">CIS 114 - JavaScript / AJAX Programming</h3>
   
     
     <div style="width: 200px; margin: 30px auto;">
@@ -60,7 +79,7 @@
 
    
 
-    <p class="mx-5 mt-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, nesciunt natus commodi voluptas nemo adipisci provident quas labore numquam laboriosam enim et facere corporis voluptatibus nam officiis expedita accusamus impedit excepturi sed alias veniam est. Fugit aliquid earum beatae deleniti fuga voluptate veniam ex minima eveniet sequi magnam nostrum, omnis repellat dignissimos unde temporibus odio illum fugiat cumque. Sed libero, nobis odio laboriosam necessitatibus iusto reiciendis laborum quisquam veritatis natus tempora debitis, numquam magnam quo. Porro minima tempora, atque quidem quasi, totam error, ipsa nobis quas nesciunt vel explicabo accusamus odio autem distinctio. Ipsum quos velit obcaecati nostrum quas consequatur.</p>
+    <p class="mx-5 mt-5 p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, nesciunt natus commodi voluptas nemo adipisci provident quas labore numquam laboriosam enim et facere corporis voluptatibus nam officiis expedita accusamus impedit excepturi sed alias veniam est. Fugit aliquid earum beatae deleniti fuga voluptate veniam ex minima eveniet sequi magnam nostrum, omnis repellat dignissimos unde temporibus odio illum fugiat cumque. Sed libero, nobis odio laboriosam necessitatibus iusto reiciendis laborum quisquam veritatis natus tempora debitis, numquam magnam quo. Porro minima tempora, atque quidem quasi, totam error, ipsa nobis quas nesciunt vel explicabo accusamus odio autem distinctio. Ipsum quos velit obcaecati nostrum quas consequatur.</p>
 
 
 
@@ -71,6 +90,48 @@
 
 
   <script>
+
+    // Color toggle
+   const mode = document.getElementById('changeMode')
+   const h2 = document.querySelector('.h2')
+   const h3 = document.querySelector('.h3')
+   const header = document.querySelector('.header')
+   const p = document.querySelector('.p')
+   const icon = document.querySelector('.themeIcon')
+
+   mode.addEventListener('click', e => {
+    e.preventDefault()
+
+     if(e.target.classList.contains('fa-moon')) {
+      e.target.classList.remove('fa-moon')
+      e.target.classList.add('fa-sun')
+      darkTheme()
+     } else {
+      e.target.classList.remove('fa-sun')
+      e.target.classList.add('fa-moon')
+      lightTheme()
+     }
+   })
+
+   const darkTheme = () => {
+     document.body.style.background = 'black';
+     h2.style.color = 'lightgray'
+     h3.style.color = 'lightgray'
+     icon.style.color = 'white'
+     icon.style.borderColor = 'white'
+     p.style.color = 'lightgray'
+   }
+
+   const lightTheme = () => {
+     document.body.style.backgroundColor = 'white';
+     h2.style.color = 'black'
+     h3.style.color = 'black'
+     icon.style.color = 'black'
+     icon.style.borderColor = 'black'
+     p.style.color = 'black'
+   }
+
+    // ---------  LINKS -------------
 
     let links = [
       {

@@ -13,21 +13,20 @@
     crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="linkBack.css">
-
-
 </head>
 <body>
   
   <h2 class="mt-5 text-center">Part 2 | Working with Input</h2>
   <p class="text-center my-3">Insert 3 numbers and program will calculate the sum, the smallest and the largest number</p>
 
-  
+  <!-- inputs -->
   <form style="width: 380px; margin: 40px auto;" >
 
     <input class="w-100 p-1 mt-2" type="number" id="input1" placeholder="insert first num">
     <input class="w-100 p-1 my-4" type="number" id="input2"  placeholder="insert second num">
     <input class="w-100 p-1"  type="number" id="input3" placeholder="insert third num">
 
+    <!-- alert -->
     <p class="text-danger fw-bold" id="alerto"></p>
 
 
@@ -41,10 +40,10 @@
               id="clear">
         Clear
       </button>
-
   </form>
 
 
+  <!-- text area -->
   <div style="position: relative; width: 380px; margin: 0 auto;" class="mt-5">
     <textarea name="area" id="textArea" cols="49" rows="7"></textarea>
   </div>
@@ -84,7 +83,6 @@
   </a>
 
 
-
   <script>
 
     const n1 = document.getElementById('input1')
@@ -119,7 +117,7 @@
       //console.log(typeof n1.value) 
 
       if(n1.value === '' || n2.value === '' || n3.value === '') {
-        alerto.textContent = 'Invalid Inputs !'
+        alerto.textContent = 'Invalid Input !'
         return
       } 
 
@@ -174,7 +172,7 @@
     })
 
 
-    // SHOW CODE IN MODAL
+    // ADD CODE TO MODAL
 
      let code = `
     const n1 = document.getElementById('input1')<br/>
