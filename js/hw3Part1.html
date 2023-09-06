@@ -156,7 +156,7 @@
 
 
 
-
+  //  alert func
   const alerto = (param) => {
      alrt.classList.remove('hidden')
      alrt.classList.add('show')
@@ -212,7 +212,6 @@
 
 
 
-
     // show result
     const getResult = (param) => {
        // console.log(param)
@@ -245,11 +244,14 @@
       
     }  
 
+
+    // on submit btn proccess data ans show result
     submit.addEventListener('click', e => {
       e.preventDefault()
 
       let final_average 
       
+      // formula to calculate percentage
       final_average = (.5 * hwAvg.value) +
                       (.2 * midExam.value) + 
                       (.2 * finalExam.value) + 
@@ -263,7 +265,7 @@
     })
 
    
-
+    // reset all fields
     reset.addEventListener('click', e => {
       hwAvg.value = ''
       midExam.value = ''
