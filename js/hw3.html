@@ -12,18 +12,118 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="linkBack.css">
+
+  <link rel="stylesheet" href="linkBack.css">
+
+  <link rel="stylesheet" href="navLinks.css">
+
+  <style>
+    .hw2Section {
+      position: relative;
+      width: 80%;
+      left: 10%;
+      background-color: rgb(244, 244, 244, 0.4);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .card-body {
+      position: relative;
+      height: 300px;
+      overflow-y: scroll;
+      border: 1px solid rgb(239, 239, 239);
+    }
+  </style>
+
+
 </head>
 
 <body>
   <h2 class="text-center my-5">Home Work 3</h2>
-  <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
 
-  <a href="../js/CIS114Assignments.html" 
-     class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;"> 
-     Go Back
-  </a>
-  
+  <div class="hw2Section p-3">
+    asdfasdf
+  </div>
+
+
+
+  <a href="../js/CIS114Assignments.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;"> Go
+    Back</a>
+
+
+
+  <script>
+
+    const section = document.querySelector('.hw2Section')
+
+    const data = [
+      {
+        title: 'Part1',
+        subTitle: 'Student Grades',
+        text: `
+             - a form with input boxes for Homework Average, Mid-Term Exam Score, Final Exam Score, and Participation - all those grades will be entered as integers </br>
+             - you should have a button for submitting the data and a button to clear the form</br>
+             - you should have a textarea (or div or paragraph element) to present final results and/or error message,
+              - checks for valid input, i.e., that the input is between 0-100 and that, of course, the input are all numbers</br>
+              - If all input is valid then calculate and display the student's final average according to the formula:
+              final average = (.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * participation)</br>
+              -If the student's final grade is 'D' or 'F' then display "Student must retake the course".<br>
+             `
+             ,
+        link: '../js/hw3Part1.html'
+      },
+      {
+        title: 'Part2',
+        subTitle: 'A sales commission',
+        text: `
+           - The boxes for seller's name, and Item 1, Item 2, Item 3, Item 4 will be the boxes that the user will type data</br>
+           - The boxes for seller's name, and Item 1, Item 2, Item 3, Item 4 will be the boxes that the user will type data</br>
+           - In the box beside total earnings, you need to make sure that you first add all the values for each of the Total boxes (for item 1, item 2, item 3, item 4), then you calculate the 9% of that value and, finally, you add 250 to that result to give the total earnings of the seller!
+           - It is ok to use input type="text" for the seller's name but for the item 1, 2, 3, and 4, it will be better if you use input type="number" or if you use input type="text" you will need to test if the user typed a REAL number before doing ANY type of Math operation with that value!</br>
+                  `,
+        link: '../js/hw3Part2.html'
+      },
+      {
+        title: 'Extra Credit',
+        subTitle: 'Calculator',
+        text: `
+           - Write a program that will help an elementary school student learn multiplication.</br>
+           - Use Math.random to produce two one-digit integers (NO DECIMALS) from 0 to 9.</br>
+           - With those two numbers, you should present a question such as: How much is X times Y? where X is one of the random numbers and Y is the other random number</br>
+           - he student then types the answer into an input box you will provide.</br>
+           - If it is correct, display the message "Very good!" in a text area or another part of the page, and then shows a question to the user to see whether he/she wants to keep playing.</br>
+           - If the user responds YES (click on a button that says YES), you will then generate another question</br>
+           - If the user responds NO (click on a button that says NO), you will present a message such as "Thanks for playing, see you next time" and you will NOT present another question.</br>
+           - If the answer to the multiplication question is wrong, display the message "No. Please try again." directly on the page in a textarea or another part of the page, and let the student try the same question again repeatedly until the student finally gets it right.</br>
+                  `,
+        link: '../js/hw3Part3.html'
+      }
+    ]
+
+    const output = data.map(item => {
+      const { title, subTitle, text, link } = item
+
+      return `
+       <div class="card m-2 p-3" style="width: 350px;">
+               <h5 class="text-center">${title}</h5>
+                <p class="text-center ">${subTitle}</p>
+                <p class="card-body">
+                ${text}
+                </p>
+              
+                <a href="${link}" style="text-decoration: none; width: 200px; max-height: 40px; " class=" btn btn-primary vstack mx-auto mt-auto">
+                  See The Project
+                </a>
+          </div>
+    `
+    }).join('')
+
+    section.innerHTML = output
+
+
+  </script>
+
 </body>
 
 </html>
