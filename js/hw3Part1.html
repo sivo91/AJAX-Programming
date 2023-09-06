@@ -14,17 +14,268 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="linkBack.css">
   <link rel="stylesheet" href="navLinks.css">
+
+  <style>
+
+    .alert {
+      position: absolute;
+      top: 0;
+      width: 100%; 
+    }
+
+    form {
+      position: relative;
+      width: 380px;
+      border: 1px solid rgb(221, 221, 221);
+      margin: 0 auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+
+    table {
+      position: relative;
+      width: 250px;
+      margin: 0 auto;
+      border: 1px solid gray;
+    }
+    table tr, table td, table th {
+      padding-left: 10px;
+      border: 1px solid gray;
+    }
+
+
+  </style>
 </head>
+
 
 <body>
   <h2 class="text-center mt-5">Part 1 | Student Grades</h2>
   <h4 class="text-center mb-5">Home work 3 | Functions</h4>
-  <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
+ 
+
+  <!-- form -->
+  <form class="py-4 px-2 rounded-2">
+    <!-- inputs -->
+    <input type="number"
+           id="homework"
+           class="px-3 w-100 py-2"
+           placeholder="Homework Average">
+
+    <input type="number"
+           id="mid-term"
+           class="px-3 w-100 py-2 mt-3"
+           placeholder="Mid-Term Exam Score">
+
+    <input type="number"
+           id="final"
+           class="px-3 w-100 py-2 mt-3"
+           placeholder="Final Exam Score">
+
+    <input type="number"
+           id="participation"
+           class="px-3 w-100 py-2 mt-3"
+           placeholder="Participation">
+
+    <!-- btns -->
+    <div class="mt-3 d-flex justify-content-between gap-3">
+      <button class="btn btn-primary rounded-1 w-50" 
+              id="submit">
+        Submit
+      </button>
+      <button class="btn btn-danger rounded-1 w-50"
+              id="reset">
+        Reset
+      </button>
+    </div>
+  </form>
+
+  <!-- alers -->
+  <div class="alert alert-danger hidden text-center fw-semibold fs-3"      role="alert"
+        id="alert">
+    Error
+  </div>
+
+  <!-- output -->
+  <div id="output" class="text-center fs-2 my-5"></div>
+
+  <!-- table -->
+  <p class="text-center">Points/Percentage to Letter Grade</p>
+  <table>
+    <tr>
+      <th>Percentage</th>
+      <th>Letter Grade</th>
+    </tr>
+    <tr>
+      <td>90-100</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>80-89</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>70-79</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>60-69</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <td>0-59</td>
+      <td>F</td>
+    </tr>
+  </table>
+
 
 
   <a href="../js/hw3.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
     Go Back
   </a>
+
+
+
+
+  <script>
+
+  
+  const submit = document.getElementById('submit')
+  const hwAvg = document.getElementById('homework')
+  const midExam = document.getElementById('mid-term')
+  const finalExam = document.getElementById('final')
+  const participation = document.getElementById('participation')
+  const alrt = document.getElementById('alert')
+  const reset = document.getElementById('reset')
+  const out = document.getElementById('output')
+
+
+
+
+  const alerto = (param) => {
+     alrt.classList.remove('hidden')
+     alrt.classList.add('show')
+     alrt.textContent = param
+
+     setTimeout(() => {
+      alrt.classList.remove('show')
+       alrt.classList.add('hidden')
+     },4500)
+  }
+   
+  // validation
+    hwAvg.oninput = () => {
+      let num = parseInt(hwAvg.value)
+      num = validation(num);
+      hwAvg.value = num; 
+    }
+    midExam.oninput = () => {
+      let num = parseInt(midExam.value)
+      num = validation(num);
+      midExam.value = num;
+    }
+    finalExam.oninput = () => {
+      let num = parseInt(finalExam.value)
+      num = validation(num);
+      finalExam.value = num;
+    }
+    participation.oninput = () => {
+      let num = parseInt(participation.value)
+      num = validation(num);
+      participation.value = num;
+    }
+
+
+
+    // validation func
+    const validation = (param) => {
+
+        if (param < 0) return 0; 
+        
+        if (param < 0 || param > 100) {
+          alerto('Insert valid NUMBER!');
+          return 0; 
+        }
+
+        if (isNaN(param)) {
+          alerto('Insert valid NUMBER!');
+          return 0; 
+        }
+
+        return param;
+      };
+
+
+
+
+    // show result
+    const getResult = (param) => {
+       // console.log(param)
+       if(param === 'D' || param === 'F') {
+        out.textContent = `Your grade is ${param}`
+        return alerto(`Your grade is ${param}. Student must retake the course!`)
+       } 
+
+       return out.textContent = `Your grade is ${param}`
+       
+    }  
+
+
+    // set letter for grade
+    const showGrade = (param) => {
+     // console.log(typeof param
+      let grade = parseInt(param)
+      //console.log(grade)
+    
+       let letter
+       if(grade > 89) letter = 'A'
+       if(grade < 90 && grade > 79) letter = 'B'
+       if(grade < 80 && grade > 69) letter = 'C'
+       if(grade < 70 && grade > 59) letter = 'D'
+       if(grade < 60) letter = 'F' 
+       console.log(letter)
+
+       // function to get result
+       getResult(letter)
+      
+    }  
+
+    submit.addEventListener('click', e => {
+      e.preventDefault()
+
+      let final_average 
+      
+      final_average = (.5 * hwAvg.value) +
+                      (.2 * midExam.value) + 
+                      (.2 * finalExam.value) + 
+                      (.1 * participation.value)
+
+      let grade  = final_average.toFixed(0)
+      //console.log(grade)
+  
+      showGrade(grade)
+      
+    })
+
+   
+
+    reset.addEventListener('click', e => {
+      hwAvg.value = ''
+      midExam.value = ''
+      finalExam.value = ''
+      participation.value = ''
+      out.textContent = ''
+    })
+
+
+
+    
+  </script>
 
 
 </body>
