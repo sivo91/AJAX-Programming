@@ -62,41 +62,48 @@
   <!-- form -->
   <form class="py-4 px-2 rounded-2">
     <!-- inputs -->
+    <label for="homework">Homework Average</label>
     <input type="number"
            id="homework"
-           class="px-3 w-100 py-2"
-           placeholder="Homework Average">
+           class="px-3 w-100 py-1">
 
+    <label for="mid-term" class="mt-3">Mid-Term</label>
     <input type="number"
            id="mid-term"
-           class="px-3 w-100 py-2 mt-3"
-           placeholder="Mid-Term Exam Score">
+           class="px-3 w-100 py-1">
 
+    <label for="final" class="mt-3">Final</label>       
     <input type="number"
            id="final"
-           class="px-3 w-100 py-2 mt-3"
+           class="px-3 w-100 py-1"
            placeholder="Final Exam Score">
 
+    <label for="participation" class="mt-3">Participation</label>       
     <input type="number"
            id="participation"
-           class="px-3 w-100 py-2 mt-3"
-           placeholder="Participation">
+           class="px-3 w-100 py-1">
 
     <!-- btns -->
     <div class="mt-3 d-flex justify-content-between gap-3">
-      <button class="btn btn-primary rounded-1 w-50" 
+      <!-- <button class="btn btn-primary rounded-1 w-50" 
               id="submit">
         Submit
-      </button>
-      <button class="btn btn-danger rounded-1 w-50"
+      </button> -->
+      <input type="submit"
+             id="submit"
+             style="width: 11.5em;">
+      <!-- <button class="btn btn-danger rounded-1 w-50"
               id="reset">
         Reset
-      </button>
+      </button> -->
+      <input type="reset"
+             id="reset"
+             style="width: 11.5em">
     </div>
   </form>
 
   <!-- alers -->
-  <div class="alert alert-danger hidden text-center fw-semibold fs-3"      role="alert"
+  <div class="alert alert-danger border-danger hidden text-center fw-semibold fs-3"   style="border: 3px dashed rgb(222, 7, 7);"   role="alert"
         id="alert">
     Error
   </div>
@@ -134,14 +141,14 @@
   </table>
 
 
-
+   <!-- link back -->
   <a href="../js/hw3.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
     Go Back
   </a>
 
 
 
-
+  <!-- script -->
   <script>
 
   
@@ -231,6 +238,8 @@
       let grade = parseInt(param)
       //console.log(grade)
     
+
+      // find letter by number
        let letter
        if(grade > 89) letter = 'A'
        if(grade < 90 && grade > 79) letter = 'B'
@@ -239,15 +248,23 @@
        if(grade < 60) letter = 'F' 
        console.log(letter)
 
-       // function to get result
+       // function to get result line 223
        getResult(letter)
       
     }  
 
 
-    // on submit btn proccess data ans show result
+    // on submit btn proccess data and show result
     submit.addEventListener('click', e => {
       e.preventDefault()
+
+      // validation for empty input
+      if(hwAvg.value === '' ||
+         midExam.value === '' ||
+         finalExam.value === '' ||
+         participation.value === '') {
+          return alerto('Please insert valid numbers!')
+         }
 
       let final_average 
       
@@ -259,7 +276,9 @@
 
       let grade  = final_average.toFixed(0)
       //console.log(grade)
-  
+       
+
+      // show grade line 236
       showGrade(grade)
       
     })
