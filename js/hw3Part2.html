@@ -14,18 +14,186 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="linkBack.css">
   <link rel="stylesheet" href="navLinks.css">
+
+  <style>
+
+    form {
+      position: relative;
+      width:  400px;
+      margin: 0 auto;
+      border: 1px solid gray;
+      padding: 10px;
+    }
+
+    table tr, table th, table td {
+      border: 1px solid gray;
+      padding: 3px 10px;
+    }
+
+  </style>
+
 </head>
 
 <body>
   <h2 class="text-center mt-5">Part 2 | Sales commission</h2>
   <h4 class="text-center mb-5">Home work 3 | Functions</h4>
-  <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
+ 
+
+  <!-- form -->
+   <form>
+     
+    <!-- name input -->
+      <label for="name" class="fw-semibold">Seller's Name</label>
+      <input type="text"
+             id="name"
+             class="ms-3 w-50"
+             placeholder="Name">
+      <br>
+      
+      <!-- text -->
+      <p class="my-3 fw-semibold">For each item type the quantity sold by the seller</p>
+
+      <!-- items input -->
+      <label for="item1" class="mt-3">Item 1</label>
+      <input type="text"
+             id="item1"
+             class="w-75 ms-3">
+      <br>
+      
+      <label for="item2" class="mt-3">Item 2</label>
+      <input type="text"
+               id="item2"
+               class="w-75 ms-3">
+   
+
+      <label for="item 3" class="mt-3">Item 3</label>
+      <input type="text"
+              id="item3"
+              class="w-75 ms-3">
+      <br>
+
+      <label for="item 4" class="mt-3">Item 4</label>
+      <input type="text"
+              id="item4"
+              class="w-75 ms-3">
+      <br>
+      <hr>
+
+      <!-- btns -->
+      <div>
+        <input type="submit"
+               id="submit"
+               class="ms-5 w-25 btn btn-primary rounded-1">
+        
+        <input type="reset" 
+               id="reset"
+               class="ms-5 w-25 btn btn-danger rounded-1">
+      </div>
+
+      <!-- table -->
+      <table class="mt-3 w-100">
+        <tr>
+          <th>Item#</th>
+          <th>Price</th>
+          <th>Qty Sold</th>
+          <th>Total $</th>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>$20.99</td>
+          <td id="qty1"></td>
+          <td id="total1"></td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>$12.75</td>
+          <td id="qty2"></td>
+          <td id="total2"></td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>$9.95</td>
+          <td id="qty3"></td>
+          <td id="total3"></td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td>$35.89</td>
+          <td id="qty4"></td>
+          <td id="total4"></td>
+        </tr>
+        
+        <tr>
+          <td colspan="2">Total Amount Sold</td>
+          <td colspan="2" id="total_amount"></td>
+        </tr>
+
+        <tr>
+          <td colspan="2">Total Weekly Earnings</td>
+          <td colspan="2" id="weekly_earnings"></td>
+        </tr>
+
+      </table>
+    
 
 
+   </form>
+
+
+  <!-- return back -->
   <a href="../js/hw3.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
     Go Back
   </a>
 
+
+
+
+
+  <script>
+  // form
+   const submit = document.getElementById('submit')
+   const reset = document.getElementById('reset')
+   const name = document.getElementById('name')
+   const item1 = document.getElementById('item1')
+   const item2 = document.getElementById('item2')
+   const item3 = document.getElementById('item3')
+   const item4 = document.getElementById('item4')
+
+   // table
+   const qty1 = document.getElementById('qty1')
+   const total1= document.getElementById('total1')
+   const qty2= document.getElementById('qty2')
+   const total2= document.getElementById('total2')
+   const qty3= document.getElementById('qty3')
+   const total3= document.getElementById('total3')
+   const qty4= document.getElementById('qty4')
+   const total4= document.getElementById('total4')
+
+   const total_amount = document.getElementById('total_amount')
+   const weekly_earnings = document.getElementById('weekly_earnings')
+  
+   submit.addEventListener('click', e => {
+    e.preventDefault()
+
+    qty1.textContent = 'qty1'
+    total1.textContent = 'total1'
+    qty2.textContent = 'qty2'
+    total2.textContent = 'total2'
+    qty3.textContent = 'qty3'
+    total3.textContent = 'total3'
+    qty4.textContent = 'qty4'
+    total4.textContent = 'total4'
+
+    total_amount.textContent = 'total'
+    weekly_earnings.textContent = 'weekly'
+
+   })
+
+  </script>
 
 </body>
 

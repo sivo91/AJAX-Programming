@@ -25,17 +25,17 @@
   <!-- inputs -->
   <form style="width: 380px; margin: 40px auto;" >
 
+    <label for="input1">First Number</label>
     <input class="w-100 p-1 mt-2" 
-           type="number" id="input1" 
-           placeholder="insert first num">
+           type="number" id="input1" >
 
-    <input class="w-100 p-1 my-4" 
-           type="number" id="input2" 
-           placeholder="insert second num">
+    <label for="input2" class="mt-3">Second Number</label>
+    <input class="w-100 p-1 mb-3" 
+           type="number" id="input2" >
 
+    <label for="input3">Third Number</label>
     <input class="w-100 p-1"  
-           type="number" id="input3" 
-           placeholder="insert third num">
+           type="number" id="input3">
 
     <!-- alert -->
     <p class="text-danger fw-bold" id="alerto"></p>
@@ -131,15 +131,17 @@
         alerto.textContent = 'Invalid Input !'
         return
       } 
+   
+      let product = ` | ${+n1.value}, ${Number(n2.value)}, ${Number(n3.value)}`
+      sum = +n1.value  + Number(n2.value) + Number(n3.value) + product
 
-      sum = +n1.value + Number(n2.value) + Number(n3.value)
       findSmallest(+n1.value, +n2.value, +n3.value)
-      findLargest(+n1.value, +n2.value, +n3.value)
+      findLargest(+n1.value, +n2.value, +n3.value) 
 
       //console.log(sum, smallestNumber, largestNumber)
 
       output.textContent = `
-       The sum of the numbers you entered = ${sum}
+       The sum of the numbers you entered = ${sum}  
        The smallest num = ${smallestNumber}
        The largest num = ${largestNumber}
       `
@@ -186,54 +188,6 @@
     // ADD CODE TO MODAL
 
      let code = `
-    const n1 = document.getElementById('input1')<br/>
-    const n2 = document.getElementById('input2')<br/>
-    const n3 = document.getElementById('input3')<br/>
-    const output = document.getElementById('textArea')<br/>
-    const submitBtn = document.getElementById('submit')<br/>
-    const clearBtn = document.getElementById('clear')<br/>
-    const alerto = document.getElementById('alerto')<br/>
-
-     let sum<br/>
-     let smallestNumber<br/>
-     let largestNumber<br/><br/>
-
-     // validation<br/>
-     n1.oninput = () => {<br/>
-       if(n1.value < 0) n1.value = 0<br/>
-     }<br/><br/>
-     n2.oninput = () => {<br/>
-       if(n2.value < 0) n2.value = 0<br/>
-     }<br/><br/>
-     n3.oninput = () => {<br/>
-       if(n3.value < 0) n3.value = 0<br/>
-     }<br/><br/>
-
-    // on submit calculate num's<br/>
-    submitBtn.addEventListener('click', (e) => {<br/>
-      e.preventDefault()<br/><br/>
-
-      //console.log('adsfasdfasd')<br/>
-      //console.log(input.value , input2.value, input3.value)<br/>
-      //console.log(typeof n1.value) <br/><br/>
-
-      if(n1.value === '' || n2.value === '' || n3.value === '') {<br/>
-        alerto.textContent = 'Invalid Inputs !'<br/>
-        return<br/>
-      } <br/><br/>
-
-      sum = +n1.value + Number(n2.value) + Number(n3.value)<br/>
-      findSmallest(+n1.value, +n2.value, +n3.value)<br/>
-      findLargest(+n1.value, +n2.value, +n3.value)<br/><br/>
-
-      //console.log(sum, smallestNumber, largestNumber)<br/><br/>
-
-      output.textContent = <br/>
-       The sum of the numbers you entered =  sum <br/>
-       The smallest num =  smallestNumber <br/>
-       The largest num =  largestNumber <br/>
-      
-    })<br/>
 
     const findSmallest = (a, b, c) => {<br/>
        return smallestNumber = Math.min(a, b, c)<br/>
@@ -261,16 +215,7 @@
      return largestNumber = Math.max(a, b, c)<br/>
     }  <br/><br/>
 
-    // eventListener to clear inputs<br/>
-    clearBtn.addEventListener('click' , e => {<br/>
-      e.preventDefault()<br/>
-      n1.value = ''<br/>
-      n2.value = ''<br/>
-      n3.value = ''<br/><br/>
 
-      output.textContent = ''<br/>
-      alerto.textContent = ''<br/>
-    })<br/>
    `
 
    const modal = document.getElementById('modal-body')

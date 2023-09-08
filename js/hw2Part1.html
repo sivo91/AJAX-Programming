@@ -14,8 +14,6 @@
 
     <link rel="stylesheet" href="navLinks.css">
 
-
-
 </head>
 <body>
 
@@ -23,25 +21,13 @@
   <h4 class="text-center mb-5">Home work 2</h4>
   <h3 class="text-center">The HTML DOM (Document Object Model)</h3>
 
+  <div id="output" class="text-center my-5"></div>
 
-  <p class="letters text-center"><p>
-  <p class="numbers1 text-center"><p>
-  <p class="text-center"><em class="numbers2"></em></p>
-
-
- 
-
+  
 
   <div class="card mb-5" style="width: 400px; margin: 0 auto;">
-
-    <pre id="part1Context">
-       
-    </pre>
-
+    <pre id="part1Context"> </pre>
   </div>
-
-
-
 
   <a href="../js/hw2.html" 
      class="btn btn-dark rounded-1 vstack mx-auto my-5" 
@@ -53,49 +39,64 @@
   <script>
 
   // manipulation letters
-   const letters = document.querySelector('.letters')
-   letters.innerHTML = 'xy'
-   letters.style.color = 'red'
-   letters.style.fontSize = '30px'
+
+   const output = document.getElementById('output')
+  
+   const letter = document.createElement('span')
+   letter.style.color = 'red'
+   letter.className = 'fw-bold'
+   letter.style.fontSize = '2em'
+   letter.textContent = 'xy '
+
 
    // manipulation num1
-   const num1 = document.querySelector('.numbers1')
-   num1.textContent = '12'
+   const num1 = document.createElement('span')
+   num1.textContent = '12 '
    num1.style.color = 'blue'
    num1.style.fontFamily = 'arial'
-   num1.style.fontSize = '30px'
+   num1.style.fontSize = '2em'
 
    // manipulation num2
-   const num2 = document.querySelector('.numbers2')
+   const num2 = document.createElement('span')
    num2.textContent = '89'
    num2.style.color = 'green'
    num2.style.fontFamily = 'impact'
-   num2.style.fontSize = '30px'
+   num2.className = 'fst-italic'
+   num2.style.fontSize = '2em'
+
+   output.appendChild(letter)
+   output.appendChild(num1)
+   output.appendChild(num2)
    
    
    let part1Context = `
- <p class="letters text-center"><p>
- <p class="numbers1 text-center"><p> 
- <p class="text-center"><em class="numbers2"></em></p>\n
- Dom manipulation: \n
- const letters = document.querySelector('.letters')
- letters.innerHTML = 'xy'
- letters.style.color = 'red'
- letters.style.fontSize = '30px'
+   const output = document.getElementById('output')
 
- // manipulation num1
- const num1 = document.querySelector('.numbers1')
- num1.textContent = '12'
- num1.style.color = 'blue'
- num1.style.fontFamily = 'arial'
- num1.style.fontSize = '30px'
+   const letter = document.createElement('span')
+   letter.style.color = 'red'
+   letter.className = 'fw-bold'
+   letter.style.fontSize = '2em'
+   letter.textContent = 'xy '
 
- // manipulation num2
- const num2 = document.querySelector('.numbers2')
- num2.textContent = '89'
- num2.style.color = 'green'
- num2.style.fontFamily = 'impact'
- num2.style.fontSize = '30px'
+
+   // manipulation num1
+   const num1 = document.createElement('span')
+   num1.textContent = '12 '
+   num1.style.color = 'blue'
+   num1.style.fontFamily = 'arial'
+   num1.style.fontSize = '2em'
+
+   // manipulation num2
+   const num2 = document.createElement('span')
+   num2.textContent = '89'
+   num2.style.color = 'green'
+   num2.style.fontFamily = 'impact'
+   num2.className = 'fst-italic'
+   num2.style.fontSize = '2em'
+
+   output.appendChild(letter)
+   output.appendChild(num1)
+   output.appendChild(num2)
    `
 
    document.getElementById('part1Context').textContent = part1Context
