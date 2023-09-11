@@ -41,6 +41,16 @@
       display: none;
     }
 
+    /* Disable the inner and outer spin buttons */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+
+
+
   </style>
 </head>
 
@@ -60,10 +70,13 @@
    <!-- form -->
    <form>
      <input type="number" 
-           id="input">
+           id="input"
+           onfocus="focusFunc(this)">
   
      <input type="submit" 
            value="Enter" 
+           onmouseover="greenBG(this)" 
+           onmouseout="normalBG(this)"
            id="submit">
 
       <p id="answer"
@@ -84,11 +97,16 @@
     <input type="submit"
            value="YES" 
            style="width: 150px;"
-           id="yes">
+           id="yes"
+           onmouseover="greenBG(this)" 
+           onmouseout="normalBG(this)"
+           >
     <input type="submit"
            value="NO"
            style="width: 150px;"
-           id="no">       
+           id="no"
+           onmouseover="redBG(this)" 
+           onmouseout="normalBG(this)">       
   </div>
 
   <!-- end -->
@@ -135,7 +153,7 @@
       // input value
       const res = +input.value
 
-      if(res == '' || isNaN(res) || res < 0){  
+      if(res == '' && isNaN(res) && res < 0){  
         answer.style.display = 'block'
         answer.textContent = 'Invalid number'
         return
@@ -185,7 +203,26 @@
     yes.addEventListener('click', e => {
       location.reload()
     })
-    
+
+    // change color btn - hover effect
+    const greenBG = (element) => {
+       element.style.backgroundColor = 'green'
+       element.style.color = 'white'
+    }
+
+    const redBG = (element) => {
+        element.style.backgroundColor = 'red'
+        element.style.color = 'white'
+    }
+
+    const normalBG = (element) => {
+        element.style.backgroundColor = ''
+        element.style.color = 'black'
+    }
+
+    const focusFunc = (element) => {
+      element.style.backgroundColor = 'yellow'
+    }
 
   </script>
 
