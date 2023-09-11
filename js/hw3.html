@@ -32,19 +32,51 @@
       position: relative;
       height: 300px;
       overflow-y: scroll;
-      border: 1px solid rgb(239, 239, 239);
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 4px;
     }
+
+     ::-webkit-scrollbar-track {
+      background-color: #7b7a77; /* Change to your desired background color */
+      }
+
+      /* Customize the scrollbar thumb (the draggable part) */
+      ::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, blue, rgb(0, 247, 255)); 
+          color: white;
+          border-radius: 4px; 
+          cursor: pointer;
+      }
+
+      /* Customize the scrollbar when it's hovered over */
+      ::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(99, 201, 205)); 
+          color: white; 
+          border: 2px dotted blue;
+          
+      }
+
+      /* Customize the scrollbar corner (between vertical and horizontal scrollbars) */
+      ::-webkit-scrollbar-corner {
+          background-color: transparent; /* Change to your desired color */
+      }
+
+      /* Customize the scrollbar's width and height (optional) */
+      ::-webkit-scrollbar {
+          width: 20px; /* Change to your desired width */
+          height: 10px; /* Change to your desired height */
+      }
+
+      
   </style>
 
 
 </head>
 
-<body>
+<body >
   <h2 class="text-center my-5">Home Work 3</h2>
 
-  <div class="hw2Section p-3">
-    asdfasdf
-  </div>
+  <div class="hw2Section p-3"></div>
 
 
 
@@ -120,6 +152,9 @@
     }).join('')
 
     section.innerHTML = output
+
+
+     
 
 
   </script>
