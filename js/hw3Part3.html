@@ -14,18 +14,180 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="linkBack.css">
   <link rel="stylesheet" href="navLinks.css">
+
+  <style>
+
+    .box {
+      position: relative;
+      width: 400px;
+      margin: 50px auto 50px;
+      border: 1px solid gray;
+      padding: 40px 40px 0 40px;
+      border-radius: 4px;
+    }
+
+    .play {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+      display: none;
+    }
+
+    #end {
+      display: none;
+    }
+
+    #validString {
+      display: none;
+    }
+
+  </style>
 </head>
 
+
+
 <body>
+
   <h2 class="text-center mt-5">Extra Credit </h2>
   <h3 class="text-center">Part 3 | Calculator</h3>
   <h4 class="text-center mb-5">Home work 3 | Functions</h4>
-  <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
+ 
+<!-- input -->
+ <div class="box">
+  <!-- question -->
+   <h5 id="question" class="mb-3">question here</h5>
+  
+   <!-- form -->
+   <form>
+     <input type="number" 
+           id="input">
+  
+     <input type="submit" 
+           value="Enter" 
+           id="submit">
+
+      <p id="answer"
+         class="mt-3 fs-5">
+      </p>    
+      
+
+    
+
+   </form>
+ </div>
+
+ <!-- want to play again -->
+  <div class="play ps-5">
+  
+    <p>Do you want to keep playing?</p>
+    
+    <input type="submit"
+           value="YES" 
+           style="width: 150px;"
+           id="yes">
+    <input type="submit"
+           value="NO"
+           style="width: 150px;"
+           id="no">       
+  </div>
+
+  <!-- end -->
+ <p class="text-center my-5 h5" id="end"></p>
 
 
   <a href="../js/hw3.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
     Go Back
   </a>
+
+
+  <!-- script -->
+  <script>
+   
+   const box = document.querySelector('.box')
+   const end = document.getElementById('end')
+   const question = document.getElementById('question')
+   const input = document.getElementById('input') // user value
+   const submit = document.getElementById('submit') // check user value
+   const answer = document.getElementById('answer')
+   const play = document.querySelector('.play') // div - class play
+   const input2 = document.getElementById('input2') // yes / no  
+   const submit2 = document.getElementById('proccess') // check if user want to play
+   const yes = document.getElementById('yes')
+   const no = document.getElementById('no')
+   
+
+   // 2 random nums
+    const n1 = Math.floor(Math.random() * 10)
+    const n2 = Math.floor(Math.random() * 10 + 1)
+
+    // show question
+    question.textContent = `How much is ${n1} x ${n2}?`
+    
+    // multiple 2 nums
+    const multiple = (x, y) => {
+      const result = x * y
+       return Number(result)
+    }
+
+    // show result
+    const result = () => {
+
+      // input value
+      const res = +input.value
+
+      if(res == '' || isNaN(res) || res < 0){  
+        answer.style.display = 'block'
+        answer.textContent = 'Invalid number'
+        return
+      }
+
+      // check output
+      if (res === multiple(n1, n2)) {
+        answer.textContent = 'Very good!'
+        answer.style.color = 'green'
+        play.style.display = 'block'
+        input.disabled = true
+        submit.disabled = true
+
+        
+      } else {
+        answer.textContent = `No. Please try again.`
+        question.textContent = `How much is ${n1} x ${n2}  =  ${multiple(n1, n2)}`
+        answer.style.color = 'red'
+        play.style.display = 'block'
+        input.disabled = true
+        submit.disabled = true
+
+       
+      }
+    }
+
+  
+
+    // submit btn
+    submit.addEventListener('click', e => {
+      e.preventDefault()
+
+      result()
+
+    })
+    
+    // dont want play
+    no.addEventListener('click', e => {
+      e.preventDefault()
+      box.style.display = 'none'
+      play.style.display = 'none'
+      end.style.display = 'block'
+      end.textContent = 'Thanks for playing, see you next time" and you will NOT present another question'
+    })
+ 
+    // user want to play
+    yes.addEventListener('click', e => {
+      location.reload()
+    })
+    
+
+  </script>
 
 
 </body>
