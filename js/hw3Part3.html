@@ -16,7 +16,6 @@
   <link rel="stylesheet" href="navLinks.css">
 
   <style>
-
     .box {
       position: relative;
       width: 400px;
@@ -44,13 +43,10 @@
     /* Disable the inner and outer spin buttons */
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        appearance: none;
-        margin: 0;
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 0;
     }
-
-
-
   </style>
 </head>
 
@@ -61,56 +57,54 @@
   <h2 class="text-center mt-5">Extra Credit </h2>
   <h3 class="text-center">Part 3 | Calculator</h3>
   <h4 class="text-center mb-5">Home work 3 | Functions</h4>
- 
-<!-- input -->
- <div class="box">
-  <!-- question -->
-   <h5 id="question" class="mb-3">question here</h5>
-  
-   <!-- form -->
-   <form>
-     <input type="number" 
-           id="input"
-           onfocus="focusFunc(this)">
-  
-     <input type="submit" 
-           value="Enter" 
-           onmouseover="greenBG(this)" 
-           onmouseout="normalBG(this)"
-           id="submit">
 
-      <p id="answer"
-         class="mt-3 fs-5">
-      </p>    
-      
+  <!-- input -->
+  <div class="box">
+    <!-- question -->
+    <h5 id="question" class="mb-3">question here</h5>
 
-    
+    <!-- form -->
+    <form>
+      <input type="number" 
+             id="input" 
+             onfocus="focusFunc(this)">
 
-   </form>
- </div>
+      <input type="submit" 
+             value="Enter" 
+             onmouseover="greenBG(this)" 
+             onmouseout="normalBG(this)" id="submit">
 
- <!-- want to play again -->
+      <p id="answer" class="mt-3 fs-5">
+      </p>
+
+
+
+
+    </form>
+  </div>
+
+  <!-- want to play again -->
   <div class="play ps-5">
-  
+
     <p>Do you want to keep playing?</p>
-    
-    <input type="submit"
+
+    <input type="submit" 
            value="YES" 
-           style="width: 150px;"
-           id="yes"
-           onmouseover="greenBG(this)" 
-           onmouseout="normalBG(this)"
-           >
-    <input type="submit"
-           value="NO"
-           style="width: 150px;"
-           id="no"
+           style="width: 150px;" 
+           id="yes" 
+           onmouseover="greenBG(this)"
+           onmouseout="normalBG(this)">
+
+    <input type="submit" 
+           value="NO" 
+           style="width: 150px;" 
+           id="no" 
            onmouseover="redBG(this)" 
-           onmouseout="normalBG(this)">       
+           onmouseout="normalBG(this)">
   </div>
 
   <!-- end -->
- <p class="text-center my-5 h5" id="end"></p>
+  <p class="text-center my-5 h5" id="end"></p>
 
 
   <a href="../js/hw3.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
@@ -119,32 +113,32 @@
 
 
   <!-- script -->
-  <script >
-   
-   const box = document.querySelector('.box')
-   const end = document.getElementById('end')
-   const question = document.getElementById('question')
-   const input = document.getElementById('input') // user value
-   const submit = document.getElementById('submit') // check user value
-   const answer = document.getElementById('answer')
-   const play = document.querySelector('.play') // div - class play
-   const input2 = document.getElementById('input2') // yes / no  
-   const submit2 = document.getElementById('proccess') // check if user want to play
-   const yes = document.getElementById('yes')
-   const no = document.getElementById('no')
-   
+  <script>
 
-   // 2 random nums
+    const box = document.querySelector('.box')
+    const end = document.getElementById('end')
+    const question = document.getElementById('question')
+    const input = document.getElementById('input') // user value
+    const submit = document.getElementById('submit') // check user value
+    const answer = document.getElementById('answer')
+    const play = document.querySelector('.play') // div - class play
+    const input2 = document.getElementById('input2') // yes / no  
+    const submit2 = document.getElementById('proccess') // check if user want to play
+    const yes = document.getElementById('yes')
+    const no = document.getElementById('no')
+
+
+    // 2 random nums
     const n1 = Math.floor(Math.random() * 10)
     const n2 = Math.floor(Math.random() * 10 + 1)
 
     // show question
     question.textContent = `How much is ${n1} x ${n2}?`
-    
+
     // multiple 2 nums
     const multiple = (x, y) => {
       const result = x * y
-       return Number(result)
+      return Number(result)
     }
 
     // show result
@@ -153,7 +147,7 @@
       // input value
       const res = +input.value
 
-      if(res == '' && isNaN(res) && res < 0){  
+      if (res == '' && isNaN(res) && res < 0) {
         answer.style.display = 'block'
         answer.textContent = 'Invalid number'
         return
@@ -167,7 +161,7 @@
         input.disabled = true
         submit.disabled = true
 
-        
+
       } else {
         answer.textContent = `No. Please try again.`
         question.textContent = `How much is ${n1} x ${n2}  =  ${multiple(n1, n2)}`
@@ -176,11 +170,11 @@
         input.disabled = true
         submit.disabled = true
 
-       
+
       }
     }
 
-  
+
 
     // submit btn
     submit.addEventListener('click', e => {
@@ -189,7 +183,7 @@
       result()
 
     })
-    
+
     // dont want play
     no.addEventListener('click', e => {
       e.preventDefault()
@@ -198,7 +192,7 @@
       end.style.display = 'block'
       end.textContent = 'Thanks for playing, see you next time" and you will NOT present another question'
     })
- 
+
     // user want to play
     yes.addEventListener('click', e => {
       location.reload()
@@ -206,18 +200,18 @@
 
     // change color btn - hover effect
     const greenBG = (element) => {
-       element.style.backgroundColor = 'green'
-       element.style.color = 'white'
+      element.style.backgroundColor = 'green'
+      element.style.color = 'white'
     }
 
     const redBG = (element) => {
-        element.style.backgroundColor = 'red'
-        element.style.color = 'white'
+      element.style.backgroundColor = 'red'
+      element.style.color = 'white'
     }
 
     const normalBG = (element) => {
-        element.style.backgroundColor = ''
-        element.style.color = 'black'
+      element.style.backgroundColor = ''
+      element.style.color = 'black'
     }
 
     const focusFunc = (element) => {

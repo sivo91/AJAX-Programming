@@ -46,6 +46,7 @@
       <label for="name" class="fw-semibold">Seller's Name</label>
       <input type="text"
              id="name"
+             onfocus="focusFunc(this)"
              class="ms-3 w-50">
       <br>
       
@@ -54,26 +55,30 @@
 
       <!-- items input -->
       <label for="item1" class="mt-3">Item 1</label>
-      <input type="text"
+      <input type="number"
              id="item1"
+             onfocus="focusFunc(this)"
              class="w-75 ms-3">
       <br>
       
       <label for="item2" class="mt-3">Item 2</label>
-      <input type="text"
+      <input type="number"
                id="item2"
+               onfocus="focusFunc(this)"
                class="w-75 ms-3">
    
 
       <label for="item 3" class="mt-3">Item 3</label>
-      <input type="text"
+      <input type="number"
               id="item3"
+              onfocus="focusFunc(this)"
               class="w-75 ms-3">
       <br>
 
       <label for="item 4" class="mt-3">Item 4</label>
-      <input type="text"
+      <input type="number"
               id="item4"
+              onfocus="focusFunc(this)"
               class="w-75 ms-3">
       <br>
       <hr>
@@ -82,12 +87,18 @@
       <div class="d-flex justify-content-between">
         <input type="submit"
                id="submit"
+               onmouseover="greenBG(this)" 
+               onmouseout="normalBG(this)"
                style="width: 11.5em;">
         
         <input type="reset" 
                id="reset"
+               onmouseover="redBG(this)" 
+               onmouseout="normalBG(this)"
                style="width: 11.5em;">
       </div>
+
+      <p class="mt-3 fw-semibold" id="message"></p>
 
       <!-- table -->
       <table class="mt-3 w-100">
@@ -161,6 +172,13 @@
    const item2 = document.getElementById('item2')
    const item3 = document.getElementById('item3')
    const item4 = document.getElementById('item4')
+   const message = document.getElementById('message')
+
+   // price
+   const p1 = 20.99
+   const p2 = 12.75
+   const p3 = 9.95
+   const p4 = 35.85
 
    // table
    const qty1 = document.getElementById('qty1')
@@ -174,23 +192,180 @@
 
    const total_amount = document.getElementById('total_amount')
    const weekly_earnings = document.getElementById('weekly_earnings')
+
+
+  // calculate price, AJ JE NEJAKA CENA 
+  const total = (price, item) => {
+    let total = price * item
+    return total
+  }
+
   
+// check seller name
+ const validationName = (name) => {
+
+    if (name.length < 1) {
+      message.textContent = 'Please Add Seller Name';
+      message.style.color = 'red';
+
+      setTimeout(() => {
+        message.textContent = '';
+      }, 2000);
+
+    } else {
+      const msg = `Mr/Mrs. ${name}, here is your total bill:`;
+      message.textContent = msg;
+      message.style.color = 'black';
+      return msg;
+    }
+  };
+
+
+  // check if item got valid numbers
+ const validationItem = (param) => {
+
+    let msg;
+
+    if (param < 0 || isNaN(param) || param === '') {
+      msg = 'Please insert valid NUMBERS';
+      message.textContent = msg;
+      message.style.color = 'red';
+
+      setTimeout(() => {
+        message.textContent = '';
+      }, 2000);
+    }
+
+    return msg;
+  };
+
+
+  // calculation specific item
+  const calculateItem = (x, y) => {
+    let total = x * y
+    return total.toFixed(2)
+
+  }
+
+
+ // amount sold
+ const amountSold = (a, b, c, d) => {
+  let total
+  total = Number(a) + Number(b) + Number(c) + Number(d)
+  return total.toFixed(2)
+ }
+
+ // weekly earnings
+ const weeklyEarnings = (a, b, c, d) => {
+  let total
+  total = Number(a) + Number(b) + Number(c) + Number(d)
+  return total.toFixed(2)
+ }
+
+
+
+  //  event
    submit.addEventListener('click', e => {
     e.preventDefault()
 
-    qty1.textContent = 'qty1'
-    total1.textContent = 'total1'
-    qty2.textContent = 'qty2'
-    total2.textContent = 'total2'
-    qty3.textContent = 'qty3'
-    total3.textContent = 'total3'
-    qty4.textContent = 'qty4'
-    total4.textContent = 'total4'
+    // check if name is there
+    let meno = name.value
+    validationName(meno)
 
-    total_amount.textContent = 'total'
-    weekly_earnings.textContent = 'weekly'
+    // check if item got valid num
+    validationItem(item1.value)
+    validationItem(item2.value)
+    validationItem(item3.value)
+    validationItem(item4.value)
+
+    // calculate item
+    let totalItem1 = calculateItem(item1.value, p1)
+    let totalItem2 = calculateItem(item2.value, p2)
+    let totalItem3 = calculateItem(item3.value, p3)
+    let totalItem4 = calculateItem(item4.value, p4)
+
+  
+
+    qty1.textContent = item1.value
+    qty1.className = 'text-end'
+    total1.textContent = totalItem1
+    total1.className = 'text-end'
+
+    qty2.textContent = item2.value
+    qty2.className = 'text-end'
+    total2.textContent = totalItem2
+    total2.className = 'text-end'
+
+    qty3.textContent = item3.value
+    qty3.className = 'text-end'
+    total3.textContent = totalItem3
+    total3.className = 'text-end'
+
+    qty4.textContent = item4.value
+    qty4.className = 'text-end'
+    total4.textContent = totalItem4
+    total4.className = 'text-end'
+
+     
+    total_amount.textContent = '$' + amountSold(item1.value, item2.value, item3.value, item4.value)
+    total_amount.className = 'text-end'
+
+    weekly_earnings.textContent = '$' + weeklyEarnings(totalItem1, totalItem2, totalItem3, totalItem4)
+    weekly_earnings.className = 'text-end'
+   })
+
+
+   // reset event 
+   reset.addEventListener('click', e => {
+    e.preventDefault()
+
+    name.value = ''
+    name.style.backgroundColor = 'white'
+
+    item1.value = ''
+    item2.value = ''
+    item3.value = ''
+    item4.value = ''
+    item1.style.backgroundColor = 'white'
+    item2.style.backgroundColor = 'white'
+    item3.style.backgroundColor = 'white'
+    item4.style.backgroundColor = 'white'
+    qty1.textContent = ''
+    qty2.textContent = ''
+    qty3.textContent = ''
+    qty4.textContent = ''
+    total1.textContent = ''
+    total2.textContent = ''
+    total3.textContent = ''
+    total4.textContent = ''
+    total_amount.textContent = ''
+    weekly_earnings.textContent = ''
+    message.textContent = ''
+
 
    })
+
+
+    // change color btn - hover effect
+      const greenBG = (element) => {
+        element.style.backgroundColor = 'green'
+        element.style.color = 'white'
+      }
+
+      const redBG = (element) => {
+        element.style.backgroundColor = 'red'
+        element.style.color = 'white'
+      }
+
+      const normalBG = (element) => {
+        element.style.backgroundColor = ''
+        element.style.color = 'black'
+      }
+
+      const focusFunc = (element) => {
+        element.style.backgroundColor = 'yellow'
+      }
+
 
   </script>
 
