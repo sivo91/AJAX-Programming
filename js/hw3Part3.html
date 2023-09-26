@@ -144,17 +144,31 @@
     // show result
     const result = () => {
 
-      // input value
-      const res = +input.value
+      // first check if input is not empty as string
+      // if I convert here res to num, empty input is
+      // considering as number 0
+      const res = input.value
+      console.log(res)
 
-      if (res == '' && isNaN(res) && res < 0) {
+      if(res === '') {
         answer.style.display = 'block'
         answer.textContent = 'Invalid number'
         return
       }
+ 
+      // now convert string to num, we know there is num not empty input
+      const quess = Number(res)
+
+       if ( isNaN(quess) && quess < 0 ) {
+        answer.style.display = 'block'
+        answer.textContent = 'Invalid number'
+        return
+      } 
+
+      
 
       // check output
-      if (res === multiple(n1, n2)) {
+      if (quess === multiple(n1, n2)) {
         answer.textContent = 'Very good!'
         answer.style.color = 'green'
         play.style.display = 'block'

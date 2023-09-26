@@ -263,7 +263,6 @@
  }
 
 
-
   //  event
    submit.addEventListener('click', e => {
     e.preventDefault()
@@ -315,7 +314,7 @@
    })
 
 
-   // reset event 
+   // reset fields
    reset.addEventListener('click', e => {
     e.preventDefault()
 
@@ -346,25 +345,28 @@
    })
 
 
-    // change color btn - hover effect
-      const greenBG = (element) => {
-        element.style.backgroundColor = 'green'
-        element.style.color = 'white'
-      }
+  // submit btn , mouseover green color:hover effect
+    const greenBG = (element) => {
+      element.style.backgroundColor = 'green'
+      element.style.color = 'white'
+    }
 
-      const redBG = (element) => {
-        element.style.backgroundColor = 'red'
-        element.style.color = 'white'
-      }
+    // reset btn, mouseover red color: hover effect
+    const redBG = (element) => {
+      element.style.backgroundColor = 'red'
+      element.style.color = 'white'
+    }
 
-      const normalBG = (element) => {
-        element.style.backgroundColor = ''
-        element.style.color = 'black'
-      }
 
-      const focusFunc = (element) => {
-        element.style.backgroundColor = 'yellow'
-      }
+    const normalBG = (element) => {
+      element.style.backgroundColor = ''
+      element.style.color = 'black'
+    }
+
+    // change bg inputs after click
+    const focusFunc = (element) => {
+      element.style.backgroundColor = 'yellow'
+    }
 
 
   </script>
