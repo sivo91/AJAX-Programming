@@ -12,20 +12,178 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="linkBack.css">
+
+  <link rel="stylesheet" href="linkBack.css">
+
+  <link rel="stylesheet" href="navLinks.css">
+
+  <style>
+    .hw2Section {
+      position: relative;
+      width: 80%;
+      left: 10%;
+      background-color: rgb(244, 244, 244, 0.4);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .card-body {
+      position: relative;
+      height: 300px;
+      overflow-y: scroll;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #7b7a77;
+      /* Change to your desired background color */
+    }
+
+    /* Customize the scrollbar thumb (the draggable part) */
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, rgb(134, 134, 134), rgb(255, 255, 255));
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Customize the scrollbar when it's hovered over */
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(134, 134, 134));
+      color: white;
+      border: 2px dashed rgb(1, 1, 1);
+    }
+
+    /* Customize the scrollbar corner (between vertical and horizontal scrollbars) */
+    ::-webkit-scrollbar-corner {
+      background-color: transparent;
+      /* Change to your desired color */
+    }
+
+    /* Customize the scrollbar's width and height (optional) */
+    ::-webkit-scrollbar {
+      width: 20px;
+      /* Change to your desired width */
+      height: 10px;
+      /* Change to your desired height */
+    }
+  </style>
+
+
 </head>
 
 <body>
-  <h2 class="text-center my-5">Home Work 4</h2>
-  <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
+  <h2 class="text-center mt-5">Home Work 4</h2>
+  <p class="lead text-center mb-5">Looping Statements</p>
 
-  
-  <a href="../js/CIS114Assignments.html" 
-    class="btn btn-dark rounded-1 vstack mx-auto my-5" 
-    style="width: 150px;">
+  <div class="hw2Section p-3"></div>
+
+
+
+  <a href="../js/CIS114Assignments.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;"> 
     Go Back
   </a>
- 
+
+
+
+  <script>
+
+    const section = document.querySelector('.hw2Section')
+
+    const data = [
+      {
+        title: 'Part1',
+        subTitle: 'Calculates the product',
+        text: `
+             - Create a webpage for Part 1 and it will contain a script, using the for statement, that calculates the product and sum of every fourth integer from 5 to 25 inclusive and then displays the results, along with some accompanying text. </br>
+
+             - For example, when presenting the results, you could show two lines such as:</br>
+
+             - The result of 5 * 9 * 13 * 17 * 21 * 25 is ....</br>
+             - The result of 5 + 9 + 13 + 17 + 21 + 25 is ....</br>
+
+             - On that same web page for Part 1, you will have another script, now using the while or do while statement, that calculates the product and sum of every third integer from 3 to 18 inclusive and then displays the results, along with some accompanying text.</br>
+
+             - For example, when presenting the results, you could show two lines such as:</br>
+
+             - The result of 3 * 6 * 9 * 12 * 15 * 18 is ....</br>
+             - The result of 3 + 6 + 9 + 12 + 15 + 18 is ....</br>
+
+             - You should use toLocaleString() to present the result with the correct punctuation - remember that it is really bad for users to read a big number such as 1342658 instead of reading as 1,342,658 that shows the separation of the thousands.
+             
+             `
+        ,
+        link: '../js/hw4Part1.html'
+      },
+      {
+        title: 'Part2',
+        subTitle: 'Compound interest',
+        text: `
+           - As soon as you open that web page on the browser to the client, it will have a heading such as "Learn about compound interest"</br>
+
+           - Below the heading you will code a script to show 3 tables with the calculation of compound interest on a principal of $1000.</br>
+
+           - The first table will be for the interest rate of 5%</br>
+           - The second table will be for the interest rate of 6%</br>
+           - The third table will be for the interest rate of 7%</br>
+
+           - Each of the tables will show the rows from year 1 through 5.</br>
+
+           - The formula to calculate the compound interest is: A = P(1 + r)n where:</br>
+
+           - P is the principal (the initial amount you borrow or deposit)</br>
+           - r is the annual rate of interest (percentage)</br>
+           - n is the number of years the amount is deposited</br>
+           - A is the amount of money accumulated after n years, including interest
+
+                  `,
+        link: '../js/hw4Part2.html'
+      },
+      {
+        title: 'Extra Credit',
+        subTitle: 'Asterisks',
+        text: `
+           - Will read the number typed by the user that should be between 2 and 10</br>
+
+           - Based on that number, you will display a hollow square with that size constructed of asterisks.</br>
+
+           - If the user entered an invalid number (not a number or outside the range of 2 to 10), you should present an error message in the div or paragraph element below the form and you should NOT present the square!</br>
+
+           - If the user entered a valid number, you should present the hollow square in. the div or paragraph element below the form.</br>
+
+           - There should be NO ASTERISKS (*) inside the square - it should be a hollow square like the image below (notice that there is a space between each * printed asterisk at the top and the bottom of the square which you do not need to provide when printing the asterisks of the side of the square as the browser already provides a space between each line.</br>
+                  `,
+        link: '../js/hw4Part3.html'
+      }
+    ]
+
+    const output = data.map(item => {
+      const { title, subTitle, text, link } = item
+
+      return `
+       <div class="card m-2 p-3" style="width: 350px;">
+               <h5 class="text-center">${title}</h5>
+                <p class="text-center ">${subTitle}</p>
+                <p class="card-body">
+                ${text}
+                </p>
+              
+                <a href="${link}" style="text-decoration: none; width: 200px; max-height: 40px; " class=" btn btn-secondary vstack mx-auto mt-auto">
+                  See The Project
+                </a>
+          </div>
+    `
+    }).join('')
+
+    section.innerHTML = output
+
+
+
+
+
+  </script>
 
 </body>
 
