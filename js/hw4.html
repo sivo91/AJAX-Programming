@@ -76,8 +76,34 @@
 
 <body>
   <h2 class="text-center mt-5">Home Work 4</h2>
-  <p class="lead text-center mb-5">Looping Statements</p>
+  <p class="lead text-center">Looping Statements</p>
 
+  
+   <!-- date + time -->
+  <div class="container-fluid mb-3">
+    <div class="row justify-content-center gap-3">
+
+       <!-- time USA -->
+      <div class="col-10 col-md-3 bg-light border rounded-1 p-3">
+        <div class="text-center">
+          <p id="currentDate" class="lead"></p>
+          <p id="currentTime" class="lead"></p>
+        </div>
+      </div>
+
+      <!-- time EU -->
+      <div class="col-10 col-md-3 bg-light border rounded-1 p-3">
+          <div class="text-center">
+            <p id="currentDateBA" class="lead"></p>
+            <p id="currentTimeBA" class="lead"></p>
+          </div>
+      </div>
+      
+
+    </div>
+  </div>
+
+  <!-- cards -->
   <div class="hw2Section p-3"></div>
 
 
@@ -179,8 +205,82 @@
 
     section.innerHTML = output
 
+    
+
+   // pacific date+ time
+   function updateTimeSF() {
+      const currentTimeSF = document.getElementById('currentTime');
+      const currentDateSF = document.getElementById('currentDate')
+      const timeSF = new Date()
+      const dateSF = new Date()
+
+      const optionsTime = { 
+           hour: '2-digit', 
+           minute: '2-digit', 
+           second: '2-digit',
+          } 
+
+      const optionsDate = {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+          weekday: 'long',
+      }     
+
+      const formattedTime = timeSF.toLocaleTimeString('en-US', optionsTime);
+      const formatDay = dateSF.toLocaleDateString('en-US', optionsDate)
+
+      currentDateSF.textContent = formatDay
+      currentTimeSF.textContent = "San Francisco: " + formattedTime
+
+    }
+
+   
+
+  function updateTimeEU() {
+    const currentTimeBA = document.getElementById('currentTimeBA');
+    const currentDateBA = document.getElementById('currentDateBA');
+
+    const optionsBA = {
+      timeZone: 'Europe/Bratislava',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true 
+    };
+
+    const optionBA = {
+      timeZone: 'Europe/Bratislava',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      weekday: 'long'
+    };
+    
+    const timeBratislava = new Date().toLocaleTimeString('sk-SK', optionsBA);
+    const dateBratislava = new Date().toLocaleDateString('sk-SK', optionBA);
+    currentDateBA.textContent = dateBratislava;
+    currentTimeBA.textContent = "Slovakia: " + timeBratislava;
+  }
+
+  setInterval(() => {
+    updateTimeEU();
+  }, 1000);
+
+  updateTimeEU();
 
 
+
+
+    setInterval(() => {
+      updateTimeEU();
+      updateTimeSF()
+    }, 1000);
+
+
+
+      updateTimeSF();
+      updateTimeEU();
 
 
   </script>

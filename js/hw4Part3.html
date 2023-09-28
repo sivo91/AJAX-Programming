@@ -69,11 +69,56 @@
   <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
 
 
+
+
+
+
+  <p class="text-center"><input type="button" value="Test While Lopp"></p>
+
+
+
+
+
+
+
   <!-- link back -->
   <a href="../js/hw4.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
     Go Back
   </a>
 
-</body>
 
+
+    <script>
+
+      var num = 12345.6789;
+      console.log(num)
+      var fn = num.toLocaleString() // 12,345.679
+      console.log(fn)
+
+      const rows = 7; // Number of rows
+      const cols = 5; // Number of columns
+
+      let i = 1;
+
+      while (i <= rows) {
+        let j = 1;
+        let row = '';
+
+        while (j <= cols) {
+          if (i === 1 || i === rows || j === 1 || j === cols) {
+            // Place a star on the top, bottom, first column, and last column
+            row += '* ';
+          } else {
+            // Place a space for the interior
+            row += '  ';
+          }
+          j++;
+        }
+
+        console.log(row);
+        i++;
+      }
+    </script>
+
+ </body>
 </html>
