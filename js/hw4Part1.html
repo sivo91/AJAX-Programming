@@ -64,13 +64,110 @@
 
   <h2 class="text-center mt-5">Part 1 | Calculates the product</h2>
   <h4 class="text-center mb-5">Home work 4 | Looping Statements</h4>
-  <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
+
+  <div class="overflow-hidden">
+ 
+    <!-- Part 1  every fourth integer from 5 to 25 -->
+    <div class="container-fluid mx-3 my-5">
+      <div class="row">
+        <div class="col-11 col-md-6 offset-md-3 text-center bg-light p-4 border border-2 rounded-2">
+          <p class="lead"></p>
+          <span>"For Loop"</span>
+          <hr>
+          <p id="output1"></p>
+          <p id="output2"></p>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- Part 2  every fourth integer from 5 to 25 -->
+    <div class="container-fluid mx-3">
+      <div class="row">
+        <div class="col-11 col-md-6 offset-md-3 text-center bg-light p-4 border border-2 rounded-2">
+          <p class="lead title2"></p>
+          <span>"While Loop"</span>
+          <hr>
+          <p id="output3"></p>
+          <p id="output4"></p>
+        </div>
+      </div>
+    </div>
 
 
-    <!-- link back -->
-    <a href="../js/hw4.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
-      Go Back
-    </a>
+  </div>
+
+
+<!-- link back -->
+<a href="../js/hw4.html" 
+  class="btn btn-dark rounded-1 vstack mx-auto my-5" 
+  style="width: 150px;">
+  Go Back
+</a>
+
+
+<!-- script 1 -->
+<script>
+  let title1 = document.querySelector("p.lead")
+  title1.innerHTML = "Part 1: Calculates the product and sum of </br> every fourth integer from 5 to 25 inclusive."
+
+  const output1 = document.getElementById('output1')
+  const output2 = document.getElementById('output2')
+
+  let product = 1
+  let sum = 0
+
+  for (let i = 5; i <= 25; i += 4) {
+    product = product * i
+    sum = sum + i
+  }
+
+
+  let formattedOutput1 = product.toLocaleString()
+  let formattedOutput2 = sum.toLocaleString()
+
+  let resultProduct = "The result of 5 * 9 * 13 * 17 * 21 * 25 = " + formattedOutput1
+  let resultSum = "The result of 5 + 9 + 13 + 17 + 21 + 25 = " + formattedOutput2
+
+  output1.textContent = resultProduct
+  output2.textContent = resultSum
+
+</script>
+
+
+<!-- script 2 -->
+<script>
+  let title2 = document.querySelector("p.title2")
+  title2.innerHTML = "Part 2: calculates the product and sum </br> of every third integer from 3 to 18 inclusive"
+
+  const output3 = document.getElementById('output3')
+  const output4 = document.getElementById('output4')
+
+  let product1 = 1
+  let sum1 = 0
+  let i = 3
+
+  while (i <= 18) {
+    //console.log(i)
+    product1 = product1 * i
+    //console.log(product1)
+    sum1 = sum1 + i
+    i = i + 3
+  }
+
+
+  let formattedOutput3 = product1.toLocaleString()
+  let formattedOutput4 = sum1.toLocaleString()
+
+  let resultProduct3 = "The result of 5 * 9 * 13 * 17 * 21 * 25 = " + formattedOutput3
+  let resultSum4 = "The result of 5 + 9 + 13 + 17 + 21 + 25 = " + formattedOutput4
+
+  output3.textContent = resultProduct3
+  output4.textContent = resultSum4
+
+</script>
+
+
   
 </body>
 </html>
