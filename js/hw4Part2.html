@@ -33,6 +33,13 @@
       td {
         padding: 10px;
       }
+       
+  
+
+      .imgRate {
+        position: relative;
+        width: 100%;
+      }
     </style>
 </head>
 
@@ -41,12 +48,45 @@
   <h2 class="text-center mt-5">Part 2 | Learn about compound interest</h2>
   <h4 class="text-center ">Home work 4 | Looping Statements</h4>
   <p class="text-center">The formula to calculate the compound interest is:</p>
-  <p class="text-center lead mb-5">A = P(1 + r)
+  <p class="text-center lead">A = P(1 + r)
     <sup>n</sup>
   </p>
+
+    <!-- modal show formula -->
+    <button type="button" 
+            class="btn mb-5 btn-primary vstack mx-auto rounded-1" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+      show formula
+    </button>
  
   <!-- table here -->
   <div id="output"></div>
+
+
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+         
+            <img src="./images/hmw4part2Rates.png" class="imgRate" alt="img">
+         
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
  
   <!-- link back -->
   <a href="../js/hw4.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
@@ -54,7 +94,7 @@
   </a>
 
   
-
+ <!-- script -->
   <script>
    // func to calculate compound interest
     function calculateCompoundInterest(deposit, rate, years) {
