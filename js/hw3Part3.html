@@ -72,10 +72,16 @@
       <input type="submit" 
              value="Enter" 
              onmouseover="greenBG(this)" 
-             onmouseout="normalBG(this)" id="submit">
+             onmouseout="normalBG(this)" 
+             id="submit">
 
       <p id="answer" class="mt-3 fs-5">
       </p>
+
+      <input type="submit"
+             value="Try if again"
+             class="ms-5 mb-3"
+             id="tryItagain" />
 
 
 
@@ -126,6 +132,8 @@
     const submit2 = document.getElementById('proccess') // check if user want to play
     const yes = document.getElementById('yes')
     const no = document.getElementById('no')
+    const again = document.getElementById('tryItagain')
+    again.style.display = 'none'
 
 
     // 2 random nums
@@ -141,6 +149,11 @@
       return Number(result)
     }
 
+    // try it again
+    const tryItagain = () => {
+
+    }
+
     // show result
     const result = () => {
 
@@ -153,6 +166,8 @@
       if(res === '') {
         answer.style.display = 'block'
         answer.textContent = 'Invalid number'
+        submit.style.visibility = 'hidden'
+        again.style.display = 'block'
         return
       }
  
@@ -198,7 +213,7 @@
 
     })
 
-    // dont want play
+    // dont want to play
     no.addEventListener('click', e => {
       e.preventDefault()
       box.style.display = 'none'
@@ -231,6 +246,17 @@
     const focusFunc = (element) => {
       element.style.backgroundColor = 'yellow'
     }
+
+
+    again.addEventListener('click', e => {
+      e.preventDefault()
+
+      input.value = ''
+      submit.style.visibility = 'visible'
+      again.style.display = 'none'
+      
+
+    })
 
   </script>
 
