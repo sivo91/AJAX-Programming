@@ -242,9 +242,10 @@
 
   // calculation specific item
   const calculateItem = (x, y) => {
+    
     let total = x * y
-    return total.toFixed(2)
-
+    let ninePercent = total * 0.09 + 250
+    return ninePercent.toFixed(2)
   }
 
 
