@@ -16,48 +16,12 @@
   <link rel="stylesheet" href="navLinks.css">
 
   <style>
-    .alert {
-      position: fixed;
-      top: 0;
-      width: 100%;
-    }
-
-    form {
-      position: relative;
-      width: 380px;
-      border: 1px solid rgb(221, 221, 221);
-      margin: 0 auto;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .show {
-      display: block;
-    }
-
-    table {
-      position: relative;
-      width: 250px;
-      margin: 0 auto;
-      border: 1px solid gray;
-    }
-
-    table tr,
-    table td,
-    table th {
-      padding-left: 10px;
-      border: 1px solid gray;
-    }
-
-    /* Disable the inner and outer spin buttons */
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      appearance: none;
-      margin: 0;
-    }
+   pre {
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    justify-content: center;
+   }
   </style>
 </head>
 
@@ -66,21 +30,8 @@
   <h2 class="text-center mt-5">Extra Credit</h2>
   <h3 class="text-center">Part 3 | Asterisks</h3>
   <h4 class="text-center mb-5">Home work 4 | Looping Statements</h4>
-  <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
 
-
-
-
-
-
-  <p class="text-center"><input type="button" value="Test While Lopp"></p>
-
-
-
-
-
-
-
+  
   <!-- link back -->
   <a href="../js/hw4.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
     Go Back
@@ -88,37 +39,71 @@
 
 
 
+    <!--  example -->
     <script>
+      
+      let row, rate = 1, stars = 1, spaces = 5, i, j
 
-      var num = 12345.6789;
-      console.log(num)
-      var fn = num.toLocaleString() // 12,345.679
-      console.log(fn)
+      document.write("<pre>")
 
-      const rows = 7; // Number of rows
-      const cols = 5; // Number of columns
+      for(row = 1; row <= 9; row++) {
+            for(i = 1; i < spaces; i++) {
+              document.write(' ')
+             }
 
-      let i = 1;
+            for(j = 1; j <= stars; j++) {
+              document.write('*')
+            }
 
-      while (i <= rows) {
-        let j = 1;
-        let row = '';
+            document.write("</br>")
 
-        while (j <= cols) {
-          if (i === 1 || i === rows || j === 1 || j === cols) {
-            // Place a star on the top, bottom, first column, and last column
-            row += '* ';
-          } else {
-            // Place a space for the interior
-            row += '  ';
-          }
-          j++;
-        }
 
-        console.log(row);
-        i++;
-      }
+            if(row === 5) {
+              rate = rate * -1
+            }
+
+            stars += (2 * rate)
+            spaces -= rate
+         }
+
+
+       document.write("</p>")
+
     </script>
 
+
+   <!-- extra credit -->
+    <script>
+   document.write("<div>");
+
+    const size = 6
+
+        for (let i = 0; i < size; i++) {
+
+          for (let j = 0; j < size; j++) {
+
+            // check if border true, print *
+            if (i === 0 || i === size - 1 || j === 0 || j === size - 1) {
+
+              document.write("* ")
+
+            } else {
+              // if not border true , print space
+              document.write("&nbsp&nbsp;")
+
+            }
+          }
+
+          document.write("<br>")
+        }
+
+        document.write("</div>")
+
+
+    </script>
+
+
+
+    
  </body>
 </html>
