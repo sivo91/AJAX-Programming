@@ -15,9 +15,69 @@
     <link rel="stylesheet" href="linkBack.css">
 </head>
 
+  <style>
+    .hw2Section {
+      position: relative;
+      width: 80%;
+      left: 10%;
+      background-color: rgb(244, 244, 244, 0.4);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  
+    .card-body {
+      position: relative;
+      height: 300px;
+      overflow-y: scroll;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 4px;
+    }
+  
+    ::-webkit-scrollbar-track {
+      background-color: #fff1c500;
+      /* Change to your desired background color */
+    }
+  
+    /* Customize the scrollbar thumb (the draggable part) */
+    ::-webkit-scrollbar-thumb {
+      background:  rgb(236, 212, 31);
+      color: white;
+      border: 1px solid black;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    /* Customize the scrollbar when it's hovered over */
+    
+  
+    /* Customize the scrollbar corner (between vertical and horizontal scrollbars) */
+    ::-webkit-scrollbar-corner {
+      background-color: transparent;
+      /* Change to your desired color */
+    }
+  
+    /* Customize the scrollbar's width and height (optional) */
+    ::-webkit-scrollbar {
+      width: 20px;
+      /* Change to your desired width */
+      height: 10px;
+      /* Change to your desired height */
+    }
+  </style>
+
 <body>
-  <h2 class="text-center my-5">Home Work 5</h2>
-  <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
+  <h2 class="text-center mt-5">Home Work 5</h2>
+  <p class="text-center h3 mb-5">Arrays</p>
+
+
+
+ 
+  <!-- cards -->
+  <div class="hw2Section p-3"></div>
+
+
+
 
   
   <a href="../js/CIS114Assignments.html" 
@@ -27,6 +87,77 @@
   </a>
 
 
-</body>
+  <script>
 
+    const section = document.querySelector('.hw2Section')
+
+    const data = [
+      {
+        title: 'Part1',
+        subTitle: 'Form menu exercise 1',
+        text: `
+               - a group of radio buttons </br>
+               - a group of checkboxes</br>
+               - a select element or datalist (to produce a drop-down list of choices) </br>
+                - a button to submit the form</br>
+                - a button to clear the form.<br>
+               `
+        ,
+        link: '../js/hw5Part1.html'
+      },
+      {
+        title: 'Part2',
+        subTitle: 'Form menu exercise 2',
+        text: `
+             - 2 pulldown menus:</br>
+             - The first pulldown menu should utilize an onchange event handler.</br>
+             - The second pulldown menu should utilize a button with an onclick event handler to navigate to a page after an option is selected.
+             - Each pulldown menu should include at least 3 URL destinations.</br>
+                    `,
+        link: '../js/hw5Part2.html'
+      },
+      {
+        title: 'Part3',
+        subTitle: 'Form menu exercise 3',
+        text: `
+             - a form with an input text box</br>
+             - a button to submit the data</br>
+             - a textarea inside the form or a different element (div or paragraph) where you will write the output/result</br>
+             - he student then types the answer into an input box you will provide.</br>
+             - The user will type the FULL NAME or ABBREVIATION of the state he/she desires to get information</br>
+             - Using the toLowerCase() or toUpperCase() methods.</br>
+             
+                    `,
+        link: '../js/hw5Part3.html'
+      }
+    ]
+
+    const output = data.map(item => {
+      const { title, subTitle, text, link } = item
+
+      return `
+         <div class="card m-2 p-3" style="width: 350px;">
+                 <h5 class="text-center">${title}</h5>
+                  <p class="text-center ">${subTitle}</p>
+                  <p class="card-body">
+                  ${text}
+                  </p>
+                
+                  <a href="${link}" style="text-decoration: none; width: 200px; max-height: 40px; " class=" btn btn-warning border-dark vstack mx-auto mt-auto">
+                    See The Project
+                  </a>
+            </div>
+      `
+    }).join('')
+
+    section.innerHTML = output
+
+
+
+
+
+  </script>
+
+
+ </body>
 </html>
