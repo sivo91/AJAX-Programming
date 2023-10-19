@@ -17,16 +17,84 @@
 
 </head>
 
+<style>
+  .panel {
+    position: relative;
+    width: 400px;
+    margin: 60px auto;
+  }
+
+
+</style>
+
 <body>
 
   <h2 class="text-center mt-5">Part 2 | Arrays</h2>
   <h4 class="text-center">Home work 5</h4>
-  <p class="text-center mb-5">Form menu exercise 2</p>
+  <p class="text-center mb-5">Redirecting form</p>
+
+  <h5 class="text-center text-dark lead fw-semibold">My Projects:</h5>
+
+
+  <div class="panel border shadow p-3 rounded-2">
+
+    <!-- first menu , automatic redirection -->
+    <label for="menu1">Menu 1 | You will be redirected automatically.</label><br>
+    <select id="menu1" onchange="navigate(this.value)">
+      <option value="">Select a Website</option>
+      <option value="https://www.charismawebdevelopment.com/">CharisMa Web Development</option>
+      <option value="https://full-world-cup-23.vercel.app/">Hockey Championship 2023</option>
+      <option value="https://ts-crud.vercel.app/">TS CRUD & MongoDB</option>
+      <option value="https://bool-app.vercel.app/">Villa Dalmatina</option>
+      <option value="https://cabin-lake-tahoe.vercel.app/">South Lake Tahoe | Booking App</option>
+      <option value="https://data-modeling2-typescript-tailwindcss.vercel.app/">
+        Data Modeling | TypeScript
+      </option>
+      <option value="https://dev-sleeperwave-films.pantheonsite.io/">
+        Sleeperwave Films | WordPress
+      </option>
+      <option value="https://dev-peters.pantheonsite.io/">
+        Ancient Greek Civilization | WordPress
+      </option>
+    </select>
+    
+    <br><hr>
+    
+     <!-- second menu manual redirecting -->
+    <label for="menu2">Menu 2 | Select an option and press 'Go'</label><br>
+    <select id="menu2">
+      <option value="">Select a Website</option>
+      <option value="https://quizzes-liart.vercel.app/">Hockey Quiz</option>
+      <option value="https://photo-studio-two.vercel.app/">Photo Studio</option>
+      <option value="https://comment-app-amber.vercel.app/">Comment App + MongoDB</option>
+      <option value="https://dog-care-iota.vercel.app/">Looking for DogSitter</option>
+      <option value="https://cms-final-repo.vercel.app/">CMS - Santa Rosa Junior College</option>
+    </select>
+
+    <button onclick="navigate(document.getElementById('menu2').value)"
+            class="btn btn-primary btn-sm ms-3">
+      Go!
+    </button>
+
+  </div>
+
+
+  <script>
+    function navigate(website) {
+      if (website) {
+        window.open(website, '_blank')
+      }
+    }
+  </script>
+
+
 
 
 
   <!-- link back -->
-  <a href="../js/hw5.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
+  <a href="../js/hw5.html" 
+     class="btn btn-dark rounded-1 vstack mx-auto my-5" 
+     style="width: 150px;">
     Go Back
   </a>
 

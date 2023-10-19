@@ -15,27 +15,188 @@
   <link rel="stylesheet" href="linkBack.css">
   <link rel="stylesheet" href="navLinks.css">
 
+  <style>
+    form {
+      position: relative;
+      width: 400px ;
+      margin: 70px auto;
+    }
+
+     #fullName {
+            border: none;          
+            border-bottom: 2px solid black; 
+            outline: none;       
+        }
+
+        /*  hover effect */
+        #fullName:hover {
+            border-bottom: 2px solid blue;
+        }
+
+        /*  focus effect */
+        #fullName:focus {
+            border-bottom: 2px solid red;
+        }
+
+        .outputBox {
+          position: relative;
+          width: 350px;
+          margin: 0 auto;
+        }
+  </style>
+
 </head>
 
 <body>
 
   <h2 class="text-center mt-5">Part 1 | Arrays</h2>
   <h4 class="text-center">Home work 5</h4>
-  <p class="text-center mb-5">Form menu exercise 1</p>
+   <p class="text-center mb-5">Multiple options form</p>
+
+
+
+
+  <form id="userForm" class="border p-3 shadow">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName">
+    <hr>
+    
+  
+    <h6 class="lead">Select Age Group:</h6>
+
+    <input type="radio" id="less21" name="ageGroup" value="less21">
+    <label for="less21">Less than 21</label><br>
+    <input type="radio" id="between21and50" name="ageGroup" value="between21and50">
+    <label for="between21and50">Between 21 and 50</label><br>
+    <input type="radio" id="older50" name="ageGroup" value="older50">
+    <label for="older50">Older than 50</label>
+    <hr>
+  
+    <h6 class="lead">Select Browsers Used:</h6>
+    <input type="checkbox" id="firefox" name="browser" value="Firefox">
+    <label for="firefox">Firefox</label><br>
+    <input type="checkbox" id="edge" name="browser" value="Edge">
+    <label for="edge">Edge</label><br>
+    <input type="checkbox" id="chrome" name="browser" value="Chrome">
+    <label for="chrome">Chrome</label><br>
+    <input type="checkbox" id="safari" name="browser" value="Safari">
+    <label for="safari">Safari</label>
+    <hr>
+
+    <label for="movieType" class="h6 lead ">Preferred Movie Type:</label><br>
+    <select id="movieType" class="my-3" name="movieType">
+      <option value="" class="bg-primary text-white">Select Movie</option>
+      <option value="Action">Action</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Drama">Drama</option>
+      <option value="Documentary">Documentary</option>
+      <option value="Science Fiction">Science Fiction</option>
+    </select>
+    <br><br>
+  
+    <div class="d-flex justify-content-center gap-3">
+      <input type="button" value="Submit" id="submit">
+      <input type="button" value="Clear Form" id="reset">
+    </div>
+  </form>
+  
+  <p id="output" class="text-center"></p>
+  
+  <div id="print" class="outputBox">
+
+  </div>
+  
+  <script>
+
+      const fullName = document.getElementById('fullName')
+      const movieType = document.getElementById("movieType")
+      const output = document.getElementById('output')
+      const data = document.getElementById('print')
+      const submit = document.getElementById('submit')
+
+
+      submit.addEventListener('click', e => {
+        e.preventDefault()
+
+        //  must be inside of function else not working
+        const selectedAgeGroupElement = document.querySelector('input[name="ageGroup"]:checked')
+        const selectedBrowsersElements = document.querySelectorAll('input[name="browser"]:checked')
+
+        // check if value is empty
+        if (fullName.value.length < 1) {
+          output.innerText = 'Please enter your full name.'
+          return
+        }
+
+        if (!selectedAgeGroupElement) {
+          output.innerText = 'Please select an age group.'
+          return
+        }
+
+        if (selectedBrowsersElements.length === 0) {
+          output.innerText = 'Please select at least one browser.'
+          return
+        }
+        if (!movieType.value) {
+          output.innerText = 'Please select your preferred movie type.'
+          return
+        }
+
+
+        // find browser
+        let selectedBrowsers = Array.from(selectedBrowsersElements).map(checkbox => checkbox.value).join(', ')
+
+        // find age
+        let ageGroupValue = selectedAgeGroupElement.value
+
+        let message = `Name: ${fullName.value} <br>
+                       Age Group: ${ageGroupValue} <br>
+                       Browsers Used: ${selectedBrowsers} <br>
+                       Preferred Movie Type: ${movieType.value}`
+        
+    
+
+        output.textContent = 'Thanks, your data was submitted!'
+        data.innerHTML = `${message}`
+
+      })
+
+     
+
+      
+    
+
+    document.getElementById('reset').addEventListener('click', e => {
+      e.preventDefault()
+
+      const fullName = document.getElementById('fullName')
+      const ageGroupElements = document.querySelectorAll('input[name="ageGroup"]')
+      const browsersElements = document.querySelectorAll('input[name="browser"]')
+      const movieType = document.getElementById("movieType")
+
+      fullName.value = ''
+      ageGroupElements.forEach(element => element.checked = false)
+      browsersElements.forEach(element => element.checked = false)
+      movieType.selectedIndex = 0
+      document.getElementById('output').innerText = ''
+      document.getElementById('print').textContent = ''
+    });
+
+
+  </script>
+
 
 
 
   <!-- link back -->
-  <a href="../js/hw5.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
-    Go Back
+  <a href="../js/hw5.html" 
+     class="btn btn-dark rounded-1 vstack mx-auto my-5" 
+     style="width: 150px;">
+     Go Back
   </a>
 
 
-  <!-- script 1 -->
-  <script>
-   
 
-  </script>
 
 
 
