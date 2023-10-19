@@ -23,15 +23,21 @@
       }
     
       table,
-      th,
-      td {
+      th, td {
         border: 1px solid black;
         text-align: center;
       }
+
+      tr:first-child {
+        background-color: rgb(225, 225, 225);
+      } 
     
-      th,
-      td {
+      th, td {
         padding: 10px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f7f7f7;
       }
        
   
@@ -169,7 +175,7 @@
 
         const deposit = 1000;
         const rates = [5, 6, 7];
-        const years = 4;
+        const years = 5;
 
         for (let i = 0; i < rates.length; i++) {
          // grab index
@@ -207,7 +213,7 @@
 
             // 3rd field in row rate
             const rateCell = row.insertCell(2);
-            rateCell.textContent = rate / 100 + '%';
+            rateCell.textContent = rate + '%';
           }
 
           // show table to the world
