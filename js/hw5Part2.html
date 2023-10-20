@@ -40,7 +40,7 @@
 
     <!-- first menu , automatic redirection -->
     <label for="menu1">Menu 1 | You will be redirected automatically.</label><br>
-    <select id="menu1" onchange="navigate(this.value)">
+    <select id="menu1" onChange="goToNewPage(this);">
       <option value="" class="bg-warning">Select a Website</option>
       <option value="https://www.charismawebdevelopment.com/">CharisMa Web Development</option>
       <option value="https://full-world-cup-23.vercel.app/">Hockey Championship 2023</option>
@@ -70,22 +70,40 @@
       <option value="https://dog-care-iota.vercel.app/">Looking for DogSitter</option>
       <option value="https://cms-final-repo.vercel.app/">CMS - Santa Rosa Junior College</option>
     </select>
-
-    <button onclick="navigate(document.getElementById('menu2').value)"
-            class="btn btn-primary btn-sm ms-3">
+    
+    <button id="goBtn" class="btn btn-primary btn-sm ms-3">
       Go!
     </button>
+    
+    <script>
+ 
+       
 
-  </div>
+      // first manu
+      const goToNewPage = (index) => {
+          const myDestination = index.options[index.selectedIndex].value
+          if (myDestination) {
+            window.open(myDestination, '_blank')
+          }
+        }
+
+     
+      // second menu
+      const menu2 = document.getElementById('menu2')
+      const goBtn = document.getElementById('goBtn')
+
+      goBtn.addEventListener('click', e => {
+        //const website = menu2.value  
+        const website = menu2.options[menu2.selectedIndex].value
+        if (website) {
+          window.open(website, '_blank')
+        }
+      })
 
 
-  <script>
-    function navigate(website) {
-      if (website) {
-        window.open(website, '_blank')
-      }
-    }
-  </script>
+
+    </script>
+
 
 
 
@@ -95,14 +113,6 @@
      style="width: 150px;">
     Go Back
   </a>
-
-
-  <!-- script 1 -->
-  <script>
-
-
-  </script>
-
 
 
 </body>

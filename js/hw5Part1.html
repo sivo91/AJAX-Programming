@@ -58,7 +58,10 @@
 
   <form id="userForm" class="border p-3 shadow">
     <label for="fullName">Full Name:</label>
-    <input type="text" id="fullName" name="fullName">
+    <input type="text" 
+           id="fullName" 
+           onpointerdown="focusFunc(this)"
+           name="fullName">
     <hr>
     
   
@@ -95,8 +98,19 @@
     <br><br>
   
     <div class="d-flex justify-content-center gap-3">
-      <input type="button" value="Submit" id="submit">
-      <input type="button" value="Clear Form" id="reset">
+      <input type="button" 
+             value="Submit" 
+             class="rounded-1 border-1"
+             onmouseover="greenBG(this)" 
+             onmouseout="normalBG(this)"
+             id="submit">
+
+      <input type="button" 
+             value="Clear Form" 
+             class="rounded-1 border-1"
+             onmouseover="redBG(this)" 
+             onmouseout="normalBG(this)"
+             id="reset">
     </div>
   </form>
   
@@ -180,7 +194,29 @@
       movieType.selectedIndex = 0
       document.getElementById('output').innerText = ''
       document.getElementById('print').textContent = ''
+      fullName.style.backgroundColor = 'white'
     });
+
+
+
+    const focusFunc = (element) => {
+        element.style.backgroundColor = 'yellow'
+      }
+
+     const greenBG = (element) => {
+        element.style.backgroundColor = 'green'
+        element.style.color = 'white'
+      }
+
+      const redBG = (element) => {
+        element.style.backgroundColor = 'red'
+        element.style.color = 'white'
+      }
+
+      const normalBG = (element) => {
+        element.style.backgroundColor = ''
+        element.style.color = 'black'
+      }
 
 
   </script>
