@@ -70,7 +70,6 @@
 
 
 
-
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -117,7 +116,7 @@
     }
 
     // generate tables for different interest rates
-/*   function generateTables() {
+/*    const table = () => {
       const deposit = 1000
       const rates = [5, 6, 7]
       const years = 4
@@ -171,28 +170,28 @@
 
     // or only for loops
    
-    function generateTables() {
+    const table = () => {
 
-        const deposit = 1000;
-        const rates = [5, 6, 7];
-        const years = 5;
+        const deposit = 1000
+        const rates = [5, 6, 7]
+        const years = 5
 
         for (let i = 0; i < rates.length; i++) {
          // grab index
-          const rate = rates[i];
+          const rate = rates[i]
           // create table
-          const table = document.createElement('table');
+          const table = document.createElement('table')
           // create row = tr
-          const tr = table.insertRow(0);
+          const tr = table.insertRow(0)
           // create 1st field in row = Year 
-          const tdYear = tr.insertCell(0);
-          tdYear.textContent = 'Year';
+          const tdYr = tr.insertCell(0)
+          tdYr.textContent = 'Year'
           // create 2nd field in row = Amount on deposit
-          const tdAmount = tr.insertCell(1);
-          tdAmount.textContent = 'Amount on deposit';
+          const tdAmount = tr.insertCell(1)
+          tdAmount.textContent = 'Amount on deposit'
           // last field in row reates
-          const tdRates = tr.insertCell(2);
-          tdRates.textContent = 'Interest Rate';
+          const tdRates = tr.insertCell(2)
+          tdRates.textContent = 'Interest Rate'
 
 
           // loop 4 times to calc and insert amount of each year
@@ -201,19 +200,19 @@
              create row for each table = 
              first loop, 3 times (line 132) and now looping years = 4 times = 12 rows
            */
-            const row = table.insertRow(j);
+            const row = table.insertRow(j)
             // 1st field in row 
-            const yearCell = row.insertCell(0);
-            yearCell.textContent = j;
+            const yearCell = row.insertCell(0)
+            yearCell.textContent = j
 
             // 2nd field in row amount
-            const amountCell = row.insertCell(1);
-            const calculatedAmount = calculateCompoundInterest(deposit, rate, j);
-            amountCell.textContent = '$' + calculatedAmount.toFixed(2);
+            const amountCell = row.insertCell(1)
+            const calculatedAmount = calculateCompoundInterest(deposit, rate, j)
+            amountCell.textContent = '$' + calculatedAmount.toFixed(2)
 
             // 3rd field in row rate
             const rateCell = row.insertCell(2);
-            rateCell.textContent = rate + '%';
+            rateCell.textContent = rate / 100
           }
 
           // show table to the world
@@ -221,7 +220,9 @@
         }
       } 
 
-    window.onload =  generateTables;
+    window.onload =  table
+
+
   </script>
 
 
