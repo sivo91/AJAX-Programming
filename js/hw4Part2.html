@@ -115,60 +115,6 @@
       return deposit * Math.pow( 1 + (rate / 100), years)
     }
 
-    // generate tables for different interest rates
-/*    const table = () => {
-      const deposit = 1000
-      const rates = [5, 6, 7]
-      const years = 4
-
-
-
-     rates.forEach(rate => {
-        // create table element
-        const table = document.createElement('table')
-        // tr
-        const tr = table.insertRow(0)
-        // td - first cell - year
-        const tdYear = tr.insertCell(0)
-        tdYear.textContent = 'Year'
-        const tdAmount = tr.insertCell(1)
-        //td - second cell - amount
-        tdAmount.textContent = 'Amount on deposit'
-        // td - third cell - rate
-        const tdRate = tr.insertCell(2)
-        tdRate.textContent = 'Interest Rate '
-
-        // for loop 
-        for (let i = 1; i <= years; i++) {
-          // single row in each table
-          const row = table.insertRow(i)
-
-          // single td in row, represent years
-          const yearCell = row.insertCell(0)
-          yearCell.textContent = i
-
-          // second fild in row td, field for amount
-          const amountCell = row.insertCell(1)
-
-          //calculation rates for each year with interest - deposit, interest , index
-          const calculatedAmount = calculateCompoundInterest(deposit, rate, i)
-    
-          // insert result to second field in row
-          amountCell.textContent = '$' + calculatedAmount.toFixed(2)
-
-          // show rates
-          const rateCell = row.insertCell(2)
-          rateCell.textContent = rate / 100 + ' ' + '%'
-        }
-        
-        // show table to the world
-        document.getElementById('output').appendChild(table)
-       })    
-      }
- */
-    
-
-    // or only for loops
    
     const table = () => {
 
@@ -212,7 +158,7 @@
 
             // 3rd field in row rate
             const rateCell = row.insertCell(2);
-            rateCell.textContent = rate / 100
+            rateCell.textContent = rate + '%'
           }
 
           // show table to the world
@@ -224,6 +170,7 @@
 
 
   </script>
+
 
 
  </body>

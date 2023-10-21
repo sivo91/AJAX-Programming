@@ -78,15 +78,10 @@
       </div>
   </form>
 
-
      <!-- alert -->
     <div class="text-center">
       <p id="output" class="lead fs-1"></p>
     </div>
-
-
-
-
 
     <!-- link back -->
     <a href="../js/hw4.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
@@ -123,24 +118,22 @@
          output.innerHTML = ''
 
          // logic 
-            if (n >= 2 && n <= 10) {
-                for (let i = 0; i < n; i++) {
-                  for (let j = 0; j < n; j++) {
-                    if (i === 0 || i === n - 1 || j === 0 || j === n - 1) {
-                      output.innerHTML += '* '
-                    } else {
-                      output.innerHTML += '  '
-                    }
+          if (n >= 2 && n <= 10) {
+              for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n; j++) {
+                  if (i === 0 || i === n - 1 || j === 0 || j === n - 1) {
+                    output.innerHTML += '* '
+                  } else {
+                    output.innerHTML += '  '
                   }
-                  output.innerHTML += `<br>`
                 }
+                output.innerHTML += `<br>`
               }
+            }
        })
 
       
-
-
-     // clear fields
+     // remove staaaaars
      document.getElementById('reset').addEventListener('click', e => {
       e.preventDefault()
       output.textContent = ''
