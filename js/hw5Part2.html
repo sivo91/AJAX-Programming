@@ -80,13 +80,28 @@
  
        
 
-      // first manu
-      const goToNewPage = (index) => {
-          const myDestination = index.options[index.selectedIndex].value
-          if (myDestination) {
-            window.open(myDestination, '_blank')
+      // first menu, grab select menu id
+      const menu1 = document.getElementById('menu1')
+      
+      // great example here for THIS keyword and arrow funciton 
+      // it doesnt work!!!
+     /*  menu1.addEventListener('change', () => {
+          const destination = this.options[this.selectedIndex].value
+          if (destination) {
+            window.open(destination, '_blank')
           }
-        }
+        }) */
+
+      // must use "function ()"
+       menu1.addEventListener('change', function() {
+            // we can just grap value or second method line 100
+            // const destination = this.value
+
+             const destination = this.options[this.selectedIndex].value
+
+             window.open(destination, '_blank')
+            
+          })
 
      
       // second menu
@@ -96,9 +111,9 @@
       goBtn.addEventListener('click', e => {
         //const website = menu2.value  
         const website = menu2.options[menu2.selectedIndex].value
-        if (website) {
-          window.open(website, '_blank')
-        }
+     
+         window.open(website, '_blank')
+        
       })
 
 
