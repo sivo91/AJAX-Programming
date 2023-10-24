@@ -98,15 +98,7 @@
 
 
 
-
-
-
-
-
-
-
-
-  <!-- script USA with two-dimensional arr -->
+  <!-- script USA States with two-dimensional arr -->
   <script>
 
  
@@ -117,7 +109,8 @@
     ['AZ', 'Arizona', 'Phoenix', '7278717'],
     ['AR', 'Arkansas', 'Little Rock', '3017825'],
     ['CA', 'California', 'Sacramento', '39512223'],
-    ['CO', 'Colorado', 'Denver', '5758736']
+    ['CO', 'Colorado', 'Denver', '5758736'],
+    ['State Abbr', 'State Name', 'Capital', 'Population']
   ]
 
     const btn = document.getElementById('btn')
@@ -136,11 +129,11 @@
                  "<br>" +
                  "<table class='mb-5'>" +
                    "<thead>" +
-                      "<tr>" +
-                        `<th>State Abbr</th>` +
-                        "<th>State Name</th>" +
-                        "<th>Capital</th>" +
-                        "<th>Population</th>" +
+                      "<tr>" + 
+                        `<th>${usaStates[6][0]}</th>` +
+                        `<th>${usaStates[6][1]}</th>` +
+                        `<th>${usaStates[6][2]}</th>` +
+                        `<th>${usaStates[6][3]}</th>` +
                       "</tr>" + 
                     "</thead>" +
                     " <tbody>" +
@@ -159,6 +152,7 @@
 
     }
 
+    // alert invalid input
     const invalidRequest = () => {
        alerto.innerHTML = '<p>Sorry, we do not have information about this state! We only have information about:</p>' +
         '<p>Alabama</p>' +
@@ -377,9 +371,6 @@
 
 
   </script> -->
-
-
-  
 
 
 
