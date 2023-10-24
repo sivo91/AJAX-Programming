@@ -123,7 +123,7 @@
     const showCity = (result) => {
       console.log(result)
 
-     let table = "";
+     let table = ""
 
        table += "<p class='text-center mt-5'> Thanks for your inquiry, here is the information you requested: </p>" + 
                  "<br>" +
@@ -155,11 +155,11 @@
     // alert invalid input
     const invalidRequest = () => {
        alerto.innerHTML = '<p>Sorry, we do not have information about this state! We only have information about:</p>' +
-        '<p>Alabama</p>' +
-        '<p>Alaska</p>' +
-        '<p>Arizona</p>' +
-        '<p>California</p>' +
-        '<p>Colorado</p>' 
+        `<p>${usaStates[0][1]}</p>` +
+        `<p>${usaStates[1][1]}</p>` +
+        `<p>${usaStates[2][1]}</p>` +
+        `<p>${usaStates[3][1]}</p>` +
+        `<p>${usaStates[4][1]}</p>` 
 
 
        input.value = ''
