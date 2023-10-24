@@ -109,41 +109,7 @@
   <!-- script USA with two-dimensional arr -->
   <script>
 
-   // use Object
-    const euStates = [
-      {
-        state: 'SVK',
-        name: 'Slovakia',
-        capital: 'Bratislava',
-        population: '424248'
-      },
-      {
-        state: 'CZ',
-        name: 'Czech Republic',
-        capital: 'Prag',
-        population: '1309246'
-      },
-      {
-        state: 'AUS',
-        name: 'Austria',
-        capital: 'Wienna',
-        population: '1897563'
-      },
-      {
-        state: 'HU',
-        name: 'Hungary',
-        capital: 'Budapest',
-        population: '1756895'
-      },
-      {
-        state: 'PL',
-        name: 'Poland',
-        capital: 'Warsaw',
-        population: '1756852'
-      }
-    ]
-
-
+ 
   // usa two-dimensional array
   const usaStates = [
     ['AL', 'Alabama', 'Montgomery', '4903185'],
@@ -242,8 +208,8 @@
     btn.addEventListener('click', e => {
       e.preventDefault()
     
-      const value = input.value
-      //console.log(value)
+      const value = input.value.toLowerCase()
+      console.log(value)
     
       euValidation(value)
   
