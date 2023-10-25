@@ -28,7 +28,7 @@
         text-align: center;
       }
 
-      tr:first-child {
+       th {
         background-color: rgb(225, 225, 225);
       } 
     
@@ -69,7 +69,7 @@
   <div id="output"></div>
 
 
-
+<!-- modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -101,77 +101,11 @@
   </a>
 
 
-
-<!-- 
-  <script>  solution 1
-    function calculateCompoundInterest(deposit, rate, years) {
-        return deposit * Math.pow(1 + (rate / 100), years);
-      }
-
-      const table = () => {
-        const deposit = 1000;
-        const rates = [5, 6, 7];
-        const years = 5;
-
-        for (let i = 0; i < rates.length; i++) {
-          const rate = rates[i];
-          const tableElem = document.createElement('table');
-
-          const tr = document.createElement('tr');
-          tableElem.appendChild(tr);
-
-          const thYr = document.createElement('th');
-          thYr.textContent = 'Year';
-          tr.appendChild(thYr);
-
-          const thAmount = document.createElement('th');
-          thAmount.textContent = 'Amount on deposit';
-          tr.appendChild(thAmount);
-
-          const thRates = document.createElement('th');
-          thRates.textContent = 'Interest Rate';
-          tr.appendChild(thRates);
-
-          for (let j = 1; j <= years; j++) {
-            const row = document.createElement('tr');
-            tableElem.appendChild(row);
-
-            const yearCell = document.createElement('td');
-            yearCell.textContent = j;
-            row.appendChild(yearCell);
-
-            const amountCell = document.createElement('td');
-            const calculatedAmount = calculateCompoundInterest(deposit, rate, j);
-            amountCell.textContent = '$' + calculatedAmount.toFixed(2);
-            row.appendChild(amountCell);
-
-            const rateCell = document.createElement('td');
-            rateCell.textContent = rate + '%';
-            row.appendChild(rateCell);
-          }
-          document.getElementById('output').appendChild(tableElem);
-        }
-      };
-
-     document.addEventListener("DOMContentLoaded", function () {
-        table();
-      });
-
-  </script>
- -->
-
   
- <!-- script2  interesting soltion -->
-  <script>
+ <!-- script -->
+<!--   <script>
    // func to calculate compound interest
     function calculateCompoundInterest(deposit, rate, years) {
-      /* 
-       1 + (rate / 100)
-       rate / 100 = 0.05, I need to add 1 to get result 1.05,
-       now I can calculate 1000 * 1.05, or 1000 * 1.06 ....
-       if I omit 1 + (...) ,
-       I am getting only year rate 1000 * 0.05 without amount
-      */
       return deposit * Math.pow( 1 + (rate / 100), years)
     }
 
@@ -228,47 +162,57 @@
 
     window.onload =  table 
 
+  </script> -->
+
+
+  <script>
+    // another method to print table, use IFFI function
+    const extraMoney = (deposit, rate, years) => {
+      return deposit * Math.pow(1 + (rate / 100), years);
+    }
+
+   ( function printTables () {
+      const deposit = 1000
+      const rates = [5, 6, 7]
+      const years = 5
+      let tablesHTML = ''
+
+      rates.forEach(rate => {
+        let tableHTML = `
+              <table>
+                  <thead>
+                      <tr>
+                          <th>Year</th>
+                          <th>Amount on deposit</th>
+                          <th>Interest Rate</th>
+                      </tr>
+                  </thead>
+                <tbody>
+              `
+
+        for (let j = 1; j <= years; j++) {
+          const calculatedAmount = extraMoney(deposit, rate, j)
+          tableHTML += `
+                      <tr>
+                          <td>${j}</td>
+                          <td>$${calculatedAmount.toFixed(2)}</td>
+                          <td>${rate}%</td>
+                      </tr>
+                  `
+        }
+
+        tableHTML += `</tbody></table>`
+        tablesHTML += tableHTML
+      })
+
+      document.getElementById('output').innerHTML = tablesHTML
+    })()
+
+    
+   
   </script>
 
 
-
- <!-- PROFESSOR'S SOLUTION -->
-
-<!--   <div id="output"></div>
-  
-  <script>
-    var finalTables = "";
-    var amountAccum;
-    var ammountPrincipal = 1000;
-    var ammountAccumFinal;
-
-    for (let i = 5; i <= 7; i++) {
-      ammountAccum = 1000;
-
-      finalTables += "<table>" + 
-                   "<caption>Based on interest rate of " + i + "%</caption>" + 
-                    "<tr>" + 
-                       "<th>Year</th>" + 
-                       "<th>Amount</th>" + 
-                       "<th>Interest Rate</th>" + 
-                    "</tr>";
-
-                    for (let r = 1; r <= 5; r++) {
-                      ammountAccum = ammountPrincipal * ((1 + (i / 100)) ** r);
-                      ammountAccumFinal = ammountAccum.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-                      
-                      finalTables += "<tr>" + 
-                                        "<td>" + r + "</td>" + 
-                                        "<td>" + ammountAccumFinal + "</td>" + 
-                                        "<td>" + i + "%</td>" + 
-                                      "</tr>";
-                    }
-
-      finalTables += "</table>"
-    }
-
-    document.getElementById("output").innerHTML = finalTables;
-  </script> -->
 
 
  </body>

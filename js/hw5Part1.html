@@ -164,14 +164,10 @@
         //  must be inside addEv...Listener
         const age = document.querySelector('input[name="ageGroup"]:checked')
 
-       /*  I can use just querySelector and grab value
+       // I can use just querySelector and grab value
         const browser = document.querySelector('input[name="browser"]:checked')
-        console.log('value', browser.value) */
+        console.log('value', browser.value)
        
-        // or querySelectorALL but I have to find selected value
-        const browser = document.querySelectorAll('input[name="browser"]:checked')
-        
-        
 
         // validation
         if (fullName.value.length < 1) {
@@ -195,10 +191,6 @@
         }
 
 
-        // find browser using fancy Array.from
-        let browsers = Array.from(browser).map(checkbox => checkbox.value).join(', ')
-        console.log(browsers)
-
      
         // find age
         let ageValue = age.value
@@ -206,11 +198,10 @@
 
         let message = `Name: ${fullName.value} <br>
                        Age Group: ${ageValue} <br>
-                       Browsers Used: ${browsers} <br>
+                       Browsers Used: ${browser.value} <br>
                        Preferred Movie Type: ${movieType.value}`
         
     
-
         output.textContent = 'Thanks, your data was submitted!'
         data.innerHTML = `${message}`
 
