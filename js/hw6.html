@@ -13,14 +13,72 @@
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="linkBack.css">
+    <link rel="stylesheet" href="navLinks.css">
+
+
+
+    <style>
+      .hw2Section {
+        position: relative;
+        width: 80%;
+        left: 10%;
+        background-color: rgb(244, 244, 244, 0.4);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+    
+      .card-body {
+        position: relative;
+        height: 300px;
+        overflow-y: scroll;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: 4px;
+      }
+    
+      ::-webkit-scrollbar-track {
+        background-color: #fff1c500;
+        /* Change to your desired background color */
+      }
+    
+      /* Customize the scrollbar thumb (the draggable part) */
+      ::-webkit-scrollbar-thumb {
+        background: rgb(223, 218, 223);
+        color: white;
+        border: 1px solid black;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    
+      /* Customize the scrollbar when it's hovered over */
+    
+    
+      /* Customize the scrollbar corner (between vertical and horizontal scrollbars) */
+      ::-webkit-scrollbar-corner {
+        background-color: transparent;
+        /* Change to your desired color */
+      }
+    
+      /* Customize the scrollbar's width and height (optional) */
+      ::-webkit-scrollbar {
+        width: 20px;
+        /* Change to your desired width */
+        height: 10px;
+        /* Change to your desired height */
+      }
+    </style>
  
 </head>
 
 <body>
-  <h2 class="text-center my-5">Home Work 6</h2>
-  <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
+  <h2 class="text-center mt-5">Home Work 6</h2>
+  <p class="text-center h3 mb-5">"Object"</p>
 
  
+
+  <!-- cards -->
+  <div class="hw2Section p-3"></div>
+
 
   
   <a href="../js/CIS114Assignments.html" 
@@ -28,6 +86,73 @@
      style="width: 150px;">
     Go Back
   </a>
+
+    <script>
+
+      const section = document.querySelector('.hw2Section')
+
+      const data = [
+        {
+          title: 'Part1',
+          subTitle: 'Math.(round, sqrt, floor, toFixed())',
+          text: `
+                   - a form that will have </br>
+                   - an input box for the user to enter a number with 4 decimals</br>
+                   - a button to submit the data </br>
+                    - a button to clear the form</br>
+                    - a textarea (or another element outside the form - div or paragraph) where you will write the output/result<br>
+                    - make sure that the number has AT LEAST 4 decimal positions (no less than that)</br>
+                    
+                   `
+          ,
+          link: '../js/hw6Part1.html'
+        },
+        {
+          title: 'Part2',
+          subTitle: 'charAt() + new window()',
+          text: `
+                 - user will type whatever content he/she wants in the textarea</br>
+                 - Search for the character the user typed inside the content in the textarea and you will count how many times this character is shown in the big content</br>
+                 - how many times the character X shows up in the content</br>
+                 - If the character is not found, you will present a new window (using the window.open() method you learned), the message: "Search character X not found in the content you typed"</br>
+                        `,
+          link: '../js/hw6Part2.html'
+        },
+        {
+          title: 'Part3',
+          subTitle: 'Split() method + jQuery',
+          text: `
+                 - To help the user type the phone number and then the number being typed will adjust automatically to the format you are requiring</br>
+                  `,
+          link: '../js/hw6Part3.html'
+        }
+      ]
+
+      const output = data.map(item => {
+        const { title, subTitle, text, link } = item
+
+        return `
+             <div class="card m-2 p-3" style="width: 350px;">
+                     <h5 class="text-center">${title}</h5>
+                      <p class="text-center ">${subTitle}</p>
+                      <p class="card-body">
+                      ${text}
+                      </p>
+                    
+                      <a href="${link}" style="text-decoration: none; width: 200px; max-height: 40px; " class=" btn btn-outline-dark border-dark vstack mx-auto mt-auto">
+                        See The Project
+                      </a>
+                </div>
+          `
+      }).join('')
+
+      section.innerHTML = output
+
+
+
+
+
+    </script>
 
 
 </body>
