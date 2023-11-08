@@ -161,11 +161,11 @@
       alerto('')
       const num  = parseFloat(value)
 
-      const rounded = Math.round(num)
+      const rounded = Math.floor(num)
       const square = Math.round(Math.sqrt(num))
-      const oneDecimal = Math.round(num * 10) / 10
-      const twoDecimal = Math.round(num * 100) / 100
-      const threeDecimal = Math.round(num * 1000) / 1000
+      const oneDecimal = num.toFixed(1)
+      const twoDecimal = num.toFixed(2)
+      const threeDecimal = num.toFixed(3)
 
       // use p tag , it gives me new line automaticly
        output.innerHTML =  
