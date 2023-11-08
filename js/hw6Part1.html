@@ -47,7 +47,11 @@
       <label for="number" class="fs-5">
         Enter number with 4 decimal - 4.3264
       </label><br>
-      <input type="number" min="4" class="p-2 w-100" id="number">
+      <input type="number" 
+             min="4" 
+             class="p-2 w-100"
+             onfocus="focusFunc(this)"
+             id="number">
   
       <!--  btns box -->
       <div class="d-flex justify-content-evenly">
@@ -189,7 +193,7 @@
   
      })
 
-
+    
   
     // reset fields
     reset.addEventListener('click', e => {
@@ -201,6 +205,11 @@
     })
 
 
+    // clear alert when user wants fix error
+    const focusFunc = (element) => {
+      alerto('')
+    }
+    
   </script>
 
 
