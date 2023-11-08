@@ -16,7 +16,17 @@
   <link rel="stylesheet" href="navLinks.css">
 
   <style>
-  
+    form {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    .output {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto;
+    }
   </style>
 
 </head>
@@ -28,7 +38,40 @@
   <p class="text-center mb-5">Math.(round, sqrt, floor, toFixed())</p>
 
 
+ 
+  <!-- input form  -->
+  <form class="border rounded-2 shadow my-5 p-3">
+  
+    <div class="mb-3">
+  
+      <label for="number" class="fs-5">
+        Enter number with 4 decimal - 4.3264
+      </label><br>
+      <input type="number" min="4" class="p-2 w-100" id="number">
+  
+      <!--  btns box -->
+      <div class="d-flex justify-content-evenly">
+        <button class="btn btn-outline-secondary mx-1 px-5 mt-3 rounded-1" id="btn" type="submit">
+          Submit
+        </button>
+  
+        <button class="btn btn-outline-danger mx-1 px-5 mt-3 rounded-1" id="reset">
+          Reset
+        </button>
+      </div>
+  
+      <!-- alert -->
+      <div id="alerto" class="text-center lead text-danger fw-semibold mt-2">
 
+      </div>
+  
+    </div>
+  </form>
+  
+  <!-- output -->
+  <div class="output">
+    <p id="output" class="lead"></p>
+  </div>
 
 
 
@@ -37,6 +80,128 @@
     Go Back
   </a>
 
+
+
+  <script>
+    const btn = document.getElementById('btn')
+    const num = document.getElementById('number')
+    const alrt = document.getElementById('alerto')
+    const output = document.getElementById('output')
+    const reset = document.getElementById('reset')
+
+
+    // show message to user if something is wrong
+    const alerto = (message) => {
+        alrt.textContent = message
+      }
+
+
+    // do we have correct value ?
+    const validation = (value) => {
+
+      const number = parseFloat(value)
+      
+          // do we have valid number ?
+          if (isNaN(number)) {
+            alerto('Insert valid NUMBER!')
+            // invalid input
+            return false
+          } 
+
+          // do we have 4 digits ?
+         
+          // shortcut 
+          const x = number.toString().split('')
+           //console.log(x)
+          // console.log(x.length)
+
+          // do we have number with digits ?
+          if(!x.includes('.')) {
+            alerto('You need to type a number with at least 4 decimals, please try again')
+            return false
+          }
+
+            // do we have 4 digits with dot ? 
+
+            // SEEMS THIS IS WROOOOOOONG  55555.5 will passed  
+          if (x.length < 6 && x.includes('.')) {
+            alerto('You need to type a number with at least 4 decimals, please try again')
+            return false
+          }
+
+
+
+          // find comma
+          const comma = x.indexOf('.')
+         // console.log(comma)
+          
+          // we want count number AFTER comma, if we have 4 decimals
+          const numsAfterComma = x.slice(comma + 1).join('')
+          //console.log(numsAfterComma)
+
+          // check if we have 4 digits
+          const numsLengthAfterComma = numsAfterComma.toString().split('')
+         // console.log(numsLengthAfterComma.length)
+
+
+          // HERE IS CORRECT CODE, DO WE HAVE NUM WITH 4 DECIMALS
+          if(numsLengthAfterComma.length < 4) {
+            alerto('You need to type a number with at least 4 decimals, please try again')
+            return false
+          }
+          
+
+           result(number)
+            
+      }
+
+
+    // show result 
+    const result = (value) => {
+      alerto('')
+      const num  = parseFloat(value)
+
+      const rounded = Math.round(num)
+      const square = Math.round(Math.sqrt(num))
+      const oneDecimal = Math.round(num * 10) / 10
+      const twoDecimal = Math.round(num * 100) / 100
+      const threeDecimal = Math.round(num * 1000) / 1000
+
+      // use p tag , it gives me new line automaticly
+       output.innerHTML =  
+        `<p>You typed number ${num}</p>` +
+        `<p>Rounded to the nearest integer = ${rounded}</p>` +
+        `<p>Square root rounded to integer = ${square}</p>` +
+        `<p> Rounded to the nearest 10th position = ${oneDecimal}</p>` +
+        `<p>Rounded to the nearest 100th position = ${twoDecimal}</p>` +
+        `<p>Rounded to the nearest 1000th position = ${threeDecimal}</p>`
+       
+    }  
+
+
+    // magic here
+    btn.addEventListener('click', e => {
+      e.preventDefault()
+
+       const number = num.value
+     
+       validation(number)
+  
+     })
+
+
+  
+    // reset fields
+    reset.addEventListener('click', e => {
+      e.preventDefault()
+
+      num.value = ''
+      output.textContent = ''
+      alerto('')
+    })
+
+
+  </script>
 
 
 </body>
