@@ -16,7 +16,18 @@
   <link rel="stylesheet" href="navLinks.css">
 
   <style>
-
+    form {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+    }
+    
+    .usage {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+    }
+    
   </style>
 
 </head>
@@ -25,11 +36,62 @@
 
   <h2 class="text-center mt-5">Part 2 | Objects</h2>
   <h4 class="text-center">Home work 6</h4>
-  <p class="text-center mb-5">charAt() + new window()</p>
+  <p class="text-center mb-5">Seach Character/s + new window()</p>
 
+  <!-- usage -->
+  <div class="usage border mb-3 p-3 rounded-2">
+    <h6 class="fw-semibold">Usage:</h6>
+    <p class="m-0">Step 1: Type any content to text area</p>
+    <p class="m-0">Step 2: Type a single letter to count its occurrences in the text.</p>
+    <p class="m-0">Step 3: Press Search</p>
+  </div>
 
+  <!-- form -->
+  <form class="border p-3 mt-5  rounded-2">
+    <div class="form-floating">
+      <textarea class="form-control" 
+               placeholder="Your Content" 
+               onfocus="focusFunc(this)"
+               id="floatingTextarea"></textarea>
 
+      <label for="floatingTextarea">Your Content</label>
+    </div>
 
+    <div class="mt-3">
+
+      <label for="char" 
+             class="form-label">
+             Insert Character
+      </label>
+      <input type="text" 
+             class="form-control" 
+             onfocus="focusFunc(this)"
+             maxlength="1" 
+             id="char">
+      
+    </div>
+
+    <!-- alert -->
+    <div id="alerto" class="text-center lead text-danger fw-semibold mt-2"></div>
+
+    <!-- btns -->
+    <div class="d-flex justify-content-evenly">
+      <button class="btn btn-outline-primary mx-1 px-5 mt-3 rounded-1" 
+              id="btn" 
+              type="submit">
+        Search
+      </button>
+    
+      <button class="btn btn-outline-danger mx-1 px-5 mt-3 rounded-1" 
+              id="reset">
+        Reset
+      </button>
+    </div>
+
+  </form>
+
+  <!-- output -->
+  <p id="output" class="text-center my-5"></p>
 
 
   <!-- link back -->
@@ -38,7 +100,110 @@
   </a>
 
 
+  <script>
+
+
+
+
+   const content = document.getElementById('floatingTextarea')
+   const character = document.getElementById('char')
+   const search = document.getElementById('btn')
+   const reset = document.getElementById('reset')
+   const output = document.getElementById('output')
+   const alrt = document.getElementById('alerto')
+
+
+
+  
+     function passData(char) {
+      let myText = ''
+       myText += `<p>Search character ${char} not found in the content you typed</p>`
+       myText += "<input type='button' value='Close Window' onclick='window.close()'>\n"
+
+
+       let newWindow = window.open("", "new_window", "top=2,left=200,width=300,height=100");
+       newWindow.document.write(myText);
+       newWindow.document.close();
+       newWindow.focus();
+     }
+    
+
+
+
+
+
+   // magic here
+   search.addEventListener('click', e => {
+    e.preventDefault()
+
+    //text
+    const text = content.value.toLowerCase()
+    console.log(text)
+    // character
+    const char = character.value.toLowerCase()
+
+    // validation
+    if(text === '') {
+      alrt.textContent = 'Please type any content'
+      return
+    }
+    // validation
+    if(char === '') {
+      alrt.textContent = 'Please insert character'
+      return
+    }
+
+
+
+    let count = 0
+
+    for(let i = 0; i < text.length; i++) {
+
+      /*  if(text[i] === char) {
+          count++
+       } */
+
+
+       if(text.charAt(i) === char) {
+        count++
+       }
+    }
+  
+    if(count > 0) {
+      output.textContent = `Character (${char}) shows up in the content (${count}) time/s`
+    } 
+
+    if(count === 0) {
+      content.value = ''
+      character.value = ''
+      output.textContent = ''
+      alrt.textContent = ''
+      passData(char)
+    }
+
+   })
+
+
+   // reset fields
+   reset.addEventListener('click', e => {
+    e.preventDefault()
+    content.value = ''
+    character.value = ''
+    output.textContent = ''
+    alrt.textContent = ''
+   })
+
+
+   // clear alert when user is typing 
+   const focusFunc = (element) => {
+     alrt.textContent = ''
+    }
+
+  
+  </script>
+
 
 </body>
 
 </html>
+
