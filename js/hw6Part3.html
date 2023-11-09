@@ -15,21 +15,110 @@
   <link rel="stylesheet" href="linkBack.css">
   <link rel="stylesheet" href="navLinks.css">
 
+ 
   <style>
+    #output {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+      background-color: white;
+    }
+    
+    form {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+      background-color: white;
+    }  
 
+    .hidden {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
   </style>
 
 </head>
+
 
 <body>
 
   <h2 class="text-center mt-5">Part 3 | Objects</h2>
   <h4 class="text-center">Home work 6</h4>
-  <p class="text-center mb-5">Split() method + jQuery</p>
+  <p class="text-center mb-5">Formatting Phone Number</p>
+
+
+  <form class="border p-3">
+
+     <!-- input for phone # -->
+    <div class="mt-3">
+      <label for="phone" class="form-label">
+        Enter your phone number:
+      </label>
+      <input type="text" 
+             class="form-control" 
+             min="0"
+             placeholder="(123) 456-7890"
+             id="phone">
+    </div>
+
+    <!-- alert -->
+    <div id="alerto" class="text-center lead text-danger fw-semibold mt-2"></div>
+
+    <!-- btns -->
+    <div class="d-flex justify-content-evenly">
+      <button class="btn btn-outline-success mx-1 px-5 mt-3 rounded-1" id="btn" type="submit">
+        Submit
+      </button>
+    
+      <button class="btn btn-outline-danger mx-1 px-5 mt-3 rounded-1" id="reset">
+        Reset
+      </button>
+    </div>
+
+  </form>
 
 
 
+  <!-- output -->
+  <div class="mt-3 border p-3 hidden" id="output">
 
+    <!-- area Code -->
+    <div class="mt-3">
+      <label for="areaCode" class="form-label">
+        Area Code
+      </label>
+      <input type="text" 
+             class="form-control" 
+             readonly
+             id="areaCode">
+    </div>
+
+    <!-- first 3 digits -->
+    <div class="mt-3">
+      <label for="first3Digits" class="form-label">
+        First 3 digits
+      </label>
+      <input type="text" 
+             class="form-control" 
+             readonly
+             id="first3Digits">
+    </div>
+
+    <!-- last 4 digits -->
+    <div class="mt-3">
+      <label for="last4Digits" class="form-label">
+        Last 4 digits
+      </label>
+      <input type="text" 
+             class="form-control" 
+             readonly
+             id="last4Digits">
+    </div>
+
+  </div>
 
 
   <!-- link back -->
@@ -38,7 +127,78 @@
   </a>
 
 
+ <script>
+  const phone = document.getElementById('phone')
+  const btn = document.getElementById('btn')
+  const reset = document.getElementById('reset')
+  const output = document.getElementById('output')
+  const area = document.getElementById('areaCode')
+  const first = document.getElementById('first3Digits')
+  const last = document.getElementById('last4Digits')
+  const alrt = document.getElementById('alerto')
+  
 
+
+  btn.addEventListener('click', e => {
+    e.preventDefault()
+
+     // REGEX 
+    /* var regex = /^\((\d{3})\) (\d{3})-(\d{4})$/;
+    var match = number.match(regex); */
+
+    const number = phone.value
+   // console.log(number)
+
+   // do we have string number ? 
+   const isNumber = !isNaN(parseInt(number[1])) &&
+                    !isNaN(parseInt(number[2])) &&
+                    !isNaN(parseInt(number[3])) &&
+                    !isNaN(parseInt(number[6])) &&
+                    !isNaN(parseInt(number[7])) &&
+                    !isNaN(parseInt(number[8])) &&
+                    !isNaN(parseInt(number[10])) &&
+                    !isNaN(parseInt(number[11])) &&
+                    !isNaN(parseInt(number[12])) &&
+                    !isNaN(parseInt(number[13]))
+
+    // validation               
+    if (number.length === 14 && 
+        number[0] === '(' && 
+        number[4] === ')' && 
+        number[5] === ' ' && 
+        number[9] === '-' &&
+        isNumber
+        ) {
+       area.value = number.substring(1, 4)
+       first.value = number.substring(6, 9)
+       last.value = number.substring(10, 14)
+       output.classList.remove('hidden')
+       output.classList.add('show')
+
+    } else {
+       alrt.textContent = 'Please enter the number in the format: (123) 456-7890'
+    }
+
+
+  })
+
+
+  // clear fields
+  reset.addEventListener('click', e => {
+    e.preventDefault()
+    output.classList.remove('show')
+    output.classList.add('hidden')
+    area.value = ''
+    first.value = ''
+    last.value = ''
+    phone.value = ''
+    alrt.textContent = ''
+  })
+ 
+
+
+
+ </script>
 
 
 </body>
