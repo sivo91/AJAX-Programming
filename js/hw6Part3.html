@@ -60,6 +60,8 @@
       <input type="text" 
              class="form-control" 
              min="0"
+             onfocus="clearAlert(this)"
+             oninput="formatValue(this)"
              placeholder="(123) 456-7890"
              id="phone">
     </div>
@@ -144,10 +146,10 @@
 
      // REGEX 
     /* var regex = /^\((\d{3})\) (\d{3})-(\d{4})$/;
-    var match = number.match(regex); */
+       var match = number.match(regex); */
 
     const number = phone.value
-   // console.log(number)
+    console.log(number)
 
    // do we have string number ? 
    const isNumber = !isNaN(parseInt(number[1])) &&
@@ -160,6 +162,8 @@
                     !isNaN(parseInt(number[11])) &&
                     !isNaN(parseInt(number[12])) &&
                     !isNaN(parseInt(number[13]))
+
+
 
     // validation               
     if (number.length === 14 && 
@@ -197,7 +201,35 @@
  
 
 
+  // format phone number
+  function formatValue (phone) {
+   let value = phone.value
 
+    value = value.replace(/\D/g, '')
+
+    const size = value.length
+
+    if (size < 4) {
+      value = '(' + value
+    } else if (size < 7) {
+      value = '(' + value.substring(0, 3) + ') ' + value.substring(3)
+    } else {
+      value = '(' + value.substring(0, 3) + ') ' + value.substring(3, 6) + '-' + value.substring(6, 10)
+    }
+
+    if(size < 1) {
+      value = ''
+    }
+
+    phone.value = value
+  
+  }
+
+
+  // clear alert on typing
+  function clearAlert (element) {
+    document.getElementById('alerto').textContent = ''
+  }
  </script>
 
 
