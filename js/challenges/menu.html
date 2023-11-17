@@ -76,7 +76,9 @@
             description: 'Find the # which is written in the radially opposite position to number' }
         ],
         [ // Second row
-          { title: 'card4', link: '#', description: 'description 4' },
+          { title: 'Detect Domain', 
+            link: '../challenges/domain.html?search=myDomain#myHash', 
+            description: 'Different parts of the URL' },
           { title: 'card5', link: '#', description: 'description 5' },
           { title: 'card6', link: '#', description: 'description 6' }
         ],
@@ -99,8 +101,8 @@
       ]
 
 
-     const rowsPerPage = 1;
-      let currentPage = 1;
+     const rowsPerPage = 1
+      let currentPage = 1
 
       const createCard = (card) => {
         return `
@@ -115,7 +117,7 @@
                     </div>
                 </div>
             </div>
-        `;
+        `
       }
 
       const createRow = (row) => {
@@ -152,9 +154,9 @@
       }
 
       const changePage = (page) => {
-        currentPage = page;
-        renderCards(page);
-        Pagination();
+        currentPage = page
+        renderCards(page)
+        Pagination()
       }
 
       window.onload = () => {
