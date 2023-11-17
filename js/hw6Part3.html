@@ -53,7 +53,8 @@
 
   <h2 class="text-center mt-5">Part 3 | Objects</h2>
   <h4 class="text-center">Home work 6</h4>
-  <p class="text-center mb-5">Formatting Phone Number</p>
+  <p class="text-center m-0">Formatting Phone Number</p>
+  <p class="text-center mb-5">jQuery mask</p>
 
 
   <form class="border p-3">
@@ -137,8 +138,8 @@
   <script>
 
     $(document).ready(function () {
-        $('#phone').mask('(000) 000-0000');
-      });
+        $('#phone').mask('(000) 000-0000')
+      })
 
 
   </script>
@@ -149,7 +150,7 @@
 
 
 
- <!--  -->
+ <!-- JavaScirpt -->
  <script> 
   const phone = document.getElementById('phone')
   const btn = document.getElementById('btn')
@@ -161,7 +162,7 @@
   const alrt = document.getElementById('alerto')
   
 
-
+ // click
   btn.addEventListener('click', e => {
     e.preventDefault()
 
@@ -198,10 +199,6 @@
     alrt.textContent = ''
   })
  
-
-
-  
-  
 
   // clear alert on typing
   function clearAlert (element) {
