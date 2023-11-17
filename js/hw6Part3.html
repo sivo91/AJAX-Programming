@@ -15,6 +15,12 @@
   <link rel="stylesheet" href="linkBack.css">
   <link rel="stylesheet" href="navLinks.css">
 
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+
+
  
   <style>
     #output {
@@ -60,7 +66,6 @@
       <input type="text" 
              class="form-control" 
              onfocus="clearAlert(this)"
-             oninput="formatValue(this)"
              placeholder="(123) 456-7890"
              id="phone">
     </div>
@@ -128,7 +133,24 @@
   </a>
 
 
- <script>
+  <!-- jQuery script here -->
+  <script>
+
+    $(document).ready(function () {
+        $('#phone').mask('(000) 000-0000');
+      });
+
+
+  </script>
+
+
+
+
+
+
+
+ <!--  -->
+ <script> 
   const phone = document.getElementById('phone')
   const btn = document.getElementById('btn')
   const reset = document.getElementById('reset')
@@ -143,45 +165,23 @@
   btn.addEventListener('click', e => {
     e.preventDefault()
 
-     // REGEX 
-    /* var regex = /^\((\d{3})\) (\d{3})-(\d{4})$/;
-       var match = number.match(regex); */
 
     const number = phone.value
-    console.log(number)
-
-   // do we have string number ? 
-   const isNumber = !isNaN(parseInt(number[1])) &&
-                    !isNaN(parseInt(number[2])) &&
-                    !isNaN(parseInt(number[3])) &&
-                    !isNaN(parseInt(number[6])) &&
-                    !isNaN(parseInt(number[7])) &&
-                    !isNaN(parseInt(number[8])) &&
-                    !isNaN(parseInt(number[10])) &&
-                    !isNaN(parseInt(number[11])) &&
-                    !isNaN(parseInt(number[12])) &&
-                    !isNaN(parseInt(number[13]))
+    console.log(typeof number)
 
 
+    const regex = /^\((\d{3})\) (\d{3})-(\d{4})$/
+    const match = number.match(regex);
 
-    // validation               
-    if (number.length === 14 && 
-        number[0] === '(' && 
-        number[4] === ')' && 
-        number[5] === ' ' && 
-        number[9] === '-' &&
-        isNumber
-        ) {
-       area.value = number.substring(1, 4)
-       first.value = number.substring(6, 9)
-       last.value = number.substring(10, 14)
-       output.classList.remove('hidden')
-       output.classList.add('show')
-
+    if (match) {
+      area.value = match[1]  
+      first.value = match[2] 
+      last.value = match[3]
+      output.classList.remove('hidden')
+      output.classList.add('show')
     } else {
-       alrt.textContent = 'Please enter the number in the format: (123) 456-7890'
+      alrt.textContent = 'Please enter the number in the format: (123) 456-7890'
     }
-
 
   })
 
@@ -200,36 +200,14 @@
  
 
 
-  // format phone number
-  function formatValue (phone) {
-   let value = phone.value
-
-    value = value.replace(/\D/g, '')
-
-    const size = value.length
-
-    if (size < 4) {
-      value = '(' + value
-    } else if (size < 7) {
-      value = '(' + value.substring(0, 3) + ') ' + value.substring(3)
-    } else {
-      value = '(' + value.substring(0, 3) + ') ' + value.substring(3, 6) + '-' + value.substring(6, 10)
-    }
-
-    if(size < 1) {
-      value = ''
-    }
-
-    phone.value = value
   
-  }
-
+  
 
   // clear alert on typing
   function clearAlert (element) {
     document.getElementById('alerto').textContent = ''
   }
- </script>
+ </script> 
 
 
 </body>
