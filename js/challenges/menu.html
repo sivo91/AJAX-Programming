@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript / AJAX Programming</title>
+  <!-- Bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!-- Bootstrap script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+ 
+    <link rel="stylesheet" href="../linkBack.css">
+    <link rel="stylesheet" href="../navLinks.css">
+
+
+  <style>
+
+   .card:hover {
+    position: relative;
+    top:  -6px;
+    box-shadow: 1px 5px 5px rgb(226, 226, 226);
+   }
+
+  </style>
+
+</head>
+
+<body>
+  <h2 class="text-center mt-5">Algorithms Challenge
+</h2>
+  <p class="text-center h3 mb-5">Select Challenge</p>
+
+
+<!--   <div class="container" id="card-container">
+
+  </div> -->
+
+  <div class="container">
+    <div id="card-container">
+      <!-- Rows with cards will be inserted here -->
+    </div>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center my-5" id="pagination">
+   
+      </ul>
+    </nav>
+  </div>
+
+    <a href="../CIS114Assignments.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
+      Go Back
+    </a>
+
+
+
+  <script>
+
+    // create card here
+    const cardRows = [
+        [ // First row
+          {
+            title: 'Alphabetical Order',
+            link: '../challenges/alphabetic.html',
+            description: 'Check whether the given string is a subsequence of the plaintext alphabet. (charCodeAt(0))'
+          },
+          { title: 'Palindrom', 
+            link: '../challenges/palindrom.html', 
+            description: 'Check if string is a palindrome' 
+          },
+          { title: 'Circle of Numbers', 
+            link: '../challenges/circle.html',
+            description: 'Find the # which is written in the radially opposite position to number' }
+        ],
+        [ // Second row
+          { title: 'card4', link: '#', description: 'description 4' },
+          { title: 'card5', link: '#', description: 'description 5' },
+          { title: 'card6', link: '#', description: 'description 6' }
+        ],
+        [ // Second row
+          { title: 'card7', link: '#', description: 'description 4' },
+          { title: 'card8', link: '#', description: 'description 5' },
+          { title: 'card9', link: '#', description: 'description 6' }
+        ],
+        [ // Second row
+          { title: 'card10', link: '#', description: 'description 4' },
+          { title: 'card11', link: '#', description: 'description 5' },
+          { title: 'card12', link: '#', description: 'description 6' }
+        ],
+        [ // Second row
+          { title: 'card13', link: '#', description: 'description 4' },
+          { title: 'card14', link: '#', description: 'description 5' },
+          { title: 'card15', link: '#', description: 'description 6' }
+        ],
+
+      ]
+
+
+     const rowsPerPage = 1;
+      let currentPage = 1;
+
+      const createCard = (card) => {
+        return `
+            <div class="col-11 col-md-3 rounded-2">
+                <div class="card" style="width: 100%">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">${card.title}</h5>
+                        <p class="card-text text-center">${card.description}</p>
+                        <a href="${card.link}" class="btn btn-outline-dark rounded-1 w-100">
+                          See The Challenge
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+      }
+
+      const createRow = (row) => {
+        let rowHtml = '<div class="row justify-content-center gap-3">'
+        row.forEach(card => {
+          rowHtml += createCard(card)
+        })
+        rowHtml += '</div>'
+        return rowHtml
+      }
+
+      const renderCards = (page) => {
+        const start = (page - 1) * rowsPerPage
+        const end = start + rowsPerPage
+        const rowsToShow = cardRows.slice(start, end)
+
+        const container = document.getElementById('card-container')
+        container.innerHTML = ''
+        rowsToShow.forEach(row => {
+          container.innerHTML += createRow(row)
+        })
+      }
+
+      const Pagination = () => {
+        const pageCount = cardRows.length
+        const paginationUl = document.getElementById('pagination')
+        paginationUl.innerHTML = ''
+
+        for (let i = 1; i <= pageCount; i++) {
+          paginationUl.innerHTML += `<li class="page-item ${i === currentPage ? 'active' : ''}">
+                                          <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+                                       </li>`
+        }
+      }
+
+      const changePage = (page) => {
+        currentPage = page;
+        renderCards(page);
+        Pagination();
+      }
+
+      window.onload = () => {
+        Pagination()
+        renderCards(currentPage)
+      }
+
+  </script>
+
+  
+</body>
+
+</html>
+

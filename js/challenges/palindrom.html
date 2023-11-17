@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript / AJAX Programming</title>
+  <!-- Bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!-- Bootstrap script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../linkBack.css">
+  <link rel="stylesheet" href="../navLinks.css">
+
+  <style>
+    #output {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+      background-color: white;
+    }
+
+    form {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+      background-color: white;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <h3 class="text-center mt-5">Palindrome</h3>
+  <p class="text-center mb-5">Check if string is a palindrome</p>
+
+
+  <form class="border p-3">
+
+    <!-- input for phone # -->
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="Your Content" onfocus="clearAlert(this)" id="text"></textarea>
+
+      <label for="text">Enter Text:  aabaa...</label>
+    </div>
+
+    <!-- alert -->
+    <div id="alerto" class="text-center lead text-danger fw-semibold mt-2"></div>
+
+    <!-- btns -->
+    <div class="d-flex justify-content-evenly">
+      <button class="btn btn-outline-success mx-1 px-5 mt-3 rounded-1" id="btn" type="submit">
+        Submit
+      </button>
+
+      <button class="btn btn-outline-danger mx-1 px-5 mt-3 rounded-1" id="reset">
+        Reset
+      </button>
+    </div>
+
+  </form>
+
+
+  <!-- output -->
+  <p class="mt-3 border p-3 hidden" id="output">
+  </p>
+
+ 
+  <p class="my-5" id="attempt"></p>
+
+
+
+  <!-- link back -->
+  <a href="../challenges/menu.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
+    Go Back
+  </a>
+
+
+
+
+  <script>
+
+    const text = document.getElementById('text')
+    const btn = document.getElementById('btn')
+    const reset = document.getElementById('reset')
+    const output = document.getElementById('output')
+    const alrt = document.getElementById('alerto')
+    const attempt = document.getElementById('attempt')
+
+
+
+    btn.addEventListener('click', e => {
+      e.preventDefault()
+
+  
+      let data = text.value
+      let result
+    
+      const otherside = data.split('').reverse().join('')
+   
+
+      /* if(data === otherside) {
+        output.classList.remove('hidden')
+        output.classList.add('show')
+        result = `The text ( ${data} ) is Palindrome.`
+        output.textContent = result
+      } else {
+        result = `The text ( ${data} ) is not in alphabetical order!`
+        return alrt.textContent = result
+      } */
+
+
+      for(let i = 0; i < data.length; i++) {
+         
+         if(data[i] === otherside[i]) {
+
+          output.classList.remove('hidden')
+           output.classList.add('show')
+           result = `The text ( ${data} ) is Palindrome.`
+           output.textContent = result
+
+         } else {
+
+           result = `The text ( ${data} ) is not Palindrome!`
+           return alrt.textContent = result
+         }
+
+      }
+
+
+  
+
+       /*  result = `The text ( ${data} ) is not in alphabetical order!`
+        return alrt.textContent = result */
+  
+
+      /* 
+      output.classList.remove('hidden')
+      output.classList.add('show')
+      result = `The text ( ${data} ) is in alphabetical order!` */
+
+     // return output.textContent = result
+
+    })
+
+
+
+    // clear fields
+    reset.addEventListener('click', e => {
+      e.preventDefault()
+      output.classList.remove('show')
+      output.classList.add('hidden')
+      text.value = ''
+      alrt.textContent = ''
+    })
+
+
+    // clear alert on typing
+    function clearAlert(element) {
+      document.getElementById('alerto').textContent = ''
+      text.value = ''
+    }
+  </script>
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript / AJAX Programming</title>
+  <!-- Bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!-- Bootstrap script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../linkBack.css">
+  <link rel="stylesheet" href="../navLinks.css">
+
+  <style>
+    #output {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+      background-color: white;
+    }
+
+    form {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+      background-color: white;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <h3 class="text-center mt-5">Circle of Numbers</h3>
+  <p class="text-center mb-5">Find the # which is written in the radially opposite position to number
+ </p>
+
+  <div class="my-3" style="width: 200px; margin: 0 auto;">
+    <img src="../images/circle.png" class="w-100" alt="img">
+  </div>
+
+
+  <form class="border p-3">
+
+    <label for="number" class="fs-5">
+      Enter a number between 0 & 9
+    </label><br>
+    <input type="text" 
+           min="0" 
+          max="9" 
+          class="p-2 w-100" 
+          id="number" 
+          maxlength="1" 
+          onfocus="clearAlert(this)"
+          >
+
+    <!-- alert -->
+    <div id="alerto" class="text-center lead text-danger fw-semibold mt-2"></div>
+
+    <!-- btns -->
+    <div class="d-flex justify-content-evenly">
+      <button class="btn btn-outline-success mx-1 px-5 mt-3 rounded-1" id="btn" type="submit">
+        Submit
+      </button>
+
+      <button class="btn btn-outline-danger mx-1 px-5 mt-3 rounded-1" id="reset">
+        Reset
+      </button>
+    </div>
+
+  </form>
+
+
+  <!-- output -->
+  <p class="mt-3 border p-3 hidden" id="output">
+  </p>
+
+
+  <p class="my-5" id="attempt"></p>
+
+
+
+  <!-- link back -->
+  <a href="../challenges/menu.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
+    Go Back
+  </a>
+
+
+
+
+  <script>
+
+    const num = document.getElementById('number')
+    const btn = document.getElementById('btn')
+    const reset = document.getElementById('reset')
+    const output = document.getElementById('output')
+    const alrt = document.getElementById('alerto')
+    const attempt = document.getElementById('attempt')
+
+
+
+    btn.addEventListener('click', e => {
+      e.preventDefault()
+
+      const totalNums = 10
+      const halfWay = totalNums / 2
+      const arr = []
+      
+
+      let data = num.value.trim()
+      let result
+
+      if(isNaN(data)) {
+        result = `The text ( ${data} ) is not number.`
+        return alrt.textContent = result
+      }
+     
+      if(data === '0') {
+        result = halfWay
+        console.log(result)
+        output.classList.remove('hidden')
+        output.classList.add('show')
+        result = `Opposite number of ${data} ) is ${result}.`
+        output.textContent = result
+      }
+
+      if(data === '5') {
+        result = Math.abs(Number(data) - Number(halfWay))
+        console.log(result)
+        output.classList.remove('hidden')
+        output.classList.add('show')
+        result = `Opposite number of ${data} ) is ${result}.`
+        output.textContent = result
+      }
+     
+      if(data < halfWay) {
+        result = Number(data) + Number(halfWay)
+        console.log(result)
+        output.classList.remove('hidden')
+        output.classList.add('show')
+        result = `Opposite number of ${data} ) is ${result}.`
+        output.textContent = result
+      }
+
+      if(data > 5) {
+        result = Number(data) - Number(halfWay)
+        console.log(result)
+        output.classList.remove('hidden')
+        output.classList.add('show')
+        result = `Opposite number of ${data} ) is ${result}.`
+        output.textContent = result
+      }
+      
+
+
+
+      /* if(data === otherside) {
+        output.classList.remove('hidden')
+        output.classList.add('show')
+        result = `The text ( ${data} ) is Palindrome.`
+        output.textContent = result
+      } else {
+        result = `The text ( ${data} ) is not in alphabetical order!`
+        return alrt.textContent = result
+      } */
+
+
+
+
+
+
+
+    })
+
+
+
+    // clear fields
+    reset.addEventListener('click', e => {
+      e.preventDefault()
+      output.classList.remove('show')
+      output.classList.add('hidden')
+      num.value = ''
+      alrt.textContent = ''
+    })
+
+
+    // clear alert on typing
+    function clearAlert(element) {
+      document.getElementById('alerto').textContent = ''
+      num.value = ''
+    }
+  </script>
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
