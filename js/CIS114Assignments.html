@@ -31,6 +31,22 @@ programming on this website.
 
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+      <style>
+        .sideProject {
+          position: relative;
+          width: 100%;
+          min-height: 250px;
+          max-height: 300px;
+          overflow-y: scroll;
+          border: 1px solid gray;
+          padding: 7px;
+        }
+
+        .hidden {
+          display: none;
+        }
+      </style>
+
 </head>
 
 
@@ -55,25 +71,27 @@ programming on this website.
     
         <!-- side bar links -->
         <div class="navbarLinks"></div>
-
       </div>
     </div>
    </div>
 
-   <!-- nav right btns -->
-   <div class="d-flex me-3">
+   <!-- Algorithms Challenge -->
+    <a href="../js/challenges/algs.html" class="btn btn-light my-3 fw-semibold hidden"
+       id="challenge">
+      Algorithms Challenge
+    </a>
 
-    <div class="d-flex">
-    
+
+   <!-- nav right btns -->
       <div class="theme">
           <i class="bi bi-moon-stars-fill themeIcon" id="changeMode" aria-hidden="true"></i>
       </div>
-    </div>
-
-   </div>
+   
 
 
   </header>
+
+
 
   <main>
 
@@ -155,6 +173,7 @@ programming on this website.
      for(let i = 0; i < p.length;i++) {
       p[i].style.color = 'lightgray'
      }
+     document.getElementById('challenge').classList.remove('hidden')
    }
 
    const lightTheme = () => {
@@ -167,6 +186,7 @@ programming on this website.
      for (let i = 0; i < p.length; i++) {
        p[i].style.color = 'black'
      }
+     document.getElementById('challenge').classList.add('hidden')
    }
 
 
@@ -175,7 +195,7 @@ programming on this website.
 
     let links = [
       {
-        title: 'Home Work2', 
+        title: 'Home Work 2', 
         url: '../js/hw2.html', 
         className: 'bi bi-check-circle-fill text-success'
       },
@@ -197,7 +217,7 @@ programming on this website.
       {
         title: 'Home Work6',  
         url: '../js/hw6.html',
-        className: 'bi bi-hourglass-split text-warning'
+        className: 'bi bi-check-circle-fill text-success'
       },
       {
         title: 'Home Work7', 
@@ -231,7 +251,6 @@ programming on this website.
         navLinks.appendChild(br)
     }
   
-
 
   </script>
 
