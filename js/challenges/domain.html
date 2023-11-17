@@ -79,8 +79,8 @@
       protocol = "Protocol: " + window.location.protocol
       host = "Host Name: " + window.location.hostname
       path = "Path: " + window.location.pathname
-      query = "Query String: " + window.location.search
-      hash = "Hash: " + window.location.hash
+      query = "Query: " + window.location.search.substring(8,15)
+      hash = "Hash: " + window.location.hash.substring(1, 5)
 
 
       output.classList.remove('hidden')
