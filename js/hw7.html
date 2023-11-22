@@ -12,42 +12,145 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="linkBack.css">
+  <link rel="stylesheet" href="linkBack.css">
+  <link rel="stylesheet" href="navLinks.css">
 
-    <style>
-  
-     form {
+
+
+  <style>
+    .hw2Section {
       position: relative;
-      width: 400px;
-      margin: 0 auto;
-     }
+      width: 80%;
+      left: 10%;
+      background-color: rgb(244, 244, 244, 0.4);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
 
-    </style>
+    .card-body {
+      position: relative;
+      height: 300px;
+      overflow-y: scroll;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #fff1c500;
+      /* Change to your desired background color */
+    }
+
+    /* Customize the scrollbar thumb (the draggable part) */
+    ::-webkit-scrollbar-thumb {
+      background: rgb(168, 145, 43);
+      color: white;
+      border: 1px solid black;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Customize the scrollbar when it's hovered over */
+
+
+    /* Customize the scrollbar corner (between vertical and horizontal scrollbars) */
+    ::-webkit-scrollbar-corner {
+      background-color: transparent;
+      /* Change to your desired color */
+    }
+
+    /* Customize the scrollbar's width and height (optional) */
+    ::-webkit-scrollbar {
+      width: 20px;
+      /* Change to your desired width */
+      height: 10px;
+      /* Change to your desired height */
+    }
+  </style>
+
 </head>
 
 <body>
-  <h2 class="text-center my-5">Home Work 7</h2>
-  <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
+  <h2 class="text-center mt-5">Home Work 7</h2>
+  <h5 class="text-center">HAPPY THANKSGIVING!</h5>
+  <p class="text-center h3 mb-5">"Cookies"</p>
 
 
 
-  
-  
-
-<a href="../js/CIS114Assignments.html" 
-  class="btn btn-dark rounded-1 vstack mx-auto my-5" 
-  style="width: 150px;">
-  Go Back
-</a>
+  <!-- cards -->
+  <div class="hw2Section p-3"></div>
 
 
 
+  <a href="../js/CIS114Assignments.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
+    Go Back
+  </a>
+
+  <script>
+
+    const section = document.querySelector('.hw2Section')
+
+    const data = [
+      {
+        title: 'Part1',
+        subTitle: 'DOM',
+        text: `
+                   - a form that will have </br>
+                   - radio buttons for the user to select the color of the background to be applied (you should have at least 2 different colors for the user to choose from)</br>
+                   - checkboxes that will allow the user to choose "underline", and/or "bold", and/or "italic" - remember that HTML checkboxes allow the user to choose one or more options </br>
+                    - a select element to create a drop-down list where you will allow the user to select the font-size to be applied (at least 3 different font-size should be listed and preferably in em, or rem, or % units)</br>
+                    - a textarea (or another element outside the form - div or paragraph) where you will write the output/result<br>
+                    - here should be no button to clear the choices, neither a button to submit the information - when the user selects a style, that style will be applied right away</br>
+                    
+                   `
+        ,
+        link: '../js/hw7Part1.html'
+      },
+      {
+        title: 'Part2',
+        subTitle: 'Cookies',
+        text: `
+                 - If it is the first time the user is opening the page on the browser, you will present a form for the user to type his/her name and his/her username.</br>
+                 - If it is not the first time the user is opening the page (if he/she is revisiting the page) while the browser is still opened, you will just display a message of Welcome Back followed by the name of the user that you will retrieve from the cookie previously saved.</br>
+                        `,
+        link: '../js/hw7Part2.html'
+      },
+      {
+        title: 'Part3',
+        subTitle: 'Local Storage',
+        text: `
+                 - Input field for the user to enter their name.</br>
+                 - Button to trigger the saving of the name to local.</br> 
+                  `,
+        link: '../js/hw7Part3.html'
+      }
+    ]
+
+    const output = data.map(item => {
+      const { title, subTitle, text, link } = item
+
+      return `
+             <div class="card m-2 p-3" style="width: 350px;">
+                     <h5 class="text-center">${title}</h5>
+                      <p class="text-center ">${subTitle}</p>
+                      <p class="card-body">
+                      ${text}
+                      </p>
+                    
+                      <a href="${link}" style="text-decoration: none; width: 200px; max-height: 40px; " class=" btn btn-outline-dark border-dark vstack mx-auto mt-auto">
+                        See The Project
+                      </a>
+                </div>
+          `
+    }).join('')
+
+    section.innerHTML = output
 
 
 
 
 
-
+  </script>
 
 
 </body>
