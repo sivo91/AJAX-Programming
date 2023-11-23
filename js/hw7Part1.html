@@ -41,7 +41,7 @@
   <h4 class="text-center">Home work 7</h4>
   <p class="text-center mb-5">Document Object Model</p>
 
-  <h3 class="text-center my-3">Change Style</h3>
+ 
   <form class="border p-3">
 
     <p>Change Background Color</p>
@@ -80,7 +80,7 @@
     </div>
      <hr>
 
-   
+    <p>Change text Style</p>
      <!-- checks btns -->
     <div class="form-check">
       <input class="form-check-input" type="checkbox" value="" id="underline">
@@ -109,8 +109,18 @@
         letter-spacing
       </label>
     </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="color">
+      <label class="form-check-label" for="italicCheckbox">
+        color (red)
+      </label>
+    </div>
+
+    
      <hr>
 
+     <p>Select Size</p>
     <!-- select form -->
     <select class="form-select" aria-label="Default select example" id="size">
       <option selected>Select font size in rem</option>
@@ -122,38 +132,51 @@
   </form>
 
 
-  <main class="my-5">
-    <p class="p">Thanksgiving, celebrated on the fourth Thursday of November in the United States, is a holiday rich in history and
-    cultural significance. Originally, it was a day for Americans to express their gratitude for a bountiful harvest and to
-    celebrate the previous year's successes. The roots of Thanksgiving date back to the early 17th century, when settlers in
-    Plymouth, Massachusetts, shared a feast with Native Americans—a moment widely regarded as the first Thanksgiving. This
-    event symbolized peace and cooperation between the two groups. Over the centuries, Thanksgiving has evolved, maintaining
-    its status as a time for giving thanks and gathering with family and friends.
-  </p>
-  <br>
+  <div class="container-fluid my-5">
+    <div class="row justify-content-center">
+       <div class="col-11 col-md-3 m-1">
+        <p>Thanksgiving, celebrated on the fourth Thursday of November in the United States, is a holiday rich in history and
+          cultural significance. Originally, it was a day for Americans to express their gratitude for a bountiful harvest and
+          to
+          celebrate the previous year's successes. The roots of Thanksgiving date back to the early 17th century, when settlers
+          in
+          Plymouth, Massachusetts, shared a feast with Native Americans—a moment widely regarded as the first Thanksgiving. This
+          event symbolized peace and cooperation between the two groups. Over the centuries, Thanksgiving has evolved,
+          maintaining
+          its status as a time for giving thanks and gathering with family and friends.
+        </p>
+       </div>
+       <div class="col-11 col-md-3 m-1">
+        <p>
+          The traditional Thanksgiving celebration is centered around a large meal, the focal point of which is usually a
+          roasted
+          turkey. This feast is often accompanied by a variety of side dishes, including stuffing, mashed potatoes, cranberry
+          sauce, and various fall vegetables, culminating in a selection of desserts, with pumpkin pie being a classic favorite.
+          The preparation and sharing of this meal are seen as an expression of gratitude and togetherness, reflecting the
+          holiday's historical origins and the value of community and family. Additionally, Thanksgiving has become a time for
+          many Americans to volunteer and give back to their communities, embodying the spirit of gratitude and generosity that
+          underpins the holiday.
+        </p>
+       </div>
+       <div class="col-11 col-md-3 m-1">
+        <p>
+          Apart from its culinary traditions, Thanksgiving is also known for its cultural and recreational activities. The day
+          is
+          marked by parades in many cities, the most famous being the Macy's Thanksgiving Day Parade in New York City, which
+          attracts millions of viewers both in person and on television. Football is another integral part of the holiday, with
+          both the NFL and college teams often playing on Thanksgiving Day. These events provide a backdrop for socializing and
+          entertainment during the holiday. Over time, the day following Thanksgiving, known as Black Friday, has become a
+          significant date for retail sales, marking the beginning of the Christmas shopping season. Thanksgiving, with its
+          blend
+          of historical significance, cultural traditions, and modern customs, remains a beloved and deeply meaningful holiday
+          for
+          many Americans.
+        </p>
+       </div>
+    </div>
+  </div>
 
-  <p class="p">
-The traditional Thanksgiving celebration is centered around a large meal, the focal point of which is usually a roasted
-turkey. This feast is often accompanied by a variety of side dishes, including stuffing, mashed potatoes, cranberry
-sauce, and various fall vegetables, culminating in a selection of desserts, with pumpkin pie being a classic favorite.
-The preparation and sharing of this meal are seen as an expression of gratitude and togetherness, reflecting the
-holiday's historical origins and the value of community and family. Additionally, Thanksgiving has become a time for
-many Americans to volunteer and give back to their communities, embodying the spirit of gratitude and generosity that
-underpins the holiday.
-  </p>
-  <br>
 
-  <p class="p">
-    Apart from its culinary traditions, Thanksgiving is also known for its cultural and recreational activities. The day is
-    marked by parades in many cities, the most famous being the Macy's Thanksgiving Day Parade in New York City, which
-    attracts millions of viewers both in person and on television. Football is another integral part of the holiday, with
-    both the NFL and college teams often playing on Thanksgiving Day. These events provide a backdrop for socializing and
-    entertainment during the holiday. Over time, the day following Thanksgiving, known as Black Friday, has become a
-    significant date for retail sales, marking the beginning of the Christmas shopping season. Thanksgiving, with its blend
-    of historical significance, cultural traditions, and modern customs, remains a beloved and deeply meaningful holiday for
-    many Americans.
-  </p>
-  </main>
 
 
 
@@ -181,6 +204,7 @@ underpins the holiday.
     let bold = document.getElementById('bold')
     let italic = document.getElementById('italic')
     let spacing = document.getElementById('spacing')
+    let color = document.getElementById('color')
     let par = document.querySelectorAll('p')
 
     underline.addEventListener('change', () => {
@@ -203,7 +227,13 @@ underpins the holiday.
 
     spacing.addEventListener('change', () => {
       par.forEach(p => {
-         p.style.letterSpacing = spacing.checked ? '2px' : 'normal'
+         p.style.letterSpacing = spacing.checked ? '3px' : 'normal'
+      })
+    })
+
+    color.addEventListener('change', () => {
+      par.forEach(p => {
+         p.style.color = color.checked ? 'red' : 'black'
       })
     })
 
@@ -221,10 +251,8 @@ underpins the holiday.
         })
       })
 
-
-
-
   })
+
 </script>
 
   <!-- link back -->

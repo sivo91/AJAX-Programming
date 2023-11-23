@@ -31,6 +31,109 @@
   <h4 class="text-center">Home work 7</h4>
   <p class="text-center mb-5">Local Storage</p>
 
+  <form class="border p-3" id="form">
+  
+    <!-- input for name / local storage -->
+    <div class="mt-3">
+      <label for="phone" class="form-label">
+        Enter name 
+      </label>
+      <input type="text" 
+             class="form-control" 
+             id="key"
+             onfocus="clearAlert(this)" 
+             placeholder="Name">
+    </div>
+  
+    <!-- alert -->
+    <div id="alerto" class="text-center lead text-danger fw-semibold mt-2"></div>
+  
+    <!-- btns -->
+    <div class="d-flex justify-content-evenly">
+      <button class="btn btn-outline-success mx-1 px-5 mt-3 rounded-1" id="btn" type="submit">
+        Submit
+      </button>
+  
+      <button class="btn btn-outline-danger mx-1 px-5 mt-3 rounded-1" id="reset">
+        Reset
+      </button>
+    </div>
+  
+  </form>
+
+  <p id="output" class="text-center my-5"></p>
+
+<button class="btn btn-warning border-dark vstack mx-auto my-5 rounded-1" id="clearLS" type="button">
+  Clear Local Storage
+</button>
+  
+  
+
+
+
+
+  <script>
+
+  const btn = document.getElementById('btn')
+  const reset = document.getElementById('reset')
+  const output = document.getElementById('output')
+  const name = document.getElementById('key')
+  const clearLS = document.getElementById('clearLS')
+  const form = document.getElementById('form')
+  let key = 'userName'
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const valueFromLS = localStorage.getItem(key)
+
+    if(valueFromLS !== null) {
+      form.style.display = 'none'
+      output.textContent = 'Welcome back: ' + valueFromLS 
+    } else {
+       clearLS.style.display = 'none'
+    }
+    
+  })
+
+
+   clearLS.addEventListener('click', () => {
+      name.value = '' 
+      localStorage.removeItem(key)
+      form.style.display = 'block'
+      clearLS.style.display = 'none'
+      output.textContent = ''
+       
+     
+    })
+
+  
+  btn.addEventListener('click', e => {
+    e.preventDefault()
+    let value = name.value
+    localStorage.setItem(key, value )
+
+    const valueFromLS = localStorage.getItem(key)
+    output.textContent = `The name: '` +  valueFromLS + `' is saved to local storage!`
+  })
+  
+
+
+  reset.addEventListener('click', e => {
+    e.preventDefault()
+    name.value = ''
+  })
+
+
+ 
+  </script>
+
+
+
+
+
+  
+
 
   <!-- link back -->
   <a href="../js/hw7.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
