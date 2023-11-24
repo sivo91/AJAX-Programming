@@ -32,6 +32,101 @@
   <p class="text-center mb-5">Cookies</p>
 
 
+  <form class="border p-3">
+  
+    <!-- input for name -->
+    <div class="mt-3">
+      <label for="name" class="form-label">
+        Enter your Name
+      </label>
+      <input type="text" 
+             class="form-control" 
+             placeholder="Your Name" 
+             id="name">
+    </div>
+
+    <!-- input for username -->
+    <div class="mt-3">
+      <label for="name" class="form-label">
+        Enter your Username
+      </label>
+      <input type="text" 
+             class="form-control" 
+             placeholder="Your Username" 
+             id="username">
+    </div>
+    
+
+    <!-- alert -->
+    <div id="alerto" class="text-center lead text-danger fw-semibold mt-2"></div>
+  
+    <!-- btns -->
+    <div class="d-flex justify-content-evenly">
+      <button class="btn btn-outline-success mx-1 px-5 mt-3 rounded-1" id="btn" type="submit">
+        Submit
+      </button>
+  
+      <button class="btn btn-outline-danger mx-1 px-5 mt-3 rounded-1" id="reset">
+        Reset
+      </button>
+    </div>
+  
+  </form>
+
+
+  <script>
+      const user = document.getElementById('name')
+      const username = document.getElementById('username')
+      const btn = document.getElementById('btn')
+      const reset = document.getElementById('reset')
+      const output = document.getElementById('output')
+      const area = document.getElementById('areaCode')
+      const first = document.getElementById('first3Digits')
+      const last = document.getElementById('last4Digits')
+      const alrt = document.getElementById('alerto')
+
+
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+
+        const nameValue = user.value
+        const aliasValue = username.value
+        const NameKey = 'NAME'
+        const AliasKey = 'USERNAME'
+
+        document.cookie = NameKey + '=' + nameValue + 
+                         ';path=/https://sivo91.github.io/AJAX-Programming/js/hw7Part2.html'
+        
+        document.cookie = AliasKey + '=' + aliasValue + 
+                         ';path=/https://sivo91.github.io/AJAX-Programming/js/hw7Part2.html'
+
+      
+
+      })
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- link back -->
   <a href="../js/hw7.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
     Go Back
