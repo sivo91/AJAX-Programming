@@ -89,18 +89,19 @@
       btn.addEventListener('click', e => {
         e.preventDefault()
 
-        const nameValue = user.value
-        const aliasValue = username.value
-        const NameKey = 'NAME'
-        const AliasKey = 'USERNAME'
+       const nameValue = encodeURIComponent(user.value);
+        const aliasValue = encodeURIComponent(username.value);
+        const NameKey = 'NAME';
+        const AliasKey = 'USERNAME';
 
-        document.cookie = NameKey + '=' + nameValue + 
-                         ';path=/https://sivo91.github.io/AJAX-Programming/js/hw7Part2.html'
-        
-        document.cookie = AliasKey + '=' + aliasValue + 
-                         ';path=/https://sivo91.github.io/AJAX-Programming/js/hw7Part2.html'
+    
+        document.cookie = NameKey + '=' + nameValue
+        document.cookie = AliasKey + '=' + aliasValue 
 
       
+        let param = "name=John Doe&age=30"
+        let encodedParam = encodeURIComponent(param)
+        console.log(encodedParam) // Output: "name%3DJohn%20Doe%26age%3D30"
 
       })
 
