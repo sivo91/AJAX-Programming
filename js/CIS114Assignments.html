@@ -45,6 +45,11 @@ programming on this website.
         .hidden {
           display: none;
         }
+
+        .offcanvas {
+            transition: transform 1.6s ease; 
+          }
+
       </style>
 
 </head>
@@ -106,6 +111,31 @@ programming on this website.
 
    
     <div class="features mb-5"></div>
+
+
+
+    
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasBottomLabel">Cookie Policies: Setting the Standard for User Tracking</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body lead">
+        This website utilizes cookies to improve your experience and to analyze the performance and traffic on our website. We
+        <strong class="text-danger text-decoration-underline">DO NOT</strong> share any information about your use of our site with social media, advertising, or analytics partners..
+      </div>
+       <div class="d-flex justify-content-center mx-auto pb-5 gap-2">
+
+        <button class="btn btn-warning rounded-1 border-dark">
+          Do Not use Cookies
+        </button>
+
+        <button class="btn btn-primary rounded-1 border-dark">
+          Accept Cookies
+        </button>
+
+       </div>
+    </div>
 
    
    
@@ -251,6 +281,19 @@ programming on this website.
         navLinks.appendChild(br)
     }
   
+
+  </script>
+
+  <!-- Open Cookies Modal Bootstrap -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // open cookies after 1 sec
+        setTimeout(function () {
+          let myOffcanvas = document.getElementById('offcanvasBottom')
+          let bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
+          bsOffcanvas.show()
+        }, 1000)
+      })
 
   </script>
 
