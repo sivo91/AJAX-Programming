@@ -332,9 +332,9 @@ programming on this website.
   <script>
     document.addEventListener("DOMContentLoaded", function () {
 
-     
       if (localStorage.getItem('consentMode') === null) {
-
+        
+        // show cookie settings
         setTimeout(function () {
           let myOffcanvas = document.getElementById('offcanvasBottom')
           let bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
@@ -349,7 +349,6 @@ programming on this website.
             preferences: true,
             marketing: true
           })
-          
         })
 
         document.getElementById('btn-accept-some').addEventListener('click', function () {
@@ -361,6 +360,7 @@ programming on this website.
           })
           
         })
+
         document.getElementById('btn-reject-all').addEventListener('click', function () {
           setConsent({
             necessary: false,
@@ -370,7 +370,6 @@ programming on this website.
           })
           
         })
-        document.getElementById('cookie-consent-banner').style.display = 'block';
       }
 
       function setConsent(consent) {
