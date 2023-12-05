@@ -53,7 +53,7 @@ programming on this website.
       </style>
 
 
-      <!-- Google tag (gtag.js) -->
+      <!-- Google tag -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-5559SWN7HL"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
@@ -128,6 +128,59 @@ programming on this website.
 
    
     <div class="features mb-5"></div>
+
+
+    <!-- Modal google analytics -->
+    <div class="offcanvas offcanvas-bottom pb-3" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasBottomLabel">Cookie settings</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+        </button>
+      </div>
+      <div class="offcanvas-body h6">
+        This website uses cookies to enhance user experience and to analyze performance and traffic on our website. We <strong class="text-danger">DO NOT</strong>
+        share information about your use of our site with our social media, advertising and analytics partners.
+      </div>
+      <div>
+    
+        <!-- btns div -->
+        <div style="width: 400px; margin: 0 auto;" class="d-flex justify-content-evenly">
+
+          <button id="btn-accept-all" data-bs-dismiss="offcanvas" class="cookie-consent-button btn-success btn btn-success rounded-1">
+            Accept All
+          </button>
+
+          <button id="btn-accept-some" data-bs-dismiss="offcanvas" class="cookie-consent-button btn-outline btn btn-warning rounded-1">
+            Accept Selection
+          </button>
+
+          <button id="btn-reject-all" data-bs-dismiss="offcanvas" class="cookie-consent-button btn-grayscale btn btn-danger rounded-1">
+            Reject All
+          </button>
+
+        </div>
+
+        <br>
+
+        <!-- select preferences -->
+        <div class="cookie-consent-options d-flex justify-content-evenly" style="width: 400px; margin: 0 auto;">
+          <label>
+             <input id="consent-analytics" type="checkbox" value="Analytics" checked>
+                Analytics
+          </label>
+          <label>
+            <input id="consent-preferences" type="checkbox" value="Preferences" checked>
+             Preferences
+          </label>
+          <label>
+            <input id="consent-marketing" type="checkbox" value="Marketing">
+             Marketing
+          </label>
+        </div>
+
+    
+      </div>
+    </div>
 
 
   </main>
@@ -272,6 +325,67 @@ programming on this website.
         navLinks.appendChild(br)
     }
   
+
+  </script>
+
+  <!-- open modal -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+     
+      if (localStorage.getItem('consentMode') === null) {
+
+        setTimeout(function () {
+          let myOffcanvas = document.getElementById('offcanvasBottom')
+          let bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
+          bsOffcanvas.show()
+        }, 1000)
+
+
+        document.getElementById('btn-accept-all').addEventListener('click', function () {
+          setConsent({
+            necessary: true,
+            analytics: true,
+            preferences: true,
+            marketing: true
+          })
+          
+        })
+
+        document.getElementById('btn-accept-some').addEventListener('click', function () {
+          setConsent({
+            necessary: true,
+            analytics: document.getElementById('consent-analytics').checked,
+            preferences: document.getElementById('consent-preferences').checked,
+            marketing: document.getElementById('consent-marketing').checked
+          })
+          
+        })
+        document.getElementById('btn-reject-all').addEventListener('click', function () {
+          setConsent({
+            necessary: false,
+            analytics: false,
+            preferences: false,
+            marketing: false
+          })
+          
+        })
+        document.getElementById('cookie-consent-banner').style.display = 'block';
+      }
+
+      function setConsent(consent) {
+        const consentMode = {
+          'functionality_storage': consent.necessary ? 'granted' : 'denied',
+          'security_storage': consent.necessary ? 'granted' : 'denied',
+          'ad_storage': consent.marketing ? 'granted' : 'denied',
+          'analytics_storage': consent.analytics ? 'granted' : 'denied',
+          'personalization': consent.preferences ? 'granted' : 'denied',
+        };
+        gtag('consent', 'update', consent)
+        localStorage.setItem('consentMode', JSON.stringify(consentMode))
+      }
+
+    })
 
   </script>
 
