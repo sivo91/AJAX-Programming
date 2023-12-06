@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript / AJAX Programming</title>
+  <title>Homework 8 - AJAX Application</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -30,62 +30,142 @@
       width: 600px;
       margin: 0 auto;
     }
+
+    table,th,td {
+      border : 1px solid black;
+      border-collapse: collapse;
+    }
+    th,td {
+      padding: 5px;
+    }
+
+    #demo {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+    }
   </style>
 </head>
 
 <body>
-  <h2 class="text-center my-5">Home Work 8</h2>
-  <p class="text-center text-danger h3 mb-5">"Coming Soon!"</p>
-
-
-  <h3 class="text-center mt-5">module 7, Mouseover event </h3>
-
-
-  <!-- MOUSEOVER EVENT -->
-<main>
-
-  <br><br>
-  <h4>Using JavaScript</h4>
-  <img onmouseover="mouseImg()" onmouseout="normalImg()" id="gor" src="./images/defaultImage.jpg" alt="Gorilla Image">
-  <br><br>
+  <h2 class="text-center my-5">Homework 8 - AJAX Application</h2>
   
-  <script>
-    function mouseImg() {
-      document.getElementById("gor").src = "./images/js.png";
+
+
+  <button type="button" onclick="loadDoc()" class="btn btn-outline-dark rounded-1 vstack mx-auto">
+    Get CD collection
+  </button>
+  <br><br>
+
+  <table id="demo"></table>
+
+  <h2 class="text-center mt-3">Explanation of AJAX</h2>
+  <p class="text-center" style="position: relative; width:80%; margin: 0 auto">AJAX, which stands for Asynchronous JavaScript and XML, is a web development technique used for creating interactive
+    web applications. It allows web pages to be updated asynchronously by exchanging small amounts of data with the server
+    behind the scenes. This means that it's possible to update parts of a web page, without reloading the whole page. In
+    our application, AJAX is used to fetch data from an XML file (cd_catalog.xml) when the 'Get CD Collection' button is
+    clicked. The JavaScript function loadDoc() makes an XMLHttpRequest to the server and retrieves the data. The response,
+    which is in XML format, is then processed by the myFunction() method, dynamically generating an HTML table with CD
+    information without needing to reload the page. This leads to a more seamless user experience, as data is loaded and
+    displayed without any perceptible delay or page refresh.
+  </p>
+
+  <h2 class="text-center">REST API</h2>
+  <p class="text-center" style="position: relative; width:80%; margin: 0 auto">REST, standing for Representational State Transfer, is an architectural style that defines a set of constraints to be used for creating
+    web services. Web services that conform to the REST architectural style, or RESTful web services, provide
+    interoperability between computer systems on the internet. RESTful APIs are designed around resources, which are any
+    kind of object, data, or service that can be accessed by the client. A RESTful API exposes a set of public URLs, each
+    of which exposes a resource. These resources can be manipulated using a standard set of HTTP methods, such as GET,
+    POST, PUT, and DELETE. Typically, a REST API returns data in JSON or XML format, which is easily parsed by different
+    kinds of clients, including browsers and mobile devices. The use of HTTP protocols means that REST APIs are stateless,
+    scalable, and cacheable, making them a popular choice for modern web applications.
+  </p><br>
+
+
+
+
+ <!--  <script>
+
+    function loadDoc() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () {
+        myFunction(this);
+      }
+      xhttp.open("GET", "cd_catalog.xml");
+      xhttp.send();
     }
 
-    function normalImg() {
-      document.getElementById("gor").src = "./images/defaultImage.jpg"
-    } 
+    function myFunction(xml) {
+
+      const xmlDoc = xml.responseXML;
+      const x = xmlDoc.getElementsByTagName("CD");
+
+      let table = `<tr>
+                    <th>Artist</th>
+                    <th>Title</th>
+                    <th>Year</th>
+                  </tr>`;
+
+      for (let i = 0; i < x.length; i++) {
+        table += "<tr><td>" +
+          x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+          "</td><td>" +
+          x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+          "</td><td>" +
+          x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue +
+          "</td></tr>";
+      }
+
+      document.getElementById("demo").innerHTML = table;
+    }
+
+  </script> -->
+
+  <script>
+    async function loadDoc() {
+      try {
+        const res = await fetch("cd_catalog.xml");
+        const data = await res.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(data, "text/xml");
+        myFunction(xmlDoc);
+      } catch (error) {
+        console.error("Error fetching the XML file: ", error);
+      }
+    }
+
+    function myFunction(xmlDoc) {
+      const cds = xmlDoc.getElementsByTagName("CD");
+      let table = `<tr>
+                     <th>Artist</th>
+                     <th>Title</th>
+                     <th>Year</th>
+                   </tr>`;
+
+      for (let cd of cds) {
+        const artist = cd.getElementsByTagName("ARTIST")[0].textContent;
+        const title = cd.getElementsByTagName("TITLE")[0].textContent;
+        const year = cd.getElementsByTagName("YEAR")[0].textContent;
+
+        table += `<tr>
+                    <td>${artist}</td>
+                    <td>${title}</td>
+                    <td>${year}</td>
+                  </tr>`;
+      }
+
+      document.getElementById("demo").innerHTML = table;
+    }
   </script>
-  
-  
-  <h4>Using CSS hover effect:</h4>
-  <div id="gor2" class="image-container"></div>
-
-
-
-</main>
-
-
-
-<!-- COOKIES -->
- 
-
-<script>
-  let key = 'name'
-  let value = 'peter'
-  document.cookie = key + '=' + value
-
-
-</script>
 
 
 
 
 
-  <a href="../js/CIS114Assignments.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">Go
-    Back</a>
+
+  <a href="../js/CIS114Assignments.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
+    Go Back
+  </a>
 </body>
 
 </html>

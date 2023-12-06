@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+  <CD>
+    <TITLE>HomeWork 8</TITLE>
+    <ARTIST>Peter Sivak</ARTIST>
+    <COUNTRY>USA</COUNTRY>
+    <COMPANY>Student</COMPANY>
+    <PRICE>99.99</PRICE>
+    <YEAR>2023</YEAR>
+  </CD>
+  <CD>
+    <TITLE>Hide your heart</TITLE>
+    <ARTIST>Bonnie Tyler</ARTIST>
+    <COUNTRY>UK</COUNTRY>
+    <COMPANY>CBS Records</COMPANY>
+    <PRICE>9.90</PRICE>
+    <YEAR>1988</YEAR>
+  </CD>
+  <CD>
+    <TITLE>Sylvias Mother</TITLE>
+    <ARTIST>Dr.Hook</ARTIST>
+    <COUNTRY>UK</COUNTRY>
+    <COMPANY>CBS</COMPANY>
+    <PRICE>8.10</PRICE>
+    <YEAR>1973</YEAR>
+  </CD>
+  <CD>
+    <TITLE>Maggie May</TITLE>
+    <ARTIST>Rod Stewart</ARTIST>
+    <COUNTRY>UK</COUNTRY>
+    <COMPANY>Pickwick</COMPANY>
+    <PRICE>8.50</PRICE>
+    <YEAR>1990</YEAR>
+  </CD>
+  <CD>
+    <TITLE>The very best of</TITLE>
+    <ARTIST>Cat Stevens</ARTIST>
+    <COUNTRY>UK</COUNTRY>
+    <COMPANY>Island</COMPANY>
+    <PRICE>8.90</PRICE>
+    <YEAR>1990</YEAR>
+  </CD>
+  <CD>
+    <TITLE>Stop</TITLE>
+    <ARTIST>Sam Brown</ARTIST>
+    <COUNTRY>UK</COUNTRY>
+    <COMPANY>A and M</COMPANY>
+    <PRICE>8.90</PRICE>
+    <YEAR>1988</YEAR>
+  </CD>
+  <CD>
+    <TITLE>Bridge of Spies</TITLE>
+    <ARTIST>T'Pau</ARTIST>
+    <COUNTRY>UK</COUNTRY>
+    <COMPANY>Siren</COMPANY>
+    <PRICE>7.90</PRICE>
+    <YEAR>1987</YEAR>
+  </CD>
+  <CD>
+    <TITLE>Red</TITLE>
+    <ARTIST>The Communards</ARTIST>
+    <COUNTRY>UK</COUNTRY>
+    <COMPANY>London</COMPANY>
+    <PRICE>7.80</PRICE>
+    <YEAR>1987</YEAR>
+  </CD>
+  <CD>
+    <TITLE>Unchain my heart</TITLE>
+    <ARTIST>Joe Cocker</ARTIST>
+    <COUNTRY>USA</COUNTRY>
+    <COMPANY>EMI</COMPANY>
+    <PRICE>8.20</PRICE>
+    <YEAR>1987</YEAR>
+  </CD>
+</CATALOG>
