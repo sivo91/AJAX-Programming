@@ -51,45 +51,64 @@
   <h2 class="text-center my-5">Homework 8 - AJAX Application</h2>
   
 
-
+  <!-- upload xml file -->
   <button type="button" onclick="loadDoc()" class="btn btn-outline-dark rounded-1 vstack mx-auto">
     Get CD collection
   </button>
   <br><br>
-
+  
+  <!-- show data from xml -->
   <table id="demo"></table>
 
-  <h2 class="text-center mt-3">Explanation of AJAX</h2>
-  <p class="text-center" style="position: relative; width:80%; margin: 0 auto">AJAX, which stands for Asynchronous JavaScript and XML, is a web development technique used for creating interactive
-    web applications. It allows web pages to be updated asynchronously by exchanging small amounts of data with the server
-    behind the scenes. This means that it's possible to update parts of a web page, without reloading the whole page. In
-    our application, AJAX is used to fetch data from an XML file (cd_catalog.xml) when the 'Get CD Collection' button is
-    clicked. The JavaScript function loadDoc() makes an XMLHttpRequest to the server and retrieves the data. The response,
-    which is in XML format, is then processed by the myFunction() method, dynamically generating an HTML table with CD
-    information without needing to reload the page. This leads to a more seamless user experience, as data is loaded and
-    displayed without any perceptible delay or page refresh.
+
+
+  <!-- ************  TXT FILE  ********** -->
+
+  <!-- upload text file / ajax explanation -->
+  <button class="btn btn-outline-dark vstack mx-auto rounded-1 my-3"
+          id="fetchAJAXfile">
+    Upload AJAX Explanation / txt file
+  </button>
+ 
+  <!-- show data from txt file / ajax explanation -->
+  <p class="text-center" 
+     style="position: relative; width:80%; margin: 0 auto" 
+     id="ajaxExplanation">
   </p>
 
-  <h2 class="text-center">REST API</h2>
-  <p class="text-center" style="position: relative; width:80%; margin: 0 auto">REST, standing for Representational State Transfer, is an architectural style that defines a set of constraints to be used for creating
-    web services. Web services that conform to the REST architectural style, or RESTful web services, provide
-    interoperability between computer systems on the internet. RESTful APIs are designed around resources, which are any
-    kind of object, data, or service that can be accessed by the client. A RESTful API exposes a set of public URLs, each
-    of which exposes a resource. These resources can be manipulated using a standard set of HTTP methods, such as GET,
-    POST, PUT, and DELETE. Typically, a REST API returns data in JSON or XML format, which is easily parsed by different
-    kinds of clients, including browsers and mobile devices. The use of HTTP protocols means that REST APIs are stateless,
-    scalable, and cacheable, making them a popular choice for modern web applications.
-  </p><br>
+
+
+  <!-- ***********  JSON FILE   ************** -->
+
+  <!-- upload text file / ajax explanation -->
+  <button class="btn btn-outline-dark vstack mx-auto rounded-1 my-3" 
+          id="fetchJSONfile">
+    Upload REST API Explanation / json file
+  </button>
+  
+  <!-- show data from txt file / ajax explanation -->
+  <p class="text-center my-3" 
+     style="position: relative; width:80%; margin: 0 auto" 
+     id="restAPIexplanation">
+  </p>
 
 
 
 
- <!--  <script>
+ <!-- ************   SCRIPT   ************** -->
+
+  <!-- UPLOAD DC COLLECTION -->
+  <script>
 
     function loadDoc() {
       const xhttp = new XMLHttpRequest();
       xhttp.onload = function () {
-        myFunction(this);
+        if(this.status == 200) {
+         //  console.log(this.responseText)
+          myFunction(this);
+        } else if (this.status == 404) {
+          alert('File Not Found!')
+        }
       }
       xhttp.open("GET", "cd_catalog.xml");
       xhttp.send();
@@ -119,44 +138,63 @@
       document.getElementById("demo").innerHTML = table;
     }
 
-  </script> -->
 
-  <script>
-    async function loadDoc() {
-      try {
-        const res = await fetch("cd_catalog.xml");
-        const data = await res.text();
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(data, "text/xml");
-        myFunction(xmlDoc);
-      } catch (error) {
-        console.error("Error fetching the XML file: ", error);
-      }
-    }
-
-    function myFunction(xmlDoc) {
-      const cds = xmlDoc.getElementsByTagName("CD");
-      let table = `<tr>
-                     <th>Artist</th>
-                     <th>Title</th>
-                     <th>Year</th>
-                   </tr>`;
-
-      for (let cd of cds) {
-        const artist = cd.getElementsByTagName("ARTIST")[0].textContent;
-        const title = cd.getElementsByTagName("TITLE")[0].textContent;
-        const year = cd.getElementsByTagName("YEAR")[0].textContent;
-
-        table += `<tr>
-                    <td>${artist}</td>
-                    <td>${title}</td>
-                    <td>${year}</td>
-                  </tr>`;
-      }
-
-      document.getElementById("demo").innerHTML = table;
-    }
   </script>
+
+  <!-- SHOW AJAX EXPLANIATION / txt file -->
+  <script>
+    
+   const btnAJAX = document.getElementById('fetchAJAXfile')
+   const pAJAX = document.getElementById('ajaxExplanation')
+
+   btnAJAX.addEventListener( 'click', loadTXT )
+
+   function loadTXT () {
+
+  
+     let xhr = new XMLHttpRequest()
+     xhr.open('GET', 'AJAX.txt', true)
+
+     xhr.onload = function () {
+       if(this.status == 200) {
+        //console.log(this.responseText)
+        pAJAX.innerHTML = this.responseText
+
+       }
+     }
+
+     xhr.send() // need send to get response
+   }
+
+  </script>
+
+  <!-- SHOW REST API EXPLAN. / json file -->
+  <script>
+
+    const btnJSON = document.getElementById('fetchJSONfile')
+    const pRestAPI = document.getElementById('restAPIexplanation')
+
+    btnJSON.addEventListener('click', loadJSON)
+
+    function loadJSON() {
+
+      let xhr = new XMLHttpRequest()
+      xhr.open('GET', 'REST_API.json', true)
+
+      xhr.onload = function () {
+        if (this.status == 200) {
+        // console.log(JSON.parse(this.responseText))
+          let data = JSON.parse(this.responseText)
+          
+          pRestAPI.innerHTML = data.explanation_REST_API
+        }
+      }
+
+      xhr.send() // need send to get response
+    }
+
+  </script>
+
 
 
 
