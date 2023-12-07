@@ -1,0 +1,14 @@
+[
+  {
+   "question": "What type of response file you get?", 
+   "answer": "JSON format"
+  }, 
+  {
+   "question": "Do you need any type of key to access and use the API?", 
+   "answer": " No. This is FREE API"
+  }, 
+  {
+   "question": "Do the companies need to pay any fee to use the API and if they need, how is that charged?", 
+   "answer": "It is free."
+  }
+]

@@ -112,11 +112,11 @@
   </button>
   
   <!-- show modal with uploaded json.file via AJAX -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Response Type: JSON</h1>
+          <h1 class="modal-title fs-5 text-center" id="exampleModalLabel3">Response Type: JSON</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="restAPIexplanation">
@@ -134,7 +134,7 @@
 
 
 
-  <!-- Random Cocktail  -->
+  <!--**************    Random Cocktail ****************** -->
   <h4 class="text-center"><q>Press for Cocktail: Discover Your Drink</q></h4>
   <button class="btn btn-dark vstack mx-auto rounded-1" id="fetchDrink">
     Get Cocktail
@@ -142,6 +142,33 @@
 
   <!-- koktails output -->
   <div  id="drink"></div>
+
+
+
+  <!-- ***********  JSON FILE   ************** -->
+  
+  <button type="button" class="btn btn-outline-dark vstack mx-auto rounded-1 my-5" data-bs-toggle="modal"
+    data-bs-target="#exampleModal2" id="drinkJSON">
+    Cocktail API Explanation
+  </button>
+  
+  <!-- show modal with uploaded json.file via AJAX -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-center" id="exampleModalLabel2">Response Type: JSON</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="drinkAPIexplanation">
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark w-100" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -324,6 +351,52 @@
     
   
  </script>
+
+
+<!-- SHOW DRINK API EXPLAN. / json file -->
+<script>
+
+  const drinkBtnExplanation = document.getElementById('drinkJSON')
+  const drinkContent = document.getElementById('drinkAPIexplanation')
+
+  drinkBtnExplanation.addEventListener('click', loadJSON)
+
+  function loadJSON() {
+
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', 'drinks.json', true)
+
+    xhr.onload = function () {
+      if (this.status == 200) {
+
+        // console.log(JSON.parse(this.responseText))
+        let data = JSON.parse(this.responseText)
+
+        // clear text from previous fetch
+        drinkContent.textContent = ''
+
+        // loop json.file & apend to modal
+        for (let i = 0; i < data.length; i++) {
+
+          let li = document.createElement('p')
+          let p = document.createElement('strong')
+          let br = document.createElement('br')
+
+          p.textContent = data[i].question
+          li.textContent = data[i].answer
+
+          drinkContent.appendChild(p)
+          drinkContent.appendChild(br)
+          drinkContent.appendChild(li)
+
+        }
+      }
+    }
+
+    xhr.send() // need send to get response
+  }
+
+</script>
 
 
 
