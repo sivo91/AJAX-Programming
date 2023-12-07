@@ -1,4 +1,19 @@
 
-{
-  "explanation_REST_API": "REST, standing for Representational State Transfer, is an architectural style that defines a set of constraints to be used for creating web services. Web services that conform to the REST architectural style, or RESTful web services, provide interoperability between computer systems on the internet. RESTful APIs are designed around resources, which are any kind of object, data, or service that can be accessed by the client. A RESTful API exposes a set of public URLs, each of which exposes a resource. These resources can be manipulated using a standard set of HTTP methods, such as GET, POST, PUT, and DELETE. Typically, a REST API returns data in JSON or XML format, which is easily parsed by different kinds of clients, including browsers and mobile devices. The use of HTTP protocols means that REST APIs are stateless, scalable, and cacheable, making them a popular choice for modern web applications."
-}
+[
+  {
+   "question": "What is REST API?", 
+   "answer": " REST, standing for Representational State Transfer, is an architectural style that defines a set of constraints to be used for creating web services."
+  }, 
+  {
+   "question": "What type of response file you get?", 
+   "answer": " This response type is JSON."
+  }, 
+  {
+   "question": "Do you need any type of key to access and use the API?", 
+   "answer": " Yes, to access and use most REST APIs, you typically need an API key."
+  }, 
+  {
+   "question": "Do the companies need to pay any fee to use the API and if they need, how is that charged", 
+   "answer": " For large-scale or enterprise-level use, API providers may offer custom pricing plans tailored to the specific needs and usage patterns of the company."
+  }
+]

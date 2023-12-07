@@ -13,6 +13,12 @@
 
 
   <style>
+    form {
+        position: relative;
+        width: 400px;
+        margin: 0 auto;
+      }
+
     .image-container {
     width: 194px;
     height: 157px;
@@ -64,34 +70,78 @@
 
   <!-- ************  TXT FILE  ********** -->
 
+
   <!-- upload text file / ajax explanation -->
-  <button class="btn btn-outline-dark vstack mx-auto rounded-1 my-3"
-          id="fetchAJAXfile">
+  <button type="button" class="btn btn-outline-dark vstack mx-auto rounded-1 my-5" data-bs-toggle="modal"
+    data-bs-target="#exampleModal1" id="fetchAJAXfile">
     Upload AJAX Explanation / txt file
   </button>
- 
-  <!-- show data from txt file / ajax explanation -->
-  <p class="text-center" 
-     style="position: relative; width:80%; margin: 0 auto" 
-     id="ajaxExplanation">
-  </p>
 
+  <!-- show data from txt file / ajax explanation -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Response Type: txt</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="ajaxExplanation">
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark w-100" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  
 
 
   <!-- ***********  JSON FILE   ************** -->
 
-  <!-- upload text file / ajax explanation -->
-  <button class="btn btn-outline-dark vstack mx-auto rounded-1 my-3" 
+  <button type="button" 
+          class="btn btn-outline-dark vstack mx-auto rounded-1 my-5" 
+          data-bs-toggle="modal" 
+          data-bs-target="#exampleModal" 
           id="fetchJSONfile">
     Upload REST API Explanation / json file
   </button>
   
-  <!-- show data from txt file / ajax explanation -->
-  <p class="text-center my-3" 
-     style="position: relative; width:80%; margin: 0 auto" 
-     id="restAPIexplanation">
-  </p>
+  <!-- show modal with uploaded json.file via AJAX -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Response Type: JSON</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="restAPIexplanation">
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark w-100" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+
+
+
+
+
+  <!-- Random Cocktail  -->
+  <h4 class="text-center"><q>Press for Cocktail: Discover Your Drink</q></h4>
+  <button class="btn btn-dark vstack mx-auto rounded-1" id="fetchDrink">
+    Get Cocktail
+  </button>
+
+  <!-- koktails output -->
+  <div  id="drink"></div>
 
 
 
@@ -123,8 +173,8 @@
                     <th>Artist</th>
                     <th>Title</th>
                     <th>Year</th>
-                  </tr>`;
-
+                   </tr>` 
+                   
       for (let i = 0; i < x.length; i++) {
         table += "<tr><td>" +
           x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
@@ -135,11 +185,13 @@
           "</td></tr>";
       }
 
-      document.getElementById("demo").innerHTML = table;
+      document.getElementById("demo").innerHTML = table
     }
 
 
   </script>
+
+
 
   <!-- SHOW AJAX EXPLANIATION / txt file -->
   <script>
@@ -156,9 +208,9 @@
      xhr.open('GET', 'AJAX.txt', true)
 
      xhr.onload = function () {
-       if(this.status == 200) {
+       if(xhr.status == 200) {
         //console.log(this.responseText)
-        pAJAX.innerHTML = this.responseText
+        pAJAX.innerHTML = xhr.responseText
 
        }
      }
@@ -167,6 +219,8 @@
    }
 
   </script>
+
+
 
   <!-- SHOW REST API EXPLAN. / json file -->
   <script>
@@ -183,11 +237,29 @@
 
       xhr.onload = function () {
         if (this.status == 200) {
+
         // console.log(JSON.parse(this.responseText))
           let data = JSON.parse(this.responseText)
-          
-          pRestAPI.innerHTML = data.explanation_REST_API
-        }
+
+          // clear text from previous fetch
+          pRestAPI.textContent = ''
+
+          // loop json.file & apend to modal
+          for(let i = 0; i < data.length; i++) {
+
+            let li = document.createElement('p')
+            let p = document.createElement('strong')
+            let br = document.createElement('br')
+
+            p.textContent = data[i].question
+            li.textContent = data[i].answer
+
+            pRestAPI.appendChild(p)
+            pRestAPI.appendChild(br)
+            pRestAPI.appendChild(li)
+     
+          }
+         }
       }
 
       xhr.send() // need send to get response
@@ -197,6 +269,61 @@
 
 
 
+<!-- cocktails -->
+ <script>
+  const btn = document.getElementById('fetchDrink')
+ 
+  btn.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    
+    let result = document.getElementById('drink')
+
+    let url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`
+
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', url, true)
+
+    let output = ''
+
+    xhr.onload = function () {
+      if (this.status == 200) {
+        //console.log(this.responseText)
+         let info = JSON.parse(this.responseText)
+         let drink = info.drinks[0]
+      
+            output += `
+              <div class="card my-5" style="width: 18rem; margin: 0 auto">
+                <img src="${drink.strDrinkThumb}" class="card-img-top" alt="img">
+                <div class="card-body">
+                  <h5 class="card-title text-center">${drink.strDrink}</h5>
+                  <ul>
+                    <li>${drink.strIngredient1}</li>  
+                    <li>${drink.strIngredient2}</li>  
+                    <li>${drink.strIngredient3}</li>  
+                    <li>${drink.strMeasure1}</li>  
+                    <li>${drink.strMeasure2}</li>  
+                  </ul>
+                  <p>${drink.strInstructions}</p>
+                </div>
+                <a href="https://www.thecocktaildb.com/api.php?ref=apilist.fun" target="_blank" class="btn btn-primary rounded-0">www.thecocktaildb.com</a>
+              </div>
+            `
+      }
+
+       btn.textContent = 'Get New Cocktail'
+       btn.classList.remove('btn-dark')
+       btn.classList.add('btn-primary')
+
+       result.innerHTML = output
+    }
+
+    xhr.send() 
+  })
+     
+    
+  
+ </script>
 
 
 
