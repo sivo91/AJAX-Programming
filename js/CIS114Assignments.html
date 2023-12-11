@@ -32,6 +32,18 @@ programming on this website.
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
       <style>
+        #myChart {
+          position: relative;
+          width: 100%!important;
+          height: 80%!important;
+          margin: 0 auto 50px;
+          transform: scale(0.7);
+        }
+
+        @media (max-width: 576px) { 
+      
+        }
+
         .sideProject {
           position: relative;
           width: 100%;
@@ -62,6 +74,17 @@ programming on this website.
 
         gtag('config', 'G-5559SWN7HL');
       </script>
+
+      <!--  jquery -->
+      <script src="./jquery-3.6.0.min.js"></script>
+      
+     <!-- chart.js -->
+      <script src="
+      https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js
+      "></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 
 </head>
@@ -183,7 +206,17 @@ programming on this website.
     </div>
 
 
+  
+    <!-- chart.js -->
+    <canvas id="myChart"></canvas>
+     
+ 
+
+
+
   </main>
+
+
 
 
 
@@ -388,6 +421,95 @@ programming on this website.
 
   </script>
 
+
+
+<!-- chart  -->
+<script>
+  Chart.defaults.font.size = 16;
+    Chart.defaults.font.family = 'Arial';
+
+    // Data and labels
+    const labels = ['Basic Operations', 'Functions', 'Looping', 'Arrays', 'Objects', 'Cookies', 'AJAX'];
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'Data Visualization',
+        data: [97.33, 92, 93.33, 94.67, 100, 100, 100],
+        backgroundColor: [
+          'rgba(255, 0, 89, 0.2)',
+          'rgba(255, 153, 0, 0.2)',
+          'rgba(255, 247, 0, 0.2)',
+          'rgba(133, 255, 151, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(201, 203, 207, 0.2)'
+        ],
+        borderColor: [
+          'rgb(128, 9, 50)',
+          'rgb(156, 95, 5)',
+          'rgb(176, 171, 5)',
+          'rgb(12, 97, 25)',
+          'rgb(55, 102, 153)',
+          'rgb(111, 4, 128)',
+          'rgb(143, 143, 143)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+
+    function isMobileDevice() {
+        return window.innerWidth < 820; 
+      }
+
+    const fontSize = isMobileDevice() ? 12 : 30;
+
+
+   const config = {
+      type: 'bar',
+      data: data,
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Chart.js',
+            font: { size: fontSize }
+          },
+          legend: {
+            labels: {
+              font: { size: fontSize }
+            }
+          },
+          tooltip: {
+            bodyFont: { size: fontSize }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              font: { size: fontSize }
+            }
+          },
+          y: {
+            ticks: {
+              font: { size: fontSize }
+            }
+          }
+        }
+      }
+    };
+
+
+
+       // Creating the chart
+      const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+
+    
+   
+</script>
 
 </body>
 </html>
