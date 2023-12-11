@@ -37,12 +37,16 @@ programming on this website.
           width: 100%!important;
           height: 80%!important;
           margin: 0 auto 50px;
+          top: -100px;
           transform: scale(0.7);
         }
 
-        @media (max-width: 576px) { 
-      
+        .hr {
+          position: relative;
+          width: 80%;
+          margin: 0 auto;
         }
+
 
         .sideProject {
           position: relative;
@@ -150,7 +154,8 @@ programming on this website.
     </div>
 
    
-    <div class="features mb-5"></div>
+    <div class="features"></div>
+    <hr class="hr">
 
 
     <!-- Modal google analytics -->
@@ -425,8 +430,7 @@ programming on this website.
 
 <!-- chart  -->
 <script>
-  Chart.defaults.font.size = 16;
-    Chart.defaults.font.family = 'Arial';
+ 
 
     // Data and labels
     const labels = ['Basic Operations', 'Functions', 'Looping', 'Arrays', 'Objects', 'Cookies', 'AJAX'];
