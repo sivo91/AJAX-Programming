@@ -309,59 +309,73 @@ programming on this website.
       {
         title: 'Home Work 2', 
         url: '../js/hw2.html', 
-        className: 'bi bi-check-circle-fill text-success'
+        className: 'bi bi-check-circle-fill text-success',
       },
       {
         title: 'Home Work 3', 
         url: '../js/hw3.html',
-        className: 'bi bi-check-circle-fill text-success'
+        className: 'bi bi-check-circle-fill text-success',
       },
       {
         title: 'Home Work 4',  
         url: '../js/hw4.html',
-        className: 'bi bi-check-circle-fill text-success'
+        className: 'bi bi-check-circle-fill text-success',
       },
       {
         title: 'Home Work 5', 
         url: '../js/hw5.html',
-        className: 'bi bi-check-circle-fill text-success'
+        className: 'bi bi-check-circle-fill text-success',
       },
       {
         title: 'Home Work 6',  
         url: '../js/hw6.html',
-        className: 'bi bi-check-circle-fill text-success'
+        className: 'bi bi-check-circle-fill text-success',
       },
       {
         title: 'Home Work 7', 
         url: '../js/hw7.html',
-        className: 'bi bi-check-circle-fill text-success'
+        className: 'bi bi-check-circle-fill text-success',
       },
       {
         title: 'Home Work 8', 
         url: '../js/hw8.html',
-        className: 'bi bi-check-circle-fill text-success'
+        className: 'bi bi-check-circle-fill text-success',
+      },
+      {
+        title: 'GitHub', 
+        url: 'https://github.com/sivo91/AJAX-Programming/tree/master/js',
       }
     ]
 
     const navLinks = document.querySelector('.navbarLinks')
 
     for (let i = 0; i < links.length; i++) {
+        const link = document.createElement('a');
+        const icon = document.createElement('i');
+        const br = document.createElement('br');
 
-       const link = document.createElement('a')
-       const icon = document.createElement('i')
-       const br = document.createElement('br')
-      // console.log(link) ok
+        // Set the class name
+        icon.className = 'bi bi-check-circle-fill ' + links[i].className;
 
-       icon.className = `bi bi-check-circle-fill` + `${links[i].className}` 
-       
-       link.textContent = links[i].title
-       link.className = 'singleLink'
-       link.href = links[i].url
+        // Set the text, href, and other attributes
+        link.textContent = links[i].title;
+        link.className = 'singleLink';
+        link.href = links[i].url;
 
+        // Open GitHub link in a new tab
+        if (links[i].url.includes('github.com')) {
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer'; 
+          
+        }
+
+        // Append elements to the navigation container
         navLinks.appendChild(icon);
-        navLinks.appendChild(link)
-        navLinks.appendChild(br)
-    }
+        navLinks.appendChild(link);
+        navLinks.appendChild(br);
+      }
+    
+    
   
 
   </script>
