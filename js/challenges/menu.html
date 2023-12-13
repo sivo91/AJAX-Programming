@@ -82,7 +82,14 @@
           { title: 'Missing Number/s', 
             link: '../challenges/missingNums.html', 
             description: 'Identify the missing numbers between the lower and higher numbers.' },
-          { title: 'card6', link: '#', description: 'description 6' }
+          { title: 'Doughnut Chart', link: '../challenges/donatsChart.html', description: 'Show the results of the class through a doughnut chart.' }
+        ],
+        [ // Second row
+          {
+            title: 'Coming Soon',
+            link: '#',
+            description: ''
+          }
         ],
   
       ]
@@ -130,16 +137,16 @@
       }
 
       const Pagination = () => {
-        const pageCount = cardRows.length
-        const paginationUl = document.getElementById('pagination')
-        paginationUl.innerHTML = ''
+          const pageCount = Math.ceil(cardRows.length / rowsPerPage); // Calculate total number of pages
+          const paginationUl = document.getElementById('pagination');
+          paginationUl.innerHTML = '';
 
-        for (let i = 1; i <= pageCount; i++) {
-          paginationUl.innerHTML += `<li class="page-item ${i === currentPage ? 'active' : ''}">
-                                          <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
-                                       </li>`
-        }
-      }
+          for (let i = 1; i <= pageCount; i++) {
+            paginationUl.innerHTML += `<li class="page-item ${i === currentPage ? 'active' : ''}">
+                                      <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+                                   </li>`;
+          }
+        };
 
       const changePage = (page) => {
         currentPage = page

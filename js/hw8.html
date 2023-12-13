@@ -77,6 +77,8 @@
     Upload AJAX Explanation / txt file
   </button>
 
+
+
   <!-- show data from txt file / ajax explanation -->
   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -111,6 +113,7 @@
     Upload REST API Explanation / json file
   </button>
   
+
   <!-- show modal with uploaded json.file via AJAX -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
     <div class="modal-dialog">
@@ -136,7 +139,7 @@
 
   <!--**************    Random Cocktail ****************** -->
   <h4 class="text-center"><q>Press for Cocktail: Discover Your Drink</q></h4>
-  <button class="btn btn-dark vstack mx-auto rounded-1" id="fetchDrink">
+  <button class="btn btn-danger vstack mx-auto rounded-1" id="fetchDrink">
     Get Cocktail
   </button>
 
@@ -151,6 +154,7 @@
     data-bs-target="#exampleModal2" id="drinkJSON">
     Cocktail API Explanation
   </button>
+
   
   <!-- show modal with uploaded json.file via AJAX -->
   <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
@@ -339,7 +343,7 @@
       }
 
        btn.textContent = 'Get New Cocktail'
-       btn.classList.remove('btn-dark')
+       btn.classList.remove('btn-danger')
        btn.classList.add('btn-primary')
 
        result.innerHTML = output

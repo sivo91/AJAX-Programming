@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript / AJAX Programming</title>
+  <!-- Bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!-- Bootstrap script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../linkBack.css">
+  <link rel="stylesheet" href="../navLinks.css">
+
+
+  <style>
+    .card:hover {
+      position: relative;
+      top: -6px;
+      box-shadow: 1px 5px 5px rgb(226, 226, 226);
+    }
+
+    #chartPanel {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+    }
+
+   
+  </style>
+
+    <!-- chart.js -->
+    <script src="
+          https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js
+          "></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+  <h2 class="text-center mt-5">
+    Doughnut Chart
+  </h2>
+
+
+
+  <!-- OUTPUT -->
+<div id="chartPanel">
+  <canvas id="myChart"></canvas>
+</div>
+
+
+<button class="btn vstack mx-auto my-5 btn-danger shadow  border-dark rounded-1"
+        onclick="location.reload()">
+  Update Colors
+</button>
+
+
+<!-- SCRIPT -->
+
+<script>
+  // Function to generate an array of random numbers
+  function getRandomNumbers(count, min, max) {
+    return Array.from({ length: count }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+  }
+
+  // Function to generate a random color
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+
+
+  // Initial data setup
+  const data = {
+    labels: ['Basic Operations', 'Functions', 'Looping', 'Arrays', 'Objects', 'Cookies','AJAX'],
+    datasets: [
+      {
+        label: 'HomeWork',
+        data: [97.33, 92, 93.33, 94.67, 100, 100, 100],
+        
+      }
+    ]
+  };
+
+  // Chart configuration and actions
+  const config = {
+    type: 'doughnut',
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'Chart.js Doughnut Chart'
+        }
+      }
+    },
+  };
+
+  // Initialize the chart
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+
+  // Example of an action: Randomize data
+  function randomizeData() {
+    myChart.data.datasets.forEach(dataset => {
+      dataset.data = [97.33, 92, 93.33, 94.67, 100, 100, 100],
+      dataset.backgroundColor = dataset.backgroundColor.map(() => getRandomColor());
+    });
+    myChart.update();
+  }
+
+  // Example usage of the randomizeData function
+  randomizeData();
+
+</script>
+
+
+
+
+
+  <!-- link back -->
+  <a href="../challenges/menu.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
+    Go Back
+  </a>
+  
+</body>
+
+</html>
