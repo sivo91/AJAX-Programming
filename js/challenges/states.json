@@ -4,349 +4,503 @@
         "capital": "Montgomery",
         "population": 200000,
         "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Alabama_in_United_States.svg/300px-Alabama_in_United_States.svg.png"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Alabama_in_United_States.svg/300px-Alabama_in_United_States.svg.png",
+        "nickName": "Yellowhammer State",
+        "largestCity": "Birmingham",
+        "admittedToTheUnion": "December 14, 1819"
     },
     {
         "state": "Alaska",
         "capital": "Juneau",
         "population": 32000,
         "time_zone": "Alaska Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Alaska_in_United_States_%28US50%29.svg/220px-Alaska_in_United_States_%28US50%29.svg.png"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Alaska_in_United_States_%28US50%29.svg/220px-Alaska_in_United_States_%28US50%29.svg.png",
+        "nickName": "The Last Frontier",
+        "largestCity": "Anchorage",
+        "admittedToTheUnion": "January 3, 1959"
     },
     {
         "state": "Arizona",
         "capital": "Phoenix",
         "population": 1680000,
         "time_zone": "Mountain Time Zone",
-        "image" : "https://50states-wp.s3.amazonaws.com/wp-content/uploads/2020/04/04084016/az-largemap.png"
+        "image": "https://50states-wp.s3.amazonaws.com/wp-content/uploads/2020/04/04084016/az-largemap.png",
+        "nickName": "The Grand Canyon State",
+        "largestCity": "Phoenix",
+        "admittedToTheUnion": "February 14, 1912"
     },
     {
         "state": "Arkansas",
         "capital": "Little Rock",
         "population": 197000,
         "time_zone": "Central Time Zone",
-        "image" : "https://www.ipl.org/wp-content/uploads/2019/12/usmap-ar.jpg"
+        "image": "https://www.ipl.org/wp-content/uploads/2019/12/usmap-ar.jpg",
+        "nickName": "The Natural State",
+        "largestCity": "Little Rock",
+        "admittedToTheUnion": "June 15, 1836"
     },
     {
-        "state": "California",
-        "capital": "Sacramento",
-        "population": 508000,
-        "time_zone": "Pacific Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/California_in_United_States.svg/300px-California_in_United_States.svg.png"
-    },
-    {
-        "state": "Colorado",
-        "capital": "Denver",
-        "population": 716000,
-        "time_zone": "Mountain Time Zone",
-        "image" : "https://www.hometownusa.com/co/images/Colorado_Location.jpg"
-    },
-    {
-        "state": "Connecticut",
-        "capital": "Hartford",
-        "population": 123000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Map_of_USA_CT.svg/220px-Map_of_USA_CT.svg.png"
-    },
-    {
-        "state": "Delaware",
-        "capital": "Dover",
-        "population": 38000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://besthotelshome.com/wp-content/uploads/2021/11/Where-is-Delaware-DE-Located.-Where-is-Delaware-on-a-US-Map-1024x791.jpg"
-    },
-    {
-        "state": "Florida",
-        "capital": "Tallahassee",
-        "population": 194000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Florida_in_United_States.svg/300px-Florida_in_United_States.svg.png"
-    },
-    {
-        "state": "Georgia",
-        "capital": "Atlanta",
-        "population": 488000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Georgia_in_United_States.svg/300px-Georgia_in_United_States.svg.png"
-    },
+    "state": "California",
+    "capital": "Sacramento",
+    "population": 508000,
+    "time_zone": "Pacific Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/California_in_United_States.svg/300px-California_in_United_States.svg.png",
+    "nickName": "The Golden State",
+    "largestCity": "Los Angeles",
+    "admittedToTheUnion": "September 9, 1850"
+},
+{
+    "state": "Colorado",
+    "capital": "Denver",
+    "population": 716000,
+    "time_zone": "Mountain Time Zone",
+    "image": "https://www.hometownusa.com/co/images/Colorado_Location.jpg",
+    "nickName": "The Centennial State",
+    "largestCity": "Denver",
+    "admittedToTheUnion": "August 1, 1876"
+},
+{
+    "state": "Connecticut",
+    "capital": "Hartford",
+    "population": 123000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Map_of_USA_CT.svg/220px-Map_of_USA_CT.svg.png",
+    "nickName": "The Constitution State",
+    "largestCity": "Bridgeport",
+    "admittedToTheUnion": "January 9, 1788"
+},
+{
+    "state": "Delaware",
+    "capital": "Dover",
+    "population": 38000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://besthotelshome.com/wp-content/uploads/2021/11/Where-is-Delaware-DE-Located.-Where-is-Delaware-on-a-US-Map-1024x791.jpg",
+    "nickName": "The First State",
+    "largestCity": "Wilmington",
+    "admittedToTheUnion": "December 7, 1787"
+},
+{
+    "state": "Florida",
+    "capital": "Tallahassee",
+    "population": 194000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Florida_in_United_States.svg/300px-Florida_in_United_States.svg.png",
+    "nickName": "The Sunshine State",
+    "largestCity": "Jacksonville",
+    "admittedToTheUnion": "March 3, 1845"
+},
+{
+    "state": "Georgia",
+    "capital": "Atlanta",
+    "population": 488000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Georgia_in_United_States.svg/300px-Georgia_in_United_States.svg.png",
+    "nickName": "The Peach State",
+    "largestCity": "Atlanta",
+    "admittedToTheUnion": "January 2, 1788"
+},
      {
-        "state": "Hawaii",
-        "capital": "Honolulu",
-        "population": 347000,
-        "time_zone": "Hawaii-Aleutian Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Hawaii_in_United_States_%28US50%29_%28%2Bgrid%29_%28zoom%29_%28W3%29.svg/300px-Hawaii_in_United_States_%28US50%29_%28%2Bgrid%29_%28zoom%29_%28W3%29.svg.png"
-    },
-    {
-        "state": "Idaho",
-        "capital": "Boise",
-        "population": 228000,
-        "time_zone": "Mountain Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Idaho_in_United_States.svg/300px-Idaho_in_United_States.svg.png"
-    },
-    {
-        "state": "Illinois",
-        "capital": "Springfield",
-        "population": 116000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Illinois_in_United_States.svg/300px-Illinois_in_United_States.svg.png"
-    },
-    {
-        "state": "Indiana",
-        "capital": "Indianapolis",
-        "population": 867000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Map_of_USA_IN.svg/1200px-Map_of_USA_IN.svg.png"
-    },
-    {
-        "state": "Iowa",
-        "capital": "Des Moines",
-        "population": 216000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Iowa_in_United_States.svg/300px-Iowa_in_United_States.svg.png"
-    },
-    {
-        "state": "Kansas",
-        "capital": "Topeka",
-        "population": 127000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Kansas_in_United_States.svg/300px-Kansas_in_United_States.svg.png"
-    },
-    {
-        "state": "Kentucky",
-        "capital": "Frankfort",
-        "population": 27700,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Kentucky_in_United_States.svg/2560px-Kentucky_in_United_States.svg.png"
-    },
-    {
-        "state": "Louisiana",
-        "capital": "Baton Rouge",
-        "population": 221000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Louisiana_in_United_States.svg/300px-Louisiana_in_United_States.svg.png"
-    },
-    {
-        "state": "Maine",
-        "capital": "Augusta",
-        "population": 19000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Maine_in_United_States.svg/1280px-Maine_in_United_States.svg.png"
-    },
-    {
-        "state": "Maryland",
-        "capital": "Annapolis",
-        "population": 39000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Map_of_USA_MD.svg/1280px-Map_of_USA_MD.svg.png"
-    },
-    {
-        "state": "Massachusetts",
-        "capital": "Boston",
-        "population": 694000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Massachusetts_in_United_States.svg/300px-Massachusetts_in_United_States.svg.png"
-    },
-    {
-        "state": "Michigan",
-        "capital": "Lansing",
-        "population": 118000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Michigan_in_United_States.svg/300px-Michigan_in_United_States.svg.png"
-    },
-    {
-        "state": "Minnesota",
-        "capital": "Saint Paul",
-        "population": 306000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Minnesota_in_United_States.svg/300px-Minnesota_in_United_States.svg.png"
-    },
-    {
-        "state": "Mississippi",
-        "capital": "Jackson",
-        "population": 164000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Mississippi_in_United_States.svg/2560px-Mississippi_in_United_States.svg.png"
-    },
-    {
-        "state": "Missouri",
-        "capital": "Jefferson City",
-        "population": 43000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Map_of_USA_MO.svg/1280px-Map_of_USA_MO.svg.png"
-    },
-    {
-        "state": "Montana",
-        "capital": "Helena",
-        "population": 32000,
-        "time_zone": "Mountain Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Montana_in_United_States.svg/300px-Montana_in_United_States.svg.png"
-    },
-    {
-        "state": "Nebraska",
-        "capital": "Lincoln",
-        "population": 284000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Map_of_USA_NE.svg/1280px-Map_of_USA_NE.svg.png"
-    },
-    {
-        "state": "Nevada",
-        "capital": "Carson City",
-        "population": 55000,
-        "time_zone": "Pacific Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Nevada_in_United_States.svg/300px-Nevada_in_United_States.svg.png"
-    },
-    {
-        "state": "New Hampshire",
-        "capital": "Concord",
-        "population": 43000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/New_Hampshire_in_United_States.svg/300px-New_Hampshire_in_United_States.svg.png"
-    },
-    {
-        "state": "New Jersey",
-        "capital": "Trenton",
-        "population": 84000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/New_Jersey_in_United_States_%28zoom%29.svg/300px-New_Jersey_in_United_States_%28zoom%29.svg.png"
-    },
-    {
-        "state": "New Mexico",
-        "capital": "Santa Fe",
-        "population": 84000,
-        "time_zone": "Mountain Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Map_of_USA_NM.svg/2560px-Map_of_USA_NM.svg.png"
-    },
-    {
-        "state": "New York",
-        "capital": "Albany",
-        "population": 98000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/New_York_in_United_States.svg/300px-New_York_in_United_States.svg.png"
-    },
-    {
-        "state": "North Carolina",
-        "capital": "Raleigh",
-        "population": 467000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Map_of_USA_NC.svg/1280px-Map_of_USA_NC.svg.png"
-    },
-    {
-        "state": "North Dakota",
-        "capital": "Bismarck",
-        "population": 73000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/North_Dakota_in_United_States.svg/300px-North_Dakota_in_United_States.svg.png"
-    },
-    {
-        "state": "Ohio",
-        "capital": "Columbus",
-        "population": 892000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Map_of_USA_OH.svg/2560px-Map_of_USA_OH.svg.png"
-    },
-    {
-        "state": "Oklahoma",
-        "capital": "Oklahoma City",
-        "population": 649000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Oklahoma_in_United_States.svg/300px-Oklahoma_in_United_States.svg.png"
-    },
-    {
-        "state": "Oregon",
-        "capital": "Salem",
-        "population": 173000,
-        "time_zone": "Pacific Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Map_of_USA_OR.svg/1280px-Map_of_USA_OR.svg.png"
-    },
-    {
-        "state": "Pennsylvania",
-        "capital": "Harrisburg",
-        "population": 49000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Pennsylvania_in_United_States.svg/300px-Pennsylvania_in_United_States.svg.png"
-    },
-    {
-        "state": "Rhode Island",
-        "capital": "Providence",
-        "population": 179000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Rhode_Island_in_United_States_%28zoom%29_%28extra_close%29.svg/300px-Rhode_Island_in_United_States_%28zoom%29_%28extra_close%29.svg.png"
-    },
-    {
-        "state": "South Carolina",
-        "capital": "Columbia",
-        "population": 133000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Alabama_in_United_States.svg/300px-Alabama_in_United_States.svg.png"
-    },
-    {
-        "state": "South Dakota",
-        "capital": "Pierre",
-        "population": 14000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/South_Carolina_in_United_States.svg/300px-South_Carolina_in_United_States.svg.png"
-    },
-    {
-        "state": "Tennessee",
-        "capital": "Nashville",
-        "population": 670000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Tennessee_in_United_States.svg/300px-Tennessee_in_United_States.svg.png"
-    },
-    {
-        "state": "Texas",
-        "capital": "Austin",
-        "population": 964000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Texas_in_United_States.svg/300px-Texas_in_United_States.svg.png"
-    },
-    {
-        "state": "Utah",
-        "capital": "Salt Lake City",
-        "population": 200000,
-        "time_zone": "Mountain Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Utah_in_United_States.svg/300px-Utah_in_United_States.svg.png"
-    },
-    {
-        "state": "Vermont",
-        "capital": "Montpelier",
-        "population": 7800,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Map_of_USA_VT.svg/1280px-Map_of_USA_VT.svg.png"
-    },
-    {
-        "state": "Virginia",
-        "capital": "Richmond",
-        "population": 227000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Map_of_USA_VA.svg/1280px-Map_of_USA_VA.svg.png"
-    },
-    {
-        "state": "Washington",
-        "capital": "Olympia",
-        "population": 52000,
-        "time_zone": "Pacific Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Washington_in_United_States.svg/300px-Washington_in_United_States.svg.png"
-    },
-    {
-        "state": "West Virginia",
-        "capital": "Charleston",
-        "population": 47000,
-        "time_zone": "Eastern Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/West_Virginia_in_United_States.svg/300px-West_Virginia_in_United_States.svg.png"
-    },
-    {
-        "state": "Wisconsin",
-        "capital": "Madison",
-        "population": 258000,
-        "time_zone": "Central Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Wisconsin_in_United_States.svg/300px-Wisconsin_in_United_States.svg.png"
-    },
-    {
-        "state": "Wyoming",
-        "capital": "Cheyenne",
-        "population": 64000,
-        "time_zone": "Mountain Time Zone",
-        "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Wyoming_in_United_States.svg/300px-Wyoming_in_United_States.svg.png"
-    }
+    "state": "Hawaii",
+    "capital": "Honolulu",
+    "population": 347000,
+    "time_zone": "Hawaii-Aleutian Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Hawaii_in_United_States_%28US50%29_%28%2Bgrid%29_%28zoom%29_%28W3%29.svg/300px-Hawaii_in_United_States_%28US50%29_%28%2Bgrid%29_%28zoom%29_%28W3%29.svg.png",
+    "nickName": "The Aloha State",
+    "largestCity": "Honolulu",
+    "admittedToTheUnion": "August 21, 1959"
+},
+{
+    "state": "Idaho",
+    "capital": "Boise",
+    "population": 228000,
+    "time_zone": "Mountain Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Idaho_in_United_States.svg/300px-Idaho_in_United_States.svg.png",
+    "nickName": "The Gem State",
+    "largestCity": "Boise",
+    "admittedToTheUnion": "July 3, 1890"
+},
+{
+    "state": "Illinois",
+    "capital": "Springfield",
+    "population": 116000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Illinois_in_United_States.svg/300px-Illinois_in_United_States.svg.png",
+    "nickName": "The Prairie State",
+    "largestCity": "Chicago",
+    "admittedToTheUnion": "December 3, 1818"
+},
+{
+    "state": "Indiana",
+    "capital": "Indianapolis",
+    "population": 867000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Map_of_USA_IN.svg/1200px-Map_of_USA_IN.svg.png",
+    "nickName": "The Hoosier State",
+    "largestCity": "Indianapolis",
+    "admittedToTheUnion": "December 11, 1816"
+},
+{
+    "state": "Iowa",
+    "capital": "Des Moines",
+    "population": 216000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Iowa_in_United_States.svg/300px-Iowa_in_United_States.svg.png",
+    "nickName": "The Hawkeye State",
+    "largestCity": "Des Moines",
+    "admittedToTheUnion": "December 28, 1846"
+},
+{
+    "state": "Kansas",
+    "capital": "Topeka",
+    "population": 127000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Kansas_in_United_States.svg/300px-Kansas_in_United_States.svg.png",
+    "nickName": "The Sunflower State",
+    "largestCity": "Wichita",
+    "admittedToTheUnion": "January 29, 1861"
+},
+
+   {
+    "state": "Kentucky",
+    "capital": "Frankfort",
+    "population": 27700,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Kentucky_in_United_States.svg/2560px-Kentucky_in_United_States.svg.png",
+    "nickName": "The Bluegrass State",
+    "largestCity": "Louisville",
+    "admittedToTheUnion": "June 1, 1792"
+},
+{
+    "state": "Louisiana",
+    "capital": "Baton Rouge",
+    "population": 221000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Louisiana_in_United_States.svg/300px-Louisiana_in_United_States.svg.png",
+    "nickName": "The Pelican State",
+    "largestCity": "New Orleans",
+    "admittedToTheUnion": "April 30, 1812"
+},
+{
+    "state": "Maine",
+    "capital": "Augusta",
+    "population": 19000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Maine_in_United_States.svg/1280px-Maine_in_United_States.svg.png",
+    "nickName": "The Pine Tree State",
+    "largestCity": "Portland",
+    "admittedToTheUnion": "March 15, 1820"
+},
+{
+    "state": "Maryland",
+    "capital": "Annapolis",
+    "population": 39000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Map_of_USA_MD.svg/1280px-Map_of_USA_MD.svg.png",
+    "nickName": "The Old Line State",
+    "largestCity": "Baltimore",
+    "admittedToTheUnion": "April 28, 1788"
+},
+{
+    "state": "Massachusetts",
+    "capital": "Boston",
+    "population": 694000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Massachusetts_in_United_States.svg/300px-Massachusetts_in_United_States.svg.png",
+    "nickName": "The Bay State",
+    "largestCity": "Boston",
+    "admittedToTheUnion": "February 6, 1788"
+},
+{
+    "state": "Michigan",
+    "capital": "Lansing",
+    "population": 118000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Michigan_in_United_States.svg/300px-Michigan_in_United_States.svg.png",
+    "nickName": "The Great Lakes State",
+    "largestCity": "Detroit",
+    "admittedToTheUnion": "January 26, 1837"
+},
+
+
+   {
+    "state": "Minnesota",
+    "capital": "Saint Paul",
+    "population": 306000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Minnesota_in_United_States.svg/300px-Minnesota_in_United_States.svg.png",
+    "nickName": "The North Star State",
+    "largestCity": "Minneapolis",
+    "admittedToTheUnion": "May 11, 1858"
+},
+{
+    "state": "Mississippi",
+    "capital": "Jackson",
+    "population": 164000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Mississippi_in_United_States.svg/2560px-Mississippi_in_United_States.svg.png",
+    "nickName": "The Magnolia State",
+    "largestCity": "Jackson",
+    "admittedToTheUnion": "December 10, 1817"
+},
+{
+    "state": "Missouri",
+    "capital": "Jefferson City",
+    "population": 43000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Map_of_USA_MO.svg/1280px-Map_of_USA_MO.svg.png",
+    "nickName": "The Show Me State",
+    "largestCity": "Kansas City",
+    "admittedToTheUnion": "August 10, 1821"
+},
+{
+    "state": "Montana",
+    "capital": "Helena",
+    "population": 32000,
+    "time_zone": "Mountain Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Montana_in_United_States.svg/300px-Montana_in_United_States.svg.png",
+    "nickName": "The Treasure State",
+    "largestCity": "Billings",
+    "admittedToTheUnion": "November 8, 1889"
+},
+{
+    "state": "Nebraska",
+    "capital": "Lincoln",
+    "population": 284000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Map_of_USA_NE.svg/1280px-Map_of_USA_NE.svg.png",
+    "nickName": "The Cornhusker State",
+    "largestCity": "Omaha",
+    "admittedToTheUnion": "March 1, 1867"
+},
+{
+    "state": "Nevada",
+    "capital": "Carson City",
+    "population": 55000,
+    "time_zone": "Pacific Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Nevada_in_United_States.svg/300px-Nevada_in_United_States.svg.png",
+    "nickName": "The Silver State",
+    "largestCity": "Las Vegas",
+    "admittedToTheUnion": "October 31, 1864"
+},
+{
+    "state": "New Hampshire",
+    "capital": "Concord",
+    "population": 43000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/New_Hampshire_in_United_States.svg/300px-New_Hampshire_in_United_States.svg.png",
+    "nickName": "The Granite State",
+    "largestCity": "Manchester",
+    "admittedToTheUnion": "June 21, 1788"
+},
+{
+    "state": "New Jersey",
+    "capital": "Trenton",
+    "population": 84000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/New_Jersey_in_United_States_%28zoom%29.svg/300px-New_Jersey_in_United_States_%28zoom%29.svg.png",
+    "nickName": "The Garden State",
+    "largestCity": "Newark",
+    "admittedToTheUnion": "December 18, 1787"
+},
+{
+    "state": "New Mexico",
+    "capital": "Santa Fe",
+    "population": 84000,
+    "time_zone": "Mountain Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Map_of_USA_NM.svg/2560px-Map_of_USA_NM.svg.png",
+    "nickName": "The Land of Enchantment",
+    "largestCity": "Albuquerque",
+    "admittedToTheUnion": "January 6, 1912"
+},
+{
+    "state": "New York",
+    "capital": "Albany",
+    "population": 98000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/New_York_in_United_States.svg/300px-New_York_in_United_States.svg.png",
+    "nickName": "The Empire State",
+    "largestCity": "New York City",
+    "admittedToTheUnion": "July 26, 1788"
+},
+{
+    "state": "North Carolina",
+    "capital": "Raleigh",
+    "population": 467000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Map_of_USA_NC.svg/1280px-Map_of_USA_NC.svg.png",
+    "nickName": "The Tar Heel State",
+    "largestCity": "Charlotte",
+    "admittedToTheUnion": "November 21, 1789"
+},
+{
+    "state": "North Dakota",
+    "capital": "Bismarck",
+    "population": 73000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/North_Dakota_in_United_States.svg/300px-North_Dakota_in_United_States.svg.png",
+    "nickName": "The Peace Garden State",
+    "largestCity": "Fargo",
+    "admittedToTheUnion": "November 2, 1889"
+},
+{
+    "state": "Ohio",
+    "capital": "Columbus",
+    "population": 892000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Map_of_USA_OH.svg/2560px-Map_of_USA_OH.svg.png",
+    "nickName": "The Buckeye State",
+    "largestCity": "Columbus",
+    "admittedToTheUnion": "March 1, 1803"
+},
+{
+    "state": "Oklahoma",
+    "capital": "Oklahoma City",
+    "population": 649000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Oklahoma_in_United_States.svg/300px-Oklahoma_in_United_States.svg.png",
+    "nickName": "The Sooner State",
+    "largestCity": "Oklahoma City",
+    "admittedToTheUnion": "November 16, 1907"
+},
+{
+    "state": "Oregon",
+    "capital": "Salem",
+    "population": 173000,
+    "time_zone": "Pacific Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Map_of_USA_OR.svg/1280px-Map_of_USA_OR.svg.png",
+    "nickName": "The Beaver State",
+    "largestCity": "Portland",
+    "admittedToTheUnion": "February 14, 1859"
+},
+{
+    "state": "Pennsylvania",
+    "capital": "Harrisburg",
+    "population": 49000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Pennsylvania_in_United_States.svg/300px-Pennsylvania_in_United_States.svg.png",
+    "nickName": "The Keystone State",
+    "largestCity": "Philadelphia",
+    "admittedToTheUnion": "December 12, 1787"
+},
+{
+    "state": "Rhode Island",
+    "capital": "Providence",
+    "population": 179000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Rhode_Island_in_United_States_%28zoom%29_%28extra_close%29.svg/300px-Rhode_Island_in_United_States_%28zoom%29_%28extra_close%29.svg.png",
+    "nickName": "The Ocean State",
+    "largestCity": "Providence",
+    "admittedToTheUnion": "May 29, 1790"
+},
+{
+    "state": "South Carolina",
+    "capital": "Columbia",
+    "population": 133000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Alabama_in_United_States.svg/300px-Alabama_in_United_States.svg.png",
+    "nickName": "The Palmetto State",
+    "largestCity": "Charleston",
+    "admittedToTheUnion": "May 23, 1788"
+},
+{
+    "state": "South Dakota",
+    "capital": "Pierre",
+    "population": 14000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/South_Carolina_in_United_States.svg/300px-South_Carolina_in_United_States.svg.png",
+    "nickName": "Mount Rushmore State",
+    "largestCity": "Sioux Falls",
+    "admittedToTheUnion": "November 2, 1889"
+},
+{
+    "state": "Tennessee",
+    "capital": "Nashville",
+    "population": 670000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Tennessee_in_United_States.svg/300px-Tennessee_in_United_States.svg.png",
+    "nickName": "The Volunteer State",
+    "largestCity": "Nashville",
+    "admittedToTheUnion": "June 1, 1796"
+},
+{
+    "state": "Texas",
+    "capital": "Austin",
+    "population": 964000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Texas_in_United_States.svg/300px-Texas_in_United_States.svg.png",
+    "nickName": "The Lone Star State",
+    "largestCity": "Houston",
+    "admittedToTheUnion": "December 29, 1845"
+},
+{
+    "state": "Utah",
+    "capital": "Salt Lake City",
+    "population": 200000,
+    "time_zone": "Mountain Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Utah_in_United_States.svg/300px-Utah_in_United_States.svg.png",
+    "nickName": "The Beehive State",
+    "largestCity": "Salt Lake City",
+    "admittedToTheUnion": "January 4, 1896"
+},
+{
+    "state": "Vermont",
+    "capital": "Montpelier",
+    "population": 7800,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Map_of_USA_VT.svg/1280px-Map_of_USA_VT.svg.png",
+    "nickName": "The Green Mountain State",
+    "largestCity": "Burlington",
+    "admittedToTheUnion": "March 4, 1791"
+},
+{
+    "state": "Virginia",
+    "capital": "Richmond",
+    "population": 227000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Map_of_USA_VA.svg/1280px-Map_of_USA_VA.svg.png",
+    "nickName": "The Old Dominion State",
+    "largestCity": "Virginia Beach",
+    "admittedToTheUnion": "June 25, 1788"
+},
+{
+    "state": "Washington",
+    "capital": "Olympia",
+    "population": 52000,
+    "time_zone": "Pacific Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Washington_in_United_States.svg/300px-Washington_in_United_States.svg.png",
+    "nickName": "The Evergreen State",
+    "largestCity": "Seattle",
+    "admittedToTheUnion": "November 11, 1889"
+},
+{
+    "state": "West Virginia",
+    "capital": "Charleston",
+    "population": 47000,
+    "time_zone": "Eastern Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/West_Virginia_in_United_States.svg/300px-West_Virginia_in_United_States.svg.png",
+    "nickName": "The Mountain State",
+    "largestCity": "Charleston",
+    "admittedToTheUnion": "June 20, 1863"
+},
+{
+    "state": "Wisconsin",
+    "capital": "Madison",
+    "population": 258000,
+    "time_zone": "Central Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Wisconsin_in_United_States.svg/300px-Wisconsin_in_United_States.svg.png",
+    "nickName": "The Badger State",
+    "largestCity": "Milwaukee",
+    "admittedToTheUnion": "May 29, 1848"
+},
+{
+    "state": "Wyoming",
+    "capital": "Cheyenne",
+    "population": 64000,
+    "time_zone": "Mountain Time Zone",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Wyoming_in_United_States.svg/300px-Wyoming_in_United_States.svg.png",
+    "nickName": "The Equality State",
+    "largestCity": "Cheyenne",
+    "admittedToTheUnion": "July 10, 1890"
+}
+
 ]

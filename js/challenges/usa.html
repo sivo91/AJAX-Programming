@@ -52,7 +52,7 @@
 .card {
  
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  min-width: 250px;
+  min-width: 350px;
   max-width: 400px;
 }
 
@@ -70,7 +70,7 @@
 
 <body>
 
-  <h3 class="text-center mt-5">USA States</h3>
+  <h3 class="text-center mt-5">State by State: Discovering America</h3>
 
 
   <!-- input form  -->
@@ -86,17 +86,13 @@
   <!-- output -->
   <div id="output">
   </div>
-  
-  
-  
-  <!-- link back -->
+
   <!-- link back -->
   <a href="../challenges/menu.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
     Go Back
   </a>
   
-  
-  
+
   <script>
     const btn = document.getElementById('btn')
     const query = document.getElementById('query')
@@ -124,15 +120,51 @@
 
             if (matchingStates.length > 0) {
               output.innerHTML = matchingStates.map(state => `
-                    <div class="card" style="width: 18rem;">
-                      <img src="${state.image}" class="card-img-top" alt="Image of ${state.state}">
-                      <div class="card-body ">
-                        <h5 class="card-title"> ${state.state}</h5>
-                        <p class="card-text">Capital City: ${state.capital}</p>
-                        <p class="card-text">Population of City: ${state.population.toLocaleString()}</p>
-                        <p class="card-text">Time Zone: ${state.time_zone}</p>
-                      </div>
-                    </div>
+
+                        <div class="card" style="width: 18rem;">
+                          <img src="${state.image}" class="card-img-top" alt="Image of ${state.state}">
+                          <div class="card-body ">
+                            <h5 class="card-title text-center lead fw-semibold">
+                              ${state.state}
+                            </h5>
+                            <p class="card-text m-0 mt-1">
+                              <span class="fw-semibold">
+                                Nick Name:
+                              </span>
+                              ${state.nickName}
+                            </p>
+                            <p class="card-text m-0 mt-1">
+                              <span class="fw-semibold">
+                                Capital City:
+                              </span>
+                              ${state.capital}
+                            </p>
+                            <p class="card-text m-0 mt-1">
+                              <span class="fw-semibold">
+                                Population of Capital City:
+                              </span>
+                              ${state.population.toLocaleString()}
+                            </p>
+                            <p class="card-text m-0 mt-1">
+                              <span class="fw-semibold">
+                                Largest City:
+                              </span>
+                              ${state.largestCity}
+                            </p>
+                            <p class="card-text m-0 mt-1">
+                              <span class="fw-semibold">
+                                Admitted to the Union:
+                              </span></br>
+                              ${state.admittedToTheUnion}
+                            </p>
+                            <p class="card-text m-0 mt-1">
+                              <span class="fw-semibold">
+                                Time Zone:
+                              </span>
+                              ${state.time_zone}
+                            </p>
+                          </div>
+                      </div>         
                   `).join('');
             } else {
               output.textContent = "No matching state found";
@@ -162,13 +194,11 @@
     e.preventDefault()
 
     query.value = ''
+    output.innerHTML = ''
    })
 
 
-    const focusFunc = (element) => {
-        element.style.backgroundColor = 'yellow'
-      }
-
+   
   </script>
 
 
