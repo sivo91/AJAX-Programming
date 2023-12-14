@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript / AJAX Programming</title>
+  <!-- Bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!-- Bootstrap script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../linkBack.css">
+  <link rel="stylesheet" href="../navLinks.css">
+
+  <style>
+   
+
+  form {
+    position: relative;
+    width: 380px;
+    margin: 0 auto;
+  }
+
+.input-group {
+    position: relative;
+    display: flex;
+}
+
+.form-control {
+    padding-right: 50px; 
+}
+
+.reset-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 0; 
+}
+
+#output {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+  justify-content: center; 
+}
+
+.card {
+ 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  min-width: 250px;
+  max-width: 400px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    flex: 0 1 calc(50% - 20px); /* 2 cards in a row on smaller screens */
+  }
+}
+
+  
+  </style>
+
+</head>
+
+<body>
+
+  <h3 class="text-center mt-5">USA States</h3>
+
+
+  <!-- input form  -->
+  <form class="my-5">
+  
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search..." aria-label="Search" id="query">
+        <button class="btn btn-secondary reset-btn" id="reset" onclick="clearInput()">x</button>
+      </div>
+
+  </form>
+  
+  <!-- output -->
+  <div id="output">
+  </div>
+  
+  
+  
+  <!-- link back -->
+  <!-- link back -->
+  <a href="../challenges/menu.html" class="btn btn-dark rounded-1 vstack mx-auto my-5" style="width: 150px;">
+    Go Back
+  </a>
+  
+  
+  
+  <script>
+    const btn = document.getElementById('btn')
+    const query = document.getElementById('query')
+    const output = document.getElementById('output')
+    const reset = document.getElementById('reset')
+
+
+ 
+
+  query.addEventListener('keyup', e => {
+    e.preventDefault();
+
+    const inputState = query.value.toLowerCase();
+
+    if (inputState.length >= 3) {
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', 'states.json', true);
+
+      xhr.onload = function () {
+        if (this.status === 200) {
+          try {
+            const data = JSON.parse(this.responseText);
+
+            const matchingStates = data.filter(item => item.state.toLowerCase().includes(inputState));
+
+            if (matchingStates.length > 0) {
+              output.innerHTML = matchingStates.map(state => `
+                    <div class="card" style="width: 18rem;">
+                      <img src="${state.image}" class="card-img-top" alt="Image of ${state.state}">
+                      <div class="card-body ">
+                        <h5 class="card-title"> ${state.state}</h5>
+                        <p class="card-text">Capital City: ${state.capital}</p>
+                        <p class="card-text">Population of City: ${state.population.toLocaleString()}</p>
+                        <p class="card-text">Time Zone: ${state.time_zone}</p>
+                      </div>
+                    </div>
+                  `).join('');
+            } else {
+              output.textContent = "No matching state found";
+            }
+          } catch (error) {
+            console.error("Error parsing JSON:", error);
+            output.textContent = "Error loading states data.";
+          }
+        } else {
+          output.textContent = "Failed to load states data.";
+        }
+      };
+
+      xhr.onerror = function () {
+        output.textContent = "Error fetching states data.";
+      };
+
+      xhr.send();
+    } else {
+      output.textContent = "Please enter at least 3 characters";
+    }
+  });
+
+
+
+   reset.addEventListener('click', e => {
+    e.preventDefault()
+
+    query.value = ''
+   })
+
+
+    const focusFunc = (element) => {
+        element.style.backgroundColor = 'yellow'
+      }
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
