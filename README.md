@@ -56,7 +56,7 @@ This project is open-source and available under the MIT License. We encourage co
 
 ## License
 
-Copyright (c) [2023] [Peter Sivak]
+Copyright (c) last update[2023] [Peter Sivak]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
