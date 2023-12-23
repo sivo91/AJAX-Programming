@@ -1,7 +1,7 @@
 # AJAX Programming / JavaScript
 
 ## Introduction
-Welcome to the AJAX Programming in JavaScript repository! This project is a comprehensive collection of examples and practical implementations showcasing AJAX (Asynchronous JavaScript and XML) techniques in JavaScript. Our aim is to provide a learning platform for developers at various levels who are interested in enhancing their skills in asynchronous web development.
+Welcome to the AJAX Programming in JavaScript repository! This project is a comprehensive collection of examples and practical implementations showcasing AJAX (Asynchronous JavaScript and XML) techniques in JavaScript.
 
 ## About AJAX
 AJAX allows web applications to send and retrieve data from a server asynchronously without interfering with the display and behavior of the existing page. By leveraging AJAX, developers can create more dynamic, responsive, and user-friendly web applications.
@@ -10,7 +10,7 @@ AJAX allows web applications to send and retrieve data from a server asynchronou
 This repository is organized into several sections, each focusing on different aspects of AJAX in JavaScript:
 
 - **Basic AJAX Examples**: Fundamental examples demonstrating the core concepts and syntax of AJAX.
-- **Form Handling**: Implementations showing how to efficiently handle form submissions using AJAX, allowing for a seamless user experience.
+- **Form Handling**: Implementations showing how to efficiently handle form submissions.
 - **Data Manipulation**: Advanced projects focusing on manipulating and presenting data dynamically using AJAX calls.
 
 ## Getting Started
@@ -45,6 +45,8 @@ Your contributions are always welcome! If you'd like to contribute, please follo
 This project is open-sourced under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Feedback and Contact
-For feedback, suggestions, or queries, feel free to [open an issue](https://github.com/your-username/ajax-programming-js/issues) on GitHub or contact me directly.
+For feedback, suggestions, or queries, feel free to [open an issue](https://github.com/your-username/ajax-programming-js/issues) on GitHub or contact me directly on p.sivak91@gmail.com 
+
+## Happy Coding!!!
 
 ---
