@@ -1,4 +1,4 @@
-# AJAX Programming in JavaScript
+# AJAX Programming / JavaScript
 
 ## Introduction
 Welcome to the AJAX Programming in JavaScript repository! This project is a comprehensive collection of examples and practical implementations showcasing AJAX (Asynchronous JavaScript and XML) techniques in JavaScript. Our aim is to provide a learning platform for developers at various levels who are interested in enhancing their skills in asynchronous web development.
