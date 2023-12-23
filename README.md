@@ -46,8 +46,7 @@ Your contributions are always welcome! If you'd like to contribute, please follo
 For feedback, suggestions, or queries, feel free to [open an issue](https://github.com/your-username/ajax-programming-js/issues) on GitHub or contact me directly on p.sivak91@gmail.com 
 
 
-## Happy Coding!!!
-
+##  Enjoy your coding journey! 🌟👨‍💻🚀
 --------------------------------------------------------------------
 ## Open Source
 
